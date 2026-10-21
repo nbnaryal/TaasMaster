@@ -1,6 +1,6 @@
 // Teen Patti Tracker — offline service worker.
 // Bump VERSION whenever you upload a new index.html so phones pick up the update.
-const VERSION = 'tp-v1';
+const VERSION = 'tp-v2';
 const SHELL = [
   './', './index.html', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png',
@@ -25,7 +25,7 @@ self.addEventListener('fetch', e => {
   // Pages: try the network first (to get updates), fall back to the cached app when offline.
   if (req.mode === 'navigate') {
     e.respondWith(
-      fetch(req).then(res => {
+      fetch(req, { cache: 'no-cache' }).then(res => {
         const copy = res.clone();
         caches.open(VERSION).then(c => c.put('./index.html', copy));
         return res;

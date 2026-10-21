@@ -22,10 +22,16 @@ self.addEventListener('fetch', (e) => {
     // Pages are cached as "/x/" — match "/x/?source=pwa" etc. too. Assets keep their ?v= version.
     const isPage = req.mode === 'navigate';
     const hit = await cache.match(req, { ignoreSearch: isPage });
-    const network = fetch(req).then((res) => {
+    const network = fetch(req, isPage ? { cache: 'no-cache' } : undefined).then((res) => {
       if (res && res.ok && res.type === 'basic') cache.put(isPage ? url.pathname : req, res.clone());
       return res;
     }).catch(() => null);
+    if (hit && isPage) {
+      // Prefer the fresh page; fall back to the saved one if the network is slow or down.
+      const fresh = await Promise.race([network, new Promise((r) => setTimeout(() => r(null), 3000))]);
+      if (fresh) return fresh;
+      e.waitUntil(network); return hit;
+    }
     if (hit) { e.waitUntil(network); return hit; }
     const res = await network;
     if (res) return res;

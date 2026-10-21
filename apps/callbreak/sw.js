@@ -49,7 +49,7 @@ self.addEventListener('fetch', (event) => {
 // otherwise the saved copy.
 async function pageNetworkFirst(req) {
   const cache = await caches.open(CACHE);
-  const network = fetch(req).then(async (res) => {
+  const network = fetch(req, { cache: 'no-cache' }).then(async (res) => {
     if (res.ok) await cache.put('./index.html', await cleanCopy(res.clone()));
     return res;
   });
