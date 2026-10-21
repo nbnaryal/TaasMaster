@@ -5,27 +5,28 @@ PAGES = {}
 PAGES["home"] = dict(
     title="तासमास्टर – कल ब्रेक, म्यारिज र तीन पत्ती स्कोर ट्र्याकर (निःशुल्क)",
     desc="कल ब्रेक, म्यारिज र तीन पत्तीको स्कोर फोनमै राख्नुहोस्। इन्टरनेट नभए पनि चल्छ, स्कोर आफैँ सेभ हुन्छ। साइन-अप चाहिँदैन।",
-    h1="तास खेलको स्कोर, अब फोनमै",
-    lede="कापी-कलम चाहिँदैन। खेल छान्नुहोस्, खेलाडी थप्नुहोस्, हिसाब फोनले गर्छ — बत्ती गएको बेला वा डाटा नभए पनि।",
+    h1="स्कोर राख्नुहोस्, खेलिरहनुहोस्।",
+    lede="कल ब्रेक, म्यारिज र तीन पत्तीको स्कोर कापी, अब फोनमै। हिसाब यसले गर्छ, रातको अन्त्यमा मिलान पनि।",
     body="""
-<div class="grid grid-3">
-  <a class="card tool-link" href="{link:cb_tool}"><span class="suit">♠</span><strong>कल ब्रेक स्कोर</strong><span>कल, हात, पैसाको हिसाब र मिलान।</span></a>
-  <a class="card tool-link" href="{link:mar_tool}"><span class="suit red">♥</span><strong>म्यारिज क्याल्कुलेटर</strong><span>माल, देखेको/नदेखेको र अन्तिम हिसाब।</span></a>
-  <a class="card tool-link" href="{link:tp_tool}"><span class="suit">♣</span><strong>तीन पत्ती ट्र्याकर</strong><span>बुट, चाल, पोट र कसले कसलाई तिर्ने।</span></a>
-</div>
+<ul class="sheet">
+  <li><a href="{link:cb_tool}"><span class="pip" aria-hidden="true">♠</span><span class="name">कल ब्रेक</span><span class="what">कल, हात, पैसाको हिसाब र कसले कसलाई तिर्ने।</span><span class="scribble" aria-hidden="true">३.२ &nbsp;−४ &nbsp;६.१</span></a></li>
+  <li><a href="{link:mar_tool}"><span class="pip red" aria-hidden="true">♥</span><span class="name">म्यारिज</span><span class="what">माल क्याल्कुलेटर, देखेको र नदेखेको, अन्तिम हिसाब।</span><span class="scribble" aria-hidden="true">+३७ &nbsp;−२१</span></a></li>
+  <li><a href="{link:tp_tool}"><span class="pip" aria-hidden="true">♣</span><span class="name">तीन पत्ती</span><span class="what">बुट, चाल, शो र हरेक हातको पोट।</span><span class="scribble" aria-hidden="true">A A A</span></a></li>
+</ul>
+<p class="note">खेल छान्नुहोस्, खेलाडी थप्नुहोस्, र खेल्दै जानुहोस्। हरेक हातपछि स्कोर फोनमै सेभ हुन्छ, र इन्टरनेट नभए पनि ट्र्याकर चल्छ।</p>
 <h2>नियम सिक्नुहोस्</h2>
-<ul>
+<ul class="plain">
   <li><a href="{link:cb_rules}">कल ब्रेकको नियम, स्कोरिङ र कल गर्ने तरिका</a></li>
   <li><a href="{link:mar_rules}">म्यारिजको नियम: माल, टिप्लु, जोकर र हिसाब</a></li>
   <li><a href="{link:tp_rules}">तीन पत्तीको हातको क्रम र प्रकार</a></li>
-  <li><a href="{link:faq}">बारम्बार सोधिने प्रश्न</a></li>
+  <li><a href="{link:faq}">टेबलमा सोधिने प्रश्न</a></li>
 </ul>
-<h2>किन तासमास्टर?</h2>
+<h2>टेबलका लागि बनाइएको</h2>
 <ul>
   <li><strong>इन्टरनेट बिना चल्छ।</strong> एक पटक इन्स्टल गरेपछि लोडसेडिङ र कमजोर नेटवर्कमा पनि चल्छ।</li>
-  <li><strong>खेल हराउँदैन।</strong> हरेक राउन्डपछि स्कोर फोनमै सेभ हुन्छ।</li>
-  <li><strong>टेबलमै प्रयोग गर्न सजिलो।</strong> ठूला बटन, एक हातले चलाउन मिल्ने, बीचमा विज्ञापन छैन।</li>
-  <li><strong>In English too.</strong> सबै पेज <a href="{link_en:home}" hreflang="en" lang="en">अंग्रेजीमा</a> पनि छन्।</li>
+  <li><strong>खेल हराउँदैन।</strong> रिफ्रेस, ट्याब बन्द वा ब्याट्री सकिँदा पनि स्कोर मेटिँदैन।</li>
+  <li><strong>एक हातले चलाउन मिल्ने।</strong> ठूला बटन, साइन-अप चाहिँदैन, बीचमा विज्ञापन छैन।</li>
+  <li><strong>In English too.</strong> एक पटक <a href="{link_en:home}" hreflang="en" lang="en" data-setlang="en">English</a> छान्नुहोस्, सबै पेज र ट्र्याकर अंग्रेजीमा खुल्छन्।</li>
 </ul>
 <p class="note">तासमास्टरले आमनेसामने खेलिने खेलको अंक र हिसाब मात्र राख्छ। यसले दाउ लिँदैन, पैसा राख्दैन र भुक्तानी गर्दैन।</p>
 """,

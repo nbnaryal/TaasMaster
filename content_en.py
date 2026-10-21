@@ -5,27 +5,28 @@ PAGES = {}
 PAGES["home"] = dict(
     title="TaasMaster – Free Call Break, Marriage & Teen Patti Score Tracker",
     desc="Free score trackers for Nepali card games: Call Break, Marriage and Teen Patti. Works offline on your phone and saves scores automatically. No sign-up.",
-    h1="Card game score trackers for the table",
-    lede="No more pen and paper. Pick your game, add players, and let your phone do the maths — even during load-shedding or with no data.",
+    h1="Keep score. Keep playing.",
+    lede="The score notebook for Call Break, Marriage and Teen Patti, on your phone. It does the maths and settles up at the end of the night.",
     body="""
-<div class="grid grid-3">
-  <a class="card tool-link" href="{link:cb_tool}"><span class="suit">♠</span><strong>Call Break Score</strong><span>Bids, tricks, money mode and settlement.</span></a>
-  <a class="card tool-link" href="{link:mar_tool}"><span class="suit red">♥</span><strong>Marriage Calculator</strong><span>Maal, seen/unseen and final settlement.</span></a>
-  <a class="card tool-link" href="{link:tp_tool}"><span class="suit">♣</span><strong>Teen Patti Tracker</strong><span>Boot, chaal, pots and who pays whom.</span></a>
-</div>
+<ul class="sheet">
+  <li><a href="{link:cb_tool}"><span class="pip" aria-hidden="true">♠</span><span class="name">Call Break</span><span class="what">Bids, tricks, money mode and who pays whom.</span><span class="scribble" aria-hidden="true">3.2 &nbsp;−4 &nbsp;6.1</span></a></li>
+  <li><a href="{link:mar_tool}"><span class="pip red" aria-hidden="true">♥</span><span class="name">Marriage</span><span class="what">Maal calculator, seen and unseen, final settlement.</span><span class="scribble" aria-hidden="true">+37 &nbsp;−21</span></a></li>
+  <li><a href="{link:tp_tool}"><span class="pip" aria-hidden="true">♣</span><span class="name">Teen Patti</span><span class="what">Boot, chaal, shows and the pot for every hand.</span><span class="scribble" aria-hidden="true">A A A</span></a></li>
+</ul>
+<p class="note">Tap a game, add the players, and keep playing. Scores save on your phone after every hand, and the trackers keep working without internet.</p>
 <h2>Learn the rules</h2>
-<ul>
+<ul class="plain">
   <li><a href="{link:cb_rules}">Call Break rules, scoring and bidding strategy</a></li>
   <li><a href="{link:mar_rules}">Marriage rules: maal, tiplu, jokers and settlement</a></li>
   <li><a href="{link:tp_rules}">Teen Patti hand rankings and variations</a></li>
-  <li><a href="{link:faq}">Frequently asked questions</a></li>
+  <li><a href="{link:faq}">Questions people ask at the table</a></li>
 </ul>
-<h2>Why use TaasMaster?</h2>
+<h2>Made for the table</h2>
 <ul>
-  <li><strong>Works offline.</strong> Install it once and it keeps working through power cuts and weak signal.</li>
-  <li><strong>Never loses a game.</strong> Scores save on your phone after every round, so a refresh or a dead battery doesn't wipe them.</li>
-  <li><strong>Built for the table.</strong> Big buttons, one-hand use, and no ads popping up mid-hand.</li>
-  <li><strong>नेपालीमा पनि.</strong> Every tracker and guide is also <a href="{link_ne:home}" hreflang="ne" lang="ne">available in Nepali</a>.</li>
+  <li><strong>Works offline.</strong> Install it once and it keeps going through load-shedding and weak signal.</li>
+  <li><strong>Never loses a game.</strong> A refresh, a closed tab or a flat battery doesn't wipe the scores.</li>
+  <li><strong>One-handed.</strong> Big buttons, nothing to sign up for, and no ads mid-hand.</li>
+  <li><strong>In Nepali too.</strong> Switch to <a href="{link_ne:home}" hreflang="ne" lang="ne" data-setlang="ne">नेपाली</a> once and every page and tracker follows.</li>
 </ul>
 <p class="note">TaasMaster records scores and settlements for games you play in person. It doesn't take bets, hold money or process payments.</p>
 """,

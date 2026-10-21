@@ -40,8 +40,17 @@ Your apps live in `apps/callbreak`, `apps/teenpatti` and `apps/marriage`. Each i
 The build copies them unchanged to `/call-break-score/`, `/teen-patti-tracker/` and `/marriage-calculator/`.
 It only replaces the title and description, adds the SEO tags (canonical, hreflang, Open Graph, structured data), and adds a short section with links below the app.
 To update an app, replace its files in `apps/` and push.
-The Nepali tracker pages (`/ne/...`) are Nepali guide pages with a button that opens the app.
+The Nepali tracker pages (`/ne/...`) are copies of the same apps with a translation layer (`apps/i18n/runtime.js`) that swaps the on-screen English for Nepali as the app draws.
+The words live in `apps/i18n/ne_callbreak.py`, `ne_teenpatti.py` and `ne_marriage.py`. `{0}` is any text and `{0#}` a number. If you change an app's wording, add the new text there.
+Both language versions of an app share the same saved games.
+
+## Language choice
+Choosing नेपाली or English (the switch at the top of every page) is remembered on the phone. After that, every page and tracker opens in that language.
 The text for all six tracker pages is in `content_tools.py`.
+
+## Design
+The look is a score notebook: card-white paper, black ink, card-pip red, blue notebook rules and a red margin line. Dark mode is the felt table.
+Fonts are Schibsted Grotesk, Kalam (for the handwritten scores) and Mukta (Nepali). They are self-hosted in `src/assets/fonts`, so they work offline.
 
 ## Editing content
 - Page text: `content_en.py` and `content_ne.py`. Each rules page's `faq` list feeds both the visible FAQ and the `FAQPage` schema.

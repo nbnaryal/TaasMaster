@@ -13,7 +13,8 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist")
 BASE_URL = "https://nbnaryal.github.io/TaasMaster"   # GitHub Pages; use your own domain later
 SITE = {"en": "TaasMaster", "ne": "तासमास्टर"}
-THEME = "#0e4d30"
+THEME = "#fbfbf8"
+LANGJS = '<script>(function(){var L=document.documentElement.lang==="ne"?"ne":"en";try{var p=localStorage.getItem("tm-lang"),a=document.querySelector(\'link[rel=alternate][hreflang="\'+(L==="ne"?"en":"ne")+\'"]\');if(p&&p!==L&&a){location.replace(new URL(a.href).pathname+location.search+location.hash);return}}catch(e){}document.addEventListener("click",function(e){var t=e.target.closest&&e.target.closest("a[data-setlang]");if(t)try{localStorage.setItem("tm-lang",t.getAttribute("data-setlang"))}catch(e){}},true)})();</script>'
 TODAY = datetime.date.today().isoformat()
 
 SLUGS = {
@@ -116,6 +117,8 @@ def page(lang, key, version):
 <link rel="alternate" hreflang="en" href="{absu('en', key)}">
 <link rel="alternate" hreflang="ne" href="{absu('ne', key)}">
 <link rel="alternate" hreflang="x-default" href="{absu('en', key)}">
+{LANGJS}
+<link rel="preload" href="/assets/fonts/schibsted.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{SITE[lang]}">
 <meta property="og:title" content="{e(pg['title'])}">
@@ -138,10 +141,10 @@ def page(lang, key, version):
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="{path(lang, 'home')}">{LOGO}{SITE[lang]}</a>
+  <a class="brand" href="{path(lang, 'home')}">{SITE[lang]}<span class="pips" aria-hidden="true"><b>♠</b>♥<b>♣</b>♦</span></a>
   <div class="top-actions">
     <button id="install" class="pill" hidden type="button">Install</button>
-    <a class="pill" href="{path(other, key)}" hreflang="{other}" lang="{other}">{UI[lang]['switch']}</a>
+    <a class="pill lang" href="{path(other, key)}" hreflang="{other}" lang="{other}" data-setlang="{other}">{UI[lang]['switch']}</a>
   </div>
 </header>
 <main>
@@ -149,14 +152,13 @@ def page(lang, key, version):
     crumbs = "" if key == "home" else f'<p class="crumbs"><a href="{path(lang, "home")}">{e(ui["short"]["home"])}</a> › {e(ui["short"][key])}</p>'
     body = crumbs + f"<h1>{e(pg['h1'])}</h1>\n<p class=\"lede\">{e(pg['lede'])}</p>\n"
     if key in GAME:
-        body += (f'<p><a class="btn" style="display:flex;align-items:center;justify-content:center;text-decoration:none" '
-                 f'href="{path("en", key)}">{content_tools.OPEN[lang]} →</a></p>\n')
+        body += f'<p><a class="btn" href="{path("en", key)}">{content_tools.OPEN[lang]}</a></p>\n'
     body += fill_links(pg["body"], lang)
     if pg.get("faq"):
         body += f'<section class="faq"><h2>{ui["faqH"]}</h2>' + "".join(
             f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in pg["faq"]) + "</section>"
     if key in RULES_OF:
-        body += f'<p><a class="btn ghost" style="display:flex;align-items:center;justify-content:center;text-decoration:none" href="{path(lang, RULES_OF[key])}">{ui["rulesLink"]} →</a></p>'
+        body += f'<p><a class="btn ghost" href="{path(lang, RULES_OF[key])}">{ui["rulesLink"]}</a></p>'
 
     links = lambda keys: " ".join(f'<a href="{path(lang, k)}">{e(ui["short"][k])}</a>' for k in keys)
     foot = f"""</main>
@@ -177,13 +179,33 @@ def page(lang, key, version):
     return pre(head + body + foot)
 
 
-def app_page(key, version):
-    """Copy one of the user's tracker apps into its page folder and add the SEO layer around it."""
-    lang, pg, ui, e = "en", CONTENT["en"][key], UI["en"], html.escape
-    src, out = os.path.join(APPS, GAME[key]), os.path.join(DIST, SLUGS[key])
+def ne_dictionary(game):
+    """Load apps/i18n/ne_<game>.py into the {exact, patterns} shape runtime.js expects."""
+    ns = {}
+    exec(open(os.path.join(APPS, "i18n", f"ne_{game}.py"), encoding="utf-8").read(), ns)
+    exact = {k: v for k, v in ns["EXACT"].items() if not re.search(r"\{\d+#?\}", k)}
+    pats = [[k, v] for k, v in ns.get("PATTERNS", [])]
+    return {"exact": exact, "patterns": pats}
+
+
+def app_page(key, version, lang="en"):
+    """Copy one of the user's tracker apps into its page folder and add the SEO layer around it.
+    The Nepali copy also gets the translation layer (apps/i18n)."""
+    pg, ui, e = CONTENT[lang][key], UI[lang], html.escape
+    src, out = os.path.join(APPS, GAME[key]), os.path.join(DIST, path(lang, key).strip("/"))
     shutil.copytree(src, out)
     f = os.path.join(out, "index.html")
     s = open(f, encoding="utf-8").read()
+    if lang == "ne":
+        s = s.replace('<html lang="en"', '<html lang="ne"', 1)
+        layer = ("<script>window.TM_I18N=" + json.dumps(ne_dictionary(GAME[key]), ensure_ascii=False) + ";</script>\n<script>"
+                 + open(os.path.join(APPS, "i18n", "runtime.js"), encoding="utf-8").read() + "</script>\n")
+        m = re.search(r"<body[^>]*>", s)
+        s = s[:m.end()] + "\n" + layer + s[m.end():]
+        mf = os.path.join(out, "manifest.webmanifest")
+        man = json.load(open(mf, encoding="utf-8"))
+        man.update({"name": pg["app_name"], "short_name": {"cb_tool": "कल ब्रेक", "mar_tool": "म्यारिज", "tp_tool": "तीन पत्ती"}[key], "lang": "ne"})
+        json.dump(man, open(mf, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     s = re.sub(r"<title>.*?</title>", lambda m: f"<title>{e(pg['title'])}</title>", s, count=1, flags=re.S)
     s = re.sub(r'<meta name="description" content="[^"]*">', lambda m: f'<meta name="description" content="{e(pg["desc"])}">', s, count=1)
     extra = f"""<link rel="canonical" href="{absu(lang, key)}">
@@ -197,11 +219,13 @@ def app_page(key, version):
 <meta property="og:url" content="{absu(lang, key)}">
 <meta property="og:image" content="{BASE_URL}/icons/og.png">
 <meta name="twitter:card" content="summary_large_image">
+{LANGJS}
 {schema(lang, key, pg)}
 </head>"""
     assert s.count("</head>") == 1
     s = s.replace("</head>", extra)
     links = lambda keys: " ".join(f'<a href="{path(lang, k)}">{e(ui["short"][k])}</a>' for k in keys)
+    other = "ne" if lang == "en" else "en"
     section = pre(f"""
 <section class="tm-seo" aria-labelledby="tm-seo-h">
 <style>
@@ -216,10 +240,10 @@ def app_page(key, version):
 <h2 id="tm-seo-h">{e(pg['h1'])}</h2>
 <p>{e(pg['lede'])}</p>
 {fill_links(pg['body'], lang)}
-<a class="tm-rules" href="{path(lang, RULES_OF[key])}">{e(ui['rulesLink'])}: {e(ui['short'][RULES_OF[key]])} →</a>
+<a class="tm-rules" href="{path(lang, RULES_OF[key])}">{e(ui['rulesLink'])}: {e(ui['short'][RULES_OF[key]])}</a>
 <nav aria-label="{ui['tools']}"><strong>{ui['tools']}:</strong> {links(['cb_tool', 'mar_tool', 'tp_tool'])}</nav>
 <nav aria-label="{ui['rules']}"><strong>{ui['rules']}:</strong> {links(['cb_rules', 'mar_rules', 'tp_rules', 'faq'])}</nav>
-<nav><a href="{path('en', 'home')}">{SITE[lang]} – {e(ui['short']['home'])}</a> <a href="{path('ne', key)}" hreflang="ne" lang="ne">नेपाली</a></nav>
+<nav><a href="{path(lang, 'home')}">{SITE[lang]} – {e(ui['short']['home'])}</a> <a href="{path(other, key)}" hreflang="{other}" lang="{other}" data-setlang="{other}">{UI[lang]['switch']}</a></nav>
 </section>
 """)
     markers = {"callbreak": '<div id="toast" class="toast"', "teenpatti": '<div id="app" class="max-w-3xl mx-auto px-4 pb-32"></div>',
@@ -229,7 +253,8 @@ def app_page(key, version):
     s = s.replace(m, section + m) if GAME[key] == "callbreak" else s.replace(m, m + section)
     open(f, "w", encoding="utf-8").write(s)
     return [path(lang, key) + os.path.relpath(os.path.join(r, n), out).replace(os.sep, "/")
-            for r, _, fs in os.walk(out) for n in fs if n not in ("index.html", "sw.js")]
+            for r, _, fs in os.walk(out) for n in fs
+            if n not in ("index.html", "sw.js") and "screenshots" not in r]
 
 
 def write(rel, data, mode="w"):
@@ -240,36 +265,43 @@ def write(rel, data, mode="w"):
 
 
 def icons():
-    from PIL import Image, ImageDraw
-    def spade(size, pad):
-        img = Image.new("RGBA", (size, size), THEME)
+    from PIL import Image, ImageDraw, ImageFont
+    INK, PAPER, PIP = "#000000", "#fbfbf8", "#c8102e"
+    def spade(size, pad, bg=INK, fg=PAPER):
+        img = Image.new("RGB", (size, size), bg)
         d = ImageDraw.Draw(img)
         s = size - 2 * pad
-        ox = oy = pad
-        P = lambda x, y: (ox + x * s / 64, oy + y * s / 64)
-        cream = "#f5f1e6"
-        d.polygon([P(32, 8), P(52, 30), P(12, 30)], fill=cream)
-        d.ellipse([P(10, 22), P(34, 46)], fill=cream)
-        d.ellipse([P(30, 22), P(54, 46)], fill=cream)
-        d.polygon([P(32, 32), P(40, 56), P(24, 56)], fill=cream)
+        P = lambda x, y: (pad + x * s / 64, pad + y * s / 64)
+        d.polygon([P(32, 8), P(52, 30), P(12, 30)], fill=fg)
+        d.ellipse([P(10, 22), P(34, 46)], fill=fg)
+        d.ellipse([P(30, 22), P(54, 46)], fill=fg)
+        d.polygon([P(32, 32), P(40, 56), P(24, 56)], fill=fg)
         return img
     os.makedirs(os.path.join(DIST, "icons"), exist_ok=True)
     for size, pad, name in [(192, 30, "icon-192.png"), (512, 80, "icon-512.png"), (512, 130, "maskable-512.png"), (180, 28, "apple-touch-icon.png")]:
-        spade(size, pad).convert("RGB").save(os.path.join(DIST, "icons", name), optimize=True)
-    og = Image.new("RGB", (1200, 630), THEME)
-    og.paste(spade(360, 50).convert("RGB"), (120, 135))
+        spade(size, pad).save(os.path.join(DIST, "icons", name), optimize=True)
+    og = Image.new("RGB", (1200, 630), PAPER)
+    d = ImageDraw.Draw(og)
+    for y in range(150, 630, 54):
+        d.line([(0, y), (1200, y)], fill="#9db4e0", width=2)
+    d.line([(90, 0), (90, 630)], fill="#e5484d", width=4)
     try:
-        from PIL import ImageFont
-        f1 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 84)
-        f2 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40)
-        d = ImageDraw.Draw(og)
-        d.text((540, 220), "TaasMaster", font=f1, fill="#f5f1e6")
-        d.text((540, 330), "Call Break · Marriage · Teen Patti", font=f2, fill="#f5f1e6")
-        d.text((540, 390), "Free score trackers — work offline", font=f2, fill="#cfe3d6")
+        bold = ImageFont.truetype(os.path.join(SRC, "assets", "fonts", "schibsted.woff2"), 120)
+    except Exception:
+        bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
+    try:
+        bold.set_variation_by_axes([900])
     except Exception:
         pass
+    sym = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 96)
+    reg = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40)
+    d.text((140, 170), "TaasMaster", font=bold, fill=INK)
+    for k, (ch, col) in enumerate([("♠", INK), ("♥", PIP), ("♣", INK), ("♦", PIP)]):
+        d.text((140 + k * 100, 330), ch, font=sym, fill=col)
+    d.text((140, 480), "Call Break, Marriage and Teen Patti score trackers", font=reg, fill=INK)
     og.save(os.path.join(DIST, "icons", "og.png"), optimize=True)
-    write("icons/favicon.svg", LOGO.replace('aria-hidden="true"', 'xmlns="http://www.w3.org/2000/svg"'))
+    write("icons/favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#000"/>'
+          '<path fill="#fbfbf8" d="M32 10C26 20 14 26 14 36a9 9 0 0 0 15 6.7L26 54h12l-3-11.3A9 9 0 0 0 50 36c0-10-12-16-18-26z"/></svg>')
 
 
 def manifest(lang):
@@ -277,7 +309,7 @@ def manifest(lang):
     m = {
         "id": "/" if lang == "en" else "/ne/", "name": SITE[lang] + (" – Card Game Score Tracker" if lang == "en" else " – तास खेल स्कोर"),
         "short_name": SITE[lang], "lang": lang, "start_url": path(lang, "home") + "?source=pwa", "scope": "/",
-        "display": "standalone", "orientation": "portrait", "background_color": "#f5f1e6", "theme_color": THEME,
+        "display": "standalone", "orientation": "portrait", "background_color": "#fbfbf8", "theme_color": THEME,
         "description": CONTENT[lang]["home"]["desc"], "categories": ["games", "utilities"],
         "icons": [
             {"src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
@@ -300,8 +332,9 @@ def main():
     shutil.rmtree(DIST, ignore_errors=True)
     shutil.copytree(os.path.join(SRC, "assets"), os.path.join(DIST, "assets"))
     h = hashlib.sha1()
-    for fn in sorted(os.listdir(os.path.join(SRC, "assets"))):
-        h.update(open(os.path.join(SRC, "assets", fn), "rb").read())
+    for r, _, fs in sorted(os.walk(os.path.join(SRC, "assets"))):
+        for fn in sorted(fs):
+            h.update(open(os.path.join(r, fn), "rb").read())
     for r, _, fs in sorted(os.walk(APPS)):
         for fn in sorted(fs):
             h.update(open(os.path.join(r, fn), "rb").read())
@@ -312,8 +345,8 @@ def main():
     for lang in ("en", "ne"):
         for key in SLUGS:
             p = path(lang, key)
-            if lang == "en" and key in GAME:
-                app_files.extend(app_page(key, version))
+            if key in GAME:
+                app_files.extend(app_page(key, version, lang))
             else:
                 write(p.lstrip("/") + "index.html", page(lang, key, version))
             pages.append((lang, key, p))
@@ -328,7 +361,8 @@ def main():
     # Service worker: precache everything so the site works fully offline after the first visit.
     precache = [p for _, _, p in pages] + ["/404.html", f"/assets/style.css?v={version}", f"/assets/app.js?v={version}",
                 "/manifest.webmanifest", "/ne/manifest.webmanifest", "/icons/favicon.svg", "/icons/icon-192.png",
-                "/icons/icon-512.png", "/icons/maskable-512.png", "/icons/apple-touch-icon.png"] + app_files
+                "/icons/icon-512.png", "/icons/maskable-512.png", "/icons/apple-touch-icon.png"] + app_files + [
+                "/assets/fonts/" + f for f in sorted(os.listdir(os.path.join(SRC, "assets", "fonts")))]
     precache = [PREFIX + u for u in precache]
     write("sw.js", open(os.path.join(SRC, "sw.template.js"), encoding="utf-8").read()
           .replace("__VERSION__", version).replace("__ROOT__", PREFIX + "/").replace("__PRECACHE__", json.dumps(precache)))
