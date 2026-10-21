@@ -6,7 +6,7 @@ PAGES["home"] = dict(
     title="TaasMaster – Free Call Break, Marriage & Teen Patti Score Tracker",
     desc="Free score trackers for Nepali card games: Call Break, Marriage and Teen Patti. Works offline on your phone and saves scores automatically. No sign-up.",
     h1="Keep score. Keep playing.",
-    lede="The score notebook for Call Break, Marriage and Teen Patti, on your phone. It does the maths and settles up at the end of the night.",
+    lede="Score Call Break, Marriage and Teen Patti on your phone. It does the maths and settles up at the end of the night.",
     body="""
 <ul class="sheet">
   <li><a href="{link:cb_tool}"><span class="pip" aria-hidden="true">♠</span><span class="name">Call Break</span><span class="what">Bids, tricks, money mode and who pays whom.</span><span class="scribble" aria-hidden="true">3.2 &nbsp;−4 &nbsp;6.1</span></a></li>

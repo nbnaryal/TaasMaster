@@ -2,6 +2,7 @@
 EXACT = {
     "Call Break Ledger": "कल ब्रेक खाता",
     "Call Break": "कल ब्रेक",
+    "Ledger": "खाता",
     "Games": "खेलहरू",
     "🏠 Games": "🏠 खेलहरू",
     "Leaderboard": "लिडरबोर्ड",

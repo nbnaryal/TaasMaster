@@ -13,7 +13,8 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist")
 BASE_URL = "https://nbnaryal.github.io/TaasMaster"   # GitHub Pages; use your own domain later
 SITE = {"en": "TaasMaster", "ne": "तासमास्टर"}
-THEME = "#fbfbf8"
+THEME = "#020617"
+BRAND = {"en": "Taas<span>Master</span>", "ne": "तास<span>मास्टर</span>"}
 LANGJS = '<script>(function(){var L=document.documentElement.lang==="ne"?"ne":"en";try{var p=localStorage.getItem("tm-lang"),a=document.querySelector(\'link[rel=alternate][hreflang="\'+(L==="ne"?"en":"ne")+\'"]\');if(p&&p!==L&&a){location.replace(new URL(a.href).pathname+location.search+location.hash);return}}catch(e){}document.addEventListener("click",function(e){var t=e.target.closest&&e.target.closest("a[data-setlang]");if(t)try{localStorage.setItem("tm-lang",t.getAttribute("data-setlang"))}catch(e){}},true)})();</script>'
 TODAY = datetime.date.today().isoformat()
 
@@ -52,6 +53,22 @@ LOGO = ('<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64
 
 
 CURRENT = ' aria-current="page"'
+# Call Break Ledger uses CSS variables; these match the Teen Patti / Marriage trackers (Tailwind slate + amber)
+CB_THEME = """<meta name="theme-color" content="#020617"><meta name="color-scheme" content="dark">
+<style id="tm-theme">
+:root,:root:not(#x){--bg:#020617;--card:#0f172a;--text:#f1f5f9;--muted:#94a3b8;--line:#1e293b;
+ --accent:#fbbf24;--accent-hover:#fcd34d;--accent-soft:rgba(251,191,36,.12);--gold:#fcd34d;--gold-soft:rgba(251,191,36,.10);
+ --neg:#fda4af;--neg-soft:rgba(244,63,94,.14);--pos:#6ee7b7;--radius:16px;color-scheme:dark}
+body{-webkit-font-smoothing:antialiased;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.card{background:rgba(15,23,42,.8)}
+.btn-primary,.btn-chip.on{color:#020617!important;font-weight:700}
+.field input,.pct input,.pair input,.modal-box input{background:#1e293b!important;border-color:#334155!important;color:#f1f5f9}
+.btn-ghost{background:#1e293b;border-color:#334155;color:#f1f5f9}
+.modal-box{background:#0f172a;border:1px solid #334155;border-radius:24px}
+.toast{background:#f1f5f9;color:#020617}
+h1{letter-spacing:-.025em}
+</style>
+"""
 PREFIX = ""  # path part of BASE_URL, e.g. "/taasmaster" on GitHub Pages project sites
 
 
@@ -118,7 +135,6 @@ def page(lang, key, version):
 <link rel="alternate" hreflang="ne" href="{absu('ne', key)}">
 <link rel="alternate" hreflang="x-default" href="{absu('en', key)}">
 {LANGJS}
-<link rel="preload" href="/assets/fonts/schibsted.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{SITE[lang]}">
 <meta property="og:title" content="{e(pg['title'])}">
@@ -139,9 +155,9 @@ def page(lang, key, version):
 <link rel="stylesheet" href="/assets/style.css?v={version}">
 {schema(lang, key, pg)}
 </head>
-<body>
+<body class="page-{key.replace('_', '-')}">
 <header class="top">
-  <a class="brand" href="{path(lang, 'home')}">{SITE[lang]}<span class="pips" aria-hidden="true"><b>♠</b>♥<b>♣</b>♦</span></a>
+  <a class="brand" href="{path(lang, 'home')}">{BRAND[lang]}</a>
   <div class="top-actions">
     <button id="install" class="pill" hidden type="button">Install</button>
     <a class="pill lang" href="{path(other, key)}" hreflang="{other}" lang="{other}" data-setlang="{other}">{UI[lang]['switch']}</a>
@@ -150,7 +166,7 @@ def page(lang, key, version):
 <main>
 """
     crumbs = "" if key == "home" else f'<p class="crumbs"><a href="{path(lang, "home")}">{e(ui["short"]["home"])}</a> › {e(ui["short"][key])}</p>'
-    body = crumbs + f"<h1>{e(pg['h1'])}</h1>\n<p class=\"lede\">{e(pg['lede'])}</p>\n"
+    body = crumbs + f"<div class=\"intro\"><h1>{e(pg['h1'])}</h1>\n<p class=\"lede\">{e(pg['lede'])}</p></div>\n"
     if key in GAME:
         body += f'<p><a class="btn" href="{path("en", key)}">{content_tools.OPEN[lang]}</a></p>\n'
     body += fill_links(pg["body"], lang)
@@ -208,6 +224,10 @@ def app_page(key, version, lang="en"):
         json.dump(man, open(mf, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     s = re.sub(r"<title>.*?</title>", lambda m: f"<title>{e(pg['title'])}</title>", s, count=1, flags=re.S)
     s = re.sub(r'<meta name="description" content="[^"]*">', lambda m: f'<meta name="description" content="{e(pg["desc"])}">', s, count=1)
+    if GAME[key] == "callbreak":
+        s = re.sub(r'<meta name="theme-color"[^>]*>\n?', '', s)
+        s = s.replace("</head>", CB_THEME + "</head>", 1)
+        s = s.replace('<span class="suit">♠</span>Call Break Ledger</h1>', '<span class="suit">♠</span>Call Break <span style="color:#fbbf24">Ledger</span></h1>', 1)
     extra = f"""<link rel="canonical" href="{absu(lang, key)}">
 <link rel="alternate" hreflang="en" href="{absu('en', key)}">
 <link rel="alternate" hreflang="ne" href="{absu('ne', key)}">
@@ -230,10 +250,10 @@ def app_page(key, version, lang="en"):
 <section class="tm-seo" aria-labelledby="tm-seo-h">
 <style>
 .tm-seo{{max-width:880px;margin:0 auto;padding:28px 16px calc(150px + env(safe-area-inset-bottom));font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:inherit}}
-.tm-seo>hr{{border:0;border-top:1px solid rgba(127,127,127,.3);margin:0 0 22px}}
+.tm-seo>hr{{border:0;border-top:1px solid #1e293b;margin:0 0 22px}}
 .tm-seo h2{{font-size:19px;font-weight:700;margin:0 0 6px}}.tm-seo h3{{font-size:16px;font-weight:700;margin:18px 0 6px}}.tm-seo p{{margin:0 0 10px}}.tm-seo strong{{font-weight:700}}
-.tm-seo p,.tm-seo li{{opacity:.88}}.tm-seo ul{{list-style:disc;padding-left:20px;margin:6px 0}}.tm-seo li{{margin:3px 0}}.tm-seo a{{color:inherit;text-decoration:underline}}
-.tm-seo .tm-rules{{display:block;text-align:center;padding:12px;border:1px solid rgba(127,127,127,.4);border-radius:12px;margin:18px 0;font-weight:700;text-decoration:none}}
+.tm-seo p,.tm-seo li{{color:#94a3b8}}.tm-seo strong{{color:#f1f5f9}}.tm-seo ul{{list-style:disc;padding-left:20px;margin:6px 0}}.tm-seo li{{margin:3px 0}}.tm-seo li::marker{{color:#fbbf24}}.tm-seo a{{color:#fcd34d;text-underline-offset:3px}}
+.tm-seo .tm-rules{{display:block;text-align:center;padding:13px;background:#1e293b;border:1px solid #334155;border-radius:12px;margin:18px 0;font-weight:700;text-decoration:none;color:#f1f5f9}}
 .tm-seo nav{{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;margin-top:8px}}.tm-seo small{{opacity:.7}}
 </style>
 <hr>
@@ -266,7 +286,7 @@ def write(rel, data, mode="w"):
 
 def icons():
     from PIL import Image, ImageDraw, ImageFont
-    INK, PAPER, PIP = "#000000", "#fbfbf8", "#c8102e"
+    INK, PAPER, PIP = "#020617", "#fbbf24", "#fda4af"
     def spade(size, pad, bg=INK, fg=PAPER):
         img = Image.new("RGB", (size, size), bg)
         d = ImageDraw.Draw(img)
@@ -280,28 +300,25 @@ def icons():
     os.makedirs(os.path.join(DIST, "icons"), exist_ok=True)
     for size, pad, name in [(192, 30, "icon-192.png"), (512, 80, "icon-512.png"), (512, 130, "maskable-512.png"), (180, 28, "apple-touch-icon.png")]:
         spade(size, pad).save(os.path.join(DIST, "icons", name), optimize=True)
-    og = Image.new("RGB", (1200, 630), PAPER)
+    og = Image.new("RGB", (1200, 630), INK)
     d = ImageDraw.Draw(og)
-    for y in range(150, 630, 54):
-        d.line([(0, y), (1200, y)], fill="#9db4e0", width=2)
-    d.line([(90, 0), (90, 630)], fill="#e5484d", width=4)
-    try:
-        bold = ImageFont.truetype(os.path.join(SRC, "assets", "fonts", "schibsted.woff2"), 120)
-    except Exception:
-        bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
-    try:
-        bold.set_variation_by_axes([900])
-    except Exception:
-        pass
-    sym = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 96)
-    reg = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40)
-    d.text((140, 170), "TaasMaster", font=bold, fill=INK)
-    for k, (ch, col) in enumerate([("♠", INK), ("♥", PIP), ("♣", INK), ("♦", PIP)]):
-        d.text((140 + k * 100, 330), ch, font=sym, fill=col)
-    d.text((140, 480), "Call Break, Marriage and Teen Patti score trackers", font=reg, fill=INK)
+    for r in range(520, 0, -8):   # the trackers' green felt, as a soft radial
+        t = r / 520
+        col = tuple(int(a + (b - a) * t) for a, b in zip((6, 95, 70), (2, 44, 34)))
+        d.ellipse([600 - r * 1.6, -r * 0.5, 600 + r * 1.6, r * 1.3], fill=col)
+    bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 108)
+    sym = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 90)
+    reg = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 38)
+    w1 = d.textlength("Taas", font=bold); w2 = d.textlength("Master", font=bold)
+    x = (1200 - w1 - w2) / 2
+    d.text((x, 170), "Taas", font=bold, fill="#f1f5f9"); d.text((x + w1, 170), "Master", font=bold, fill="#fbbf24")
+    for k, (ch, col) in enumerate([("♠", "#f1f5f9"), ("♥", "#fda4af"), ("♣", "#f1f5f9"), ("♦", "#fda4af")]):
+        d.text((600 - 200 + k * 100, 320), ch, font=sym, fill=col)
+    msg = "Call Break, Marriage and Teen Patti score trackers"
+    d.text(((1200 - d.textlength(msg, font=reg)) / 2, 470), msg, font=reg, fill="#d1fae5")
     og.save(os.path.join(DIST, "icons", "og.png"), optimize=True)
-    write("icons/favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#000"/>'
-          '<path fill="#fbfbf8" d="M32 10C26 20 14 26 14 36a9 9 0 0 0 15 6.7L26 54h12l-3-11.3A9 9 0 0 0 50 36c0-10-12-16-18-26z"/></svg>')
+    write("icons/favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#020617"/>'
+          '<path fill="#fbbf24" d="M32 10C26 20 14 26 14 36a9 9 0 0 0 15 6.7L26 54h12l-3-11.3A9 9 0 0 0 50 36c0-10-12-16-18-26z"/></svg>')
 
 
 def manifest(lang):
@@ -309,7 +326,7 @@ def manifest(lang):
     m = {
         "id": "/" if lang == "en" else "/ne/", "name": SITE[lang] + (" – Card Game Score Tracker" if lang == "en" else " – तास खेल स्कोर"),
         "short_name": SITE[lang], "lang": lang, "start_url": path(lang, "home") + "?source=pwa", "scope": "/",
-        "display": "standalone", "orientation": "portrait", "background_color": "#fbfbf8", "theme_color": THEME,
+        "display": "standalone", "orientation": "portrait", "background_color": "#020617", "theme_color": THEME,
         "description": CONTENT[lang]["home"]["desc"], "categories": ["games", "utilities"],
         "icons": [
             {"src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
@@ -361,8 +378,7 @@ def main():
     # Service worker: precache everything so the site works fully offline after the first visit.
     precache = [p for _, _, p in pages] + ["/404.html", f"/assets/style.css?v={version}", f"/assets/app.js?v={version}",
                 "/manifest.webmanifest", "/ne/manifest.webmanifest", "/icons/favicon.svg", "/icons/icon-192.png",
-                "/icons/icon-512.png", "/icons/maskable-512.png", "/icons/apple-touch-icon.png"] + app_files + [
-                "/assets/fonts/" + f for f in sorted(os.listdir(os.path.join(SRC, "assets", "fonts")))]
+                "/icons/icon-512.png", "/icons/maskable-512.png", "/icons/apple-touch-icon.png"] + app_files
     precache = [PREFIX + u for u in precache]
     write("sw.js", open(os.path.join(SRC, "sw.template.js"), encoding="utf-8").read()
           .replace("__VERSION__", version).replace("__ROOT__", PREFIX + "/").replace("__PRECACHE__", json.dumps(precache)))

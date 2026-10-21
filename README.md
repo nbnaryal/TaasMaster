@@ -49,8 +49,7 @@ Choosing नेपाली or English (the switch at the top of every page) is 
 The text for all six tracker pages is in `content_tools.py`.
 
 ## Design
-The look is a score notebook: card-white paper, black ink, card-pip red, blue notebook rules and a red margin line. Dark mode is the felt table.
-Fonts are Schibsted Grotesk, Kalam (for the handwritten scores) and Mukta (Nepali). They are self-hosted in `src/assets/fonts`, so they work offline.
+Every page and all three trackers share one look, taken from the Teen Patti and Marriage trackers: slate-950 background, slate-900 cards, amber-400 buttons and highlights, emerald gains and rose losses, the green felt panel, and the phone's own font. The Call Break app is matched by overriding its colour variables at build time (`CB_THEME` in `build.py`).
 
 ## Editing content
 - Page text: `content_en.py` and `content_ne.py`. Each rules page's `faq` list feeds both the visible FAQ and the `FAQPage` schema.
