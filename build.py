@@ -11,7 +11,7 @@ import content_en, content_ne  # noqa: E402
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist")
-BASE_URL = "https://www.example.com"   # <-- change to your domain
+BASE_URL = "https://nbnaryal.github.io/taasmaster"   # GitHub Pages; use your own domain later
 SITE = {"en": "TaasMaster", "ne": "तासमास्टर"}
 THEME = "#0e4d30"
 TODAY = datetime.date.today().isoformat()
@@ -48,6 +48,12 @@ LOGO = ('<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64
 
 
 CURRENT = ' aria-current="page"'
+PREFIX = ""  # path part of BASE_URL, e.g. "/taasmaster" on GitHub Pages project sites
+
+
+def pre(s):
+    """Prefix root-relative href/src links so the site also works inside a sub-folder."""
+    return re.sub(r'(href|src)="/(?!/)', lambda m: f'{m.group(1)}="{PREFIX}/', s)
 
 
 def path(lang, key):
@@ -97,7 +103,7 @@ def page(lang, key, version):
     other = "ne" if lang == "en" else "en"
     e = html.escape
     head = f"""<!doctype html>
-<html lang="{lang}">
+<html lang="{lang}" data-root="{PREFIX}/">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -165,7 +171,7 @@ def page(lang, key, version):
 </body>
 </html>
 """
-    return head + body + foot
+    return pre(head + body + foot)
 
 
 def write(rel, data, mode="w"):
@@ -222,14 +228,16 @@ def manifest(lang):
         "shortcuts": [{"name": ui["short"][k], "url": path(lang, k), "icons": [{"src": "/icons/icon-192.png", "sizes": "192x192"}]}
                       for k in ("cb_tool", "mar_tool", "tp_tool")],
     }
-    return json.dumps(m, ensure_ascii=False, indent=2)
+    return re.sub(r'"/', f'"{PREFIX}/', json.dumps(m, ensure_ascii=False, indent=2))
 
 
 def main():
-    global BASE_URL
+    global BASE_URL, PREFIX
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", default=os.environ.get("BASE_URL", BASE_URL))
     BASE_URL = ap.parse_args().base.rstrip("/")
+    from urllib.parse import urlparse
+    PREFIX = urlparse(BASE_URL).path.rstrip("/")
 
     shutil.rmtree(DIST, ignore_errors=True)
     shutil.copytree(os.path.join(SRC, "assets"), os.path.join(DIST, "assets"))
@@ -247,18 +255,19 @@ def main():
             pages.append((lang, key, p))
         write(("ne/" if lang == "ne" else "") + "manifest.webmanifest", manifest(lang))
 
-    write("404.html", f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    write("404.html", pre(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Page not found – TaasMaster</title><meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/style.css?v={version}"></head>
 <body><main><h1>Page not found</h1><p>Try the <a href="/call-break-score/">Call Break</a>, <a href="/marriage-calculator/">Marriage</a> or <a href="/teen-patti-tracker/">Teen Patti</a> tracker, or go <a href="/">home</a>.</p>
-<p lang="ne">पेज भेटिएन। <a href="/ne/">गृहपृष्ठमा जानुहोस्</a>।</p></main></body></html>""")
+<p lang="ne">पेज भेटिएन। <a href="/ne/">गृहपृष्ठमा जानुहोस्</a>।</p></main></body></html>"""))
     icons()
 
     # Service worker: precache everything so the site works fully offline after the first visit.
     precache = [p for _, _, p in pages] + ["/404.html", f"/assets/style.css?v={version}", f"/assets/app.js?v={version}",
                 "/manifest.webmanifest", "/ne/manifest.webmanifest", "/icons/favicon.svg", "/icons/icon-192.png",
                 "/icons/icon-512.png", "/icons/maskable-512.png", "/icons/apple-touch-icon.png"]
+    precache = [PREFIX + u for u in precache]
     write("sw.js", open(os.path.join(SRC, "sw.template.js"), encoding="utf-8").read()
-          .replace("__VERSION__", version).replace("__PRECACHE__", json.dumps(precache)))
+          .replace("__VERSION__", version).replace("__ROOT__", PREFIX + "/").replace("__PRECACHE__", json.dumps(precache)))
 
     # sitemap.xml with hreflang alternates
     urls = []

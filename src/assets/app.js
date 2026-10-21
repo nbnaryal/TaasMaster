@@ -117,7 +117,7 @@
 
   /* ---------------- PWA: service worker + install button ---------------- */
   if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-    window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); });
+    window.addEventListener('load', () => { navigator.serviceWorker.register((document.documentElement.dataset.root || '/') + 'sw.js').catch(() => {}); });
   }
   const installBtn = document.getElementById('install');
   let deferred = null;

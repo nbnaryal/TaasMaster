@@ -1,6 +1,7 @@
 /* TaasMaster service worker: precache the whole site, serve from cache first, refresh in the background. */
 const CACHE = 'taasmaster-__VERSION__';
 const PRECACHE = __PRECACHE__;
+const ROOT = '__ROOT__';
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
@@ -29,8 +30,8 @@ self.addEventListener('fetch', (e) => {
     const res = await network;
     if (res) return res;
     if (isPage) {
-      const home = url.pathname.startsWith('/ne/') ? '/ne/' : '/';
-      return (await cache.match(home)) || (await cache.match('/404.html'));
+      const home = url.pathname.startsWith(ROOT + 'ne/') ? ROOT + 'ne/' : ROOT;
+      return (await cache.match(home)) || (await cache.match(ROOT + '404.html'));
     }
     return Response.error();
   })());
