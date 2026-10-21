@@ -11,7 +11,7 @@ import content_en, content_ne  # noqa: E402
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist")
-BASE_URL = "https://nbnaryal.github.io/taasmaster"   # GitHub Pages; use your own domain later
+BASE_URL = "https://nbnaryal.github.io/TaasMaster"   # GitHub Pages; use your own domain later
 SITE = {"en": "TaasMaster", "ne": "तासमास्टर"}
 THEME = "#0e4d30"
 TODAY = datetime.date.today().isoformat()

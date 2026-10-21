@@ -16,7 +16,7 @@ A static, installable (PWA) website. There is no server code. Upload the `dist/`
 
 ## Publishing (automatic)
 Every push to `main` triggers `.github/workflows/deploy.yml`, which builds the site and publishes it to GitHub Pages at
-https://nbnaryal.github.io/taasmaster/ . To use your own domain later, add a repository variable `SITE_URL`
+https://nbnaryal.github.io/TaasMaster/ . To use your own domain later, add a repository variable `SITE_URL`
 (Settings → Secrets and variables → Actions → Variables), e.g. `https://taasmaster.com`, and set the custom domain under Settings → Pages.
 Note: Google only reads `robots.txt` at the root of a domain, so use a custom domain before relying on it for SEO.
 
