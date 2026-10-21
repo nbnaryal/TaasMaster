@@ -53,6 +53,28 @@ LOGO = ('<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64
 
 
 CURRENT = ' aria-current="page"'
+# The site's four bottom tabs, added to every tracker app too. App bottom bars and toasts move up above it.
+NAV_H = "64px"
+APP_NAV_CSS = """<style id="tm-nav-css">
+.tm-nav{position:fixed;left:0;right:0;bottom:0;z-index:35;background:rgba(2,6,23,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+ border-top:1px solid #1e293b;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:6px 8px calc(6px + env(safe-area-inset-bottom));
+ font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Devanagari",sans-serif}
+.tm-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:52px;border-radius:12px;text-decoration:none;
+ color:#94a3b8;font-size:12px;font-weight:600;line-height:1.2}
+.tm-nav a .ic{font-size:19px;line-height:1}
+.tm-nav a[aria-current="page"]{background:#1e293b;color:#fcd34d}
+.tm-nav a:hover{color:#fcd34d}
+body{padding-bottom:calc(%(h)s + env(safe-area-inset-bottom))!important}
+/* Teen Patti / Marriage: action bar and toast sit above the tabs */
+.fixed.bottom-0{bottom:calc(%(h)s + env(safe-area-inset-bottom))!important}
+.fixed.bottom-0>div{padding-bottom:.75rem!important}
+#toast{bottom:calc(6rem + %(h)s + env(safe-area-inset-bottom))!important}
+/* Call Break: round controls and toast sit above the tabs */
+body.entering #roundControls{bottom:calc(%(h)s + env(safe-area-inset-bottom))!important;padding-bottom:10px!important}
+.toast{bottom:calc(20px + %(h)s + env(safe-area-inset-bottom))}
+body.entering .toast{bottom:calc(150px + %(h)s + env(safe-area-inset-bottom))}
+</style>
+""" % {"h": NAV_H}
 # Call Break Ledger uses CSS variables; these match the Teen Patti / Marriage trackers (Tailwind slate + amber)
 CB_THEME = """<meta name="theme-color" content="#020617"><meta name="color-scheme" content="dark">
 <style id="tm-theme">
@@ -266,6 +288,12 @@ def app_page(key, version, lang="en"):
 <nav><a href="{path(lang, 'home')}">{SITE[lang]} – {e(ui['short']['home'])}</a> <a href="{path(other, key)}" hreflang="{other}" lang="{other}" data-setlang="{other}">{UI[lang]['switch']}</a></nav>
 </section>
 """)
+    nav = pre('<nav class="tm-nav" aria-label="' + ui["nav_label"] + '">' + "".join(
+        f'<a href="{path(lang, k)}"{CURRENT if k == key else ""}><span class="ic" aria-hidden="true">{ic}</span>{e(lab)}</a>'
+        for k, lab, ic in ui["nav"]) + '</nav>\n')
+    s = s.replace("</head>", APP_NAV_CSS + "</head>", 1)
+    i = s.rindex("</body>")
+    s = s[:i] + nav + s[i:]
     markers = {"callbreak": '<div id="toast" class="toast"', "teenpatti": '<div id="app" class="max-w-3xl mx-auto px-4 pb-32"></div>',
                "marriage": '<div id="app" class="max-w-3xl mx-auto px-4 pb-32"></div>'}
     m = markers[GAME[key]]
