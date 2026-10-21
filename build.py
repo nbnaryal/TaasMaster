@@ -306,9 +306,20 @@ def icons():
         t = r / 520
         col = tuple(int(a + (b - a) * t) for a, b in zip((6, 95, 70), (2, 44, 34)))
         d.ellipse([600 - r * 1.6, -r * 0.5, 600 + r * 1.6, r * 1.3], fill=col)
-    bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 108)
-    sym = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 90)
-    reg = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 38)
+    def font(names, size):
+        for n in names:
+            for d in ("/usr/share/fonts/truetype/dejavu/", "/usr/share/fonts/dejavu/", ""):
+                try:
+                    return ImageFont.truetype(d + n, size)
+                except Exception:
+                    pass
+        try:
+            return ImageFont.load_default(size=size)
+        except Exception:
+            return ImageFont.load_default()
+    bold = font(["DejaVuSans-Bold.ttf", "LiberationSans-Bold.ttf", "DejaVuSans.ttf"], 108)
+    sym = font(["DejaVuSans.ttf", "LiberationSans-Regular.ttf"], 90)
+    reg = font(["DejaVuSans.ttf", "LiberationSans-Regular.ttf"], 38)
     w1 = d.textlength("Taas", font=bold); w2 = d.textlength("Master", font=bold)
     x = (1200 - w1 - w2) / 2
     d.text((x, 170), "Taas", font=bold, fill="#f1f5f9"); d.text((x + w1, 170), "Master", font=bold, fill="#fbbf24")
