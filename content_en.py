@@ -9,9 +9,9 @@ PAGES["home"] = dict(
     lede="No more pen and paper. Pick your game, add players, and let your phone do the maths — even during load-shedding or with no data.",
     body="""
 <div class="grid grid-3">
-  <a class="card tool-link" href="{link:cb_tool}"><span class="suit">♠</span><strong>Call Break Score</strong><span>Calls, tricks and totals for 4 players.</span></a>
+  <a class="card tool-link" href="{link:cb_tool}"><span class="suit">♠</span><strong>Call Break Score</strong><span>Bids, tricks, money mode and settlement.</span></a>
   <a class="card tool-link" href="{link:mar_tool}"><span class="suit red">♥</span><strong>Marriage Calculator</strong><span>Maal, seen/unseen and final settlement.</span></a>
-  <a class="card tool-link" href="{link:tp_tool}"><span class="suit">♣</span><strong>Teen Patti Tracker</strong><span>Running points for every round.</span></a>
+  <a class="card tool-link" href="{link:tp_tool}"><span class="suit">♣</span><strong>Teen Patti Tracker</strong><span>Boot, chaal, pots and who pays whom.</span></a>
 </div>
 <h2>Learn the rules</h2>
 <ul>
@@ -27,48 +27,7 @@ PAGES["home"] = dict(
   <li><strong>Built for the table.</strong> Big buttons, one-hand use, and no ads popping up mid-hand.</li>
   <li><strong>नेपालीमा पनि.</strong> Every tracker and guide is also <a href="{link_ne:home}" hreflang="ne" lang="ne">available in Nepali</a>.</li>
 </ul>
-<p class="note">TaasMaster only keeps score in points. It is not a gambling site and has no real-money features.</p>
-""",
-)
-
-PAGES["cb_tool"] = dict(
-    title="Call Break Score Calculator – Free Online Call Break Score Tracker",
-    desc="Track Call Break calls and tricks for 4 players across 5 rounds. Scores with extra tricks (0.1 each) are calculated instantly. Works offline and saves mid-game.",
-    h1="Call Break Score Tracker",
-    lede="Enter each player's call, then the tricks they won. Scores, totals and the leader update instantly.",
-    app_name="Call Break Score Tracker",
-    body="""
-<h2>How the score is calculated</h2>
-<p>If you win at least as many tricks as you called, you score your call plus <strong>0.1 for every extra trick</strong>. Call 4 and win 6, and you score 4.2. If you win fewer tricks than you called, you lose your call: call 5 and win 3, and you score −5.</p>
-<p>The tracker checks that the tricks in each round add up to 13, so a typing slip at the table can't spoil the totals. Tap <em>Undo last</em> to fix the previous round.</p>
-<p>New to the game? Read the full <a href="{link:cb_rules}">Call Break rules and bidding strategy</a>.</p>
-""",
-)
-
-PAGES["mar_tool"] = dict(
-    title="Marriage Card Game Point Calculator – Free Online Score Tracker",
-    desc="Calculate Marriage card game points in seconds. Enter each player's maal, who saw the maal and who won; seen/unseen payments, dublee and final settlement are automatic.",
-    h1="Marriage Point Calculator",
-    lede="Type each player's maal, tick who has seen the maal, pick the winner — the calculator works out who pays whom.",
-    app_name="Marriage Point Calculator",
-    body="""
-<h2>How the calculator works</h2>
-<p>All the maal of players who have seen is added together. Each player then gets <strong>their maal × number of players − total maal</strong>. Players who haven't seen the maal count as zero maal. On top of that, every losing player pays the winner a fixed amount: 3 points if they had seen, 10 if they hadn't (you can change these in the options).</p>
-<p>Example with 4 players: the winner has 8 maal, two others have 3 and 0, and one player never saw (total maal 11). Before fees that is +21, +1, −11 and −11. After fees (3 + 3 + 10 to the winner) it's <strong>+37, −2, −14, −21</strong> — it always adds up to zero.</p>
-<p>Use <em>Settle up</em> at the end of the night to see the fewest transfers that square everyone. Need a refresher? See the <a href="{link:mar_rules}">Marriage rules, maal and tiplu points</a>.</p>
-""",
-)
-
-PAGES["tp_tool"] = dict(
-    title="Teen Patti Score Tracker – Track Points for Every Round",
-    desc="Keep a running points tally for Teen Patti at the table. Record what each player put in, who won and with which hand. Points only, works offline.",
-    h1="Teen Patti Points Tracker",
-    lede="Record what each player put into the pot and who won. Running totals and an end-of-night settlement are calculated for you.",
-    app_name="Teen Patti Points Tracker",
-    body="""
-<h2>How it works</h2>
-<p>For each round, enter the points each player put into the pot and tap the winner. The winner gains the whole pot minus their own share; everyone else loses what they put in. Optionally note the winning hand to keep a record of the night's best hands.</p>
-<p>This tracker counts <strong>points only</strong> — use whatever chips or tokens your group plays with. Check the <a href="{link:tp_rules}">Teen Patti hand rankings</a> if there's an argument over who won.</p>
+<p class="note">TaasMaster records scores and settlements for games you play in person. It doesn't take bets, hold money or process payments.</p>
 """,
 )
 
@@ -169,18 +128,19 @@ PAGES["mar_rules"] = dict(
 </ul>
 <p>Example: if the tiplu is 6♥, then 7♥ is poplu, 5♥ is jhiplu, 6♦ is alter, and 6♠ and 6♣ are ordinary jokers.</p>
 <h2>How maal points work</h2>
-<p>Maal is the points value of the jokers and special sets you hold. These values are the most common:</p>
+<p>Maal is the points value of the jokers and special sets you hold. Two or three copies of the same maal card are worth more than the single value added up. These are the standard values the Marriage calculator uses:</p>
 <div class="table-wrap"><table>
-<thead><tr><th>Card or set</th><th class="num">Maal points</th></tr></thead>
+<thead><tr><th>Maal</th><th class="num">1 card</th><th class="num">2 cards</th><th class="num">3 cards</th><th class="num">Tunnela</th></tr></thead>
 <tbody>
-<tr><td>Tiplu (each)</td><td class="num">3</td></tr>
-<tr><td>Poplu (each)</td><td class="num">2</td></tr>
-<tr><td>Jhiplu (each)</td><td class="num">2</td></tr>
-<tr><td>Alter (each, if your group counts it)</td><td class="num">5</td></tr>
-<tr><td>Marriage — jhiplu + tiplu + poplu together</td><td class="num">10</td></tr>
-<tr><td>Tunnela shown before seeing</td><td class="num">5</td></tr>
+<tr><td>Marriage (jhiplu + tiplu + poplu)</td><td class="num">10</td><td class="num">30</td><td class="num">—</td><td class="num">—</td></tr>
+<tr><td>Tiplu</td><td class="num">3</td><td class="num">8</td><td class="num">—</td><td class="num">—</td></tr>
+<tr><td>Poplu / Jhiplu</td><td class="num">2</td><td class="num">5</td><td class="num">10</td><td class="num">15</td></tr>
+<tr><td>Alter</td><td class="num">5</td><td class="num">15</td><td class="num">25</td><td class="num">35</td></tr>
+<tr><td>Man (printed joker)</td><td class="num">5</td><td class="num">15</td><td class="num">25</td><td class="num">45</td></tr>
+<tr><td>Ordinary tunnela</td><td class="num" colspan="4">5 each</td></tr>
+<tr><td>Ordinary-joker tunnela</td><td class="num" colspan="4">10 each</td></tr>
 </tbody></table></div>
-<p>Many groups give bonus values for holding two or three of the same maal card, or for a tunnela of tiplu. These house values differ widely — write yours down before the game. The calculator only needs each player's final maal total, so it works with any table of values.</p>
+<p>With three decks there are only three copies of any card, so a player can hold at most three of each, and a card used in a marriage can't be counted again on its own. Sources and families differ on a few values (two tiplus are 7 in some rules, a poplu tunnela 20), so agree on yours before the game; every value can be changed in the calculator's Rules settings.</p>
 <h2>Finishing a hand</h2>
 <p>A player who has seen the maal wins the hand by arranging all their cards into valid sets (jokers allowed) and making a final discard. Everyone then shows their hand and counts their maal. Only players who have seen the maal can count theirs.</p>
 <h2>How to settle at the end</h2>
@@ -188,7 +148,7 @@ PAGES["mar_rules"] = dict(
   <li><strong>Add up the total maal</strong> of every player who has seen. Players who haven't seen count as zero.</li>
   <li><strong>Each player's maal result</strong> = their maal × number of players − total maal. A positive number means they collect; negative means they pay.</li>
   <li><strong>Losers pay the winner a fee:</strong> commonly 3 points from each player who saw the maal and 10 points from each player who did not.</li>
-  <li><strong>Dublee finish:</strong> many groups add a small bonus (often 5 points) from each player when the winner finishes with dublees.</li>
+  <li><strong>Dublee finish:</strong> when the winner finishes with 8 dublees, many groups add a bonus (often 5 points) from each player, usually only when 4 or more are playing.</li>
 </ol>
 <h3>Worked example</h3>
 <p>Four players. Asha wins with 8 maal. Bikash saw and has 3 maal. Chandra saw and has 0. Dipa never saw the maal. Total maal = 8 + 3 + 0 = 11.</p>
@@ -245,7 +205,7 @@ PAGES["tp_rules"] = dict(
   <li><strong>Sequences:</strong> A-K-Q is the highest, then A-2-3 (in most rules), then K-Q-J, down to 4-3-2.</li>
   <li><strong>Color and high card:</strong> compare the highest card, then the second, then the third.</li>
   <li><strong>Pair:</strong> the higher pair wins; if pairs are equal, the higher odd card wins.</li>
-  <li>If two hands are exactly equal, the pot is usually split (some groups give it to the player who did not ask for the show).</li>
+  <li>In a show or side show, if the two hands are exactly equal, the player who asked for it usually loses. In a showdown where nobody asked, equal hands split the pot.</li>
 </ul>
 <h2>How a round is played</h2>
 <ol>
@@ -263,14 +223,14 @@ PAGES["tp_rules"] = dict(
   <li><strong>Lowest joker:</strong> the lowest card in each player's hand is wild for that player.</li>
   <li><strong>Four-card (best of four):</strong> each player gets four cards and plays the best three.</li>
 </ul>
-<p class="note">TaasMaster is a points tracker only. It has no real-money features and doesn't encourage gambling.</p>
+<p class="note">TaasMaster only records the game you play in person. It doesn't take bets, hold money or process payments.</p>
 """,
     faq=[
         ("What is the highest hand in Teen Patti?", "A trail (three of a kind) is the highest hand, and three aces is the best trail. Next comes a pure sequence, then a sequence, color, pair and high card."),
         ("Is A-2-3 higher than K-Q-J in Teen Patti?", "In most rules, yes. A-K-Q is the highest sequence, A-2-3 is second, and K-Q-J is third."),
         ("Which is higher in Teen Patti, a sequence or a color?", "A sequence (three cards in a row) beats a color (three cards of the same suit that are not in a row)."),
         ("What is Muflis in Teen Patti?", "Muflis is a variation where the hand rankings are reversed, so the lowest hand wins."),
-        ("What happens when two Teen Patti hands are equal?", "If two hands are identical in rank, the pot is usually split between them."),
+        ("What happens when two Teen Patti hands are equal?", "In a show or side show the player who asked for it usually loses a tie. Otherwise equal hands split the pot."),
     ],
 )
 
@@ -285,13 +245,13 @@ PAGES["faq"] = dict(
     faq=[
         ("Does TaasMaster work without internet?", "Yes. After your first visit, the site is stored on your phone and works offline — handy during load-shedding or when mobile data is weak."),
         ("How do I install TaasMaster on my phone?", "On Android (Chrome), tap the Install button at the top or choose 'Add to Home screen' from the menu. On iPhone (Safari), tap Share and then 'Add to Home Screen'."),
-        ("Will I lose my scores if I refresh the page?", "No. Scores are saved on your phone after every change, so a refresh, closed tab or restart keeps the game. Starting a New game clears it."),
+        ("Will I lose my scores if I refresh the page?", "No. Scores are saved on your phone after every change, so a refresh, closed tab or restart keeps the game. Every game stays saved, with its history, until you delete it."),
         ("Are my scores uploaded anywhere?", "No. Everything stays in your phone's browser storage. Nothing is sent to a server, and there is no account."),
         ("Can two phones share the same game?", "Not yet — each phone keeps its own game. Pick one scorekeeper per table."),
         ("How is Call Break scored with extra tricks?", "Each extra trick above your call adds 0.1. Call 3 and win 5, and you score 3.2. Winning fewer than your call loses your call."),
-        ("How many points does an unseen player pay in Marriage?", "In common rules, each unseen player pays the winner 10 points and each seen player pays 3. You can change these values in the calculator's options."),
+        ("How many points does an unseen player pay in Marriage?", "In common rules, each unseen player pays the winner 10 points and each seen player pays 3. You can change these values in the calculator's Rules settings."),
         ("What happens if nobody else saw the maal in Marriage?", "Then only the winner's maal counts. The winner collects their maal points from each other player, plus the unseen fee (commonly 10) from each of them."),
-        ("Is the Teen Patti tracker for real money?", "No. It records points only. TaasMaster has no real-money features."),
+        ("Does TaasMaster handle money or payments?", "No. The trackers only record amounts and show who owes whom at the end. Any settling up happens between players; the site never takes bets, holds money or processes payments."),
         ("Is TaasMaster free?", "Yes, completely free, with no sign-up."),
     ],
 )

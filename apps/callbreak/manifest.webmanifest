@@ -1,0 +1,36 @@
+{
+  "id": "./",
+  "name": "Call Break Ledger",
+  "short_name": "Call Break",
+  "description": "Score, pot and settlement tracker for the card game Call Break. Works offline.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f3f5f7",
+  "theme_color": "#f3f5f7",
+  "categories": ["games", "utilities", "entertainment"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    {
+      "name": "New game",
+      "short_name": "New game",
+      "description": "Name a new game and add its players",
+      "url": "./?action=new-game",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
+  "screenshots": [
+    { "src": "screenshots/match.png", "sizes": "780x1688", "type": "image/png", "form_factor": "narrow", "label": "Entering bids and tricks during a match" },
+    { "src": "screenshots/settle.png", "sizes": "780x1688", "type": "image/png", "form_factor": "narrow", "label": "Settlement: who pays whom" },
+    { "src": "screenshots/wide.png", "sizes": "1280x800", "type": "image/png", "form_factor": "wide", "label": "Leaderboard on a tablet or computer" }
+  ]
+}

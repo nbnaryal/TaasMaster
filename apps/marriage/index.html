@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#020617">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Track Marriage card game maal, points and who pays whom.">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Marriage">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>Marriage Tracker</title>
+<style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.card{margin-bottom:1rem;border-radius:1rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1));background-color:rgba(15,23,42,.8);padding:1rem}.h2{margin-bottom:.75rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-size:.875rem;line-height:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}.h2,.lbl{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.lbl{margin-bottom:.25rem;display:block;font-size:.75rem;line-height:1rem;font-weight:600}.inp{width:100%;border-radius:.75rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1));padding:.625rem .75rem;font-size:1rem;line-height:1.5rem;--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.inp::-moz-placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139/var(--tw-placeholder-opacity,1))}.inp::placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139/var(--tw-placeholder-opacity,1))}.inp:focus{--tw-border-opacity:1;border-color:rgb(251 191 36/var(--tw-border-opacity,1));outline:2px solid transparent;outline-offset:2px;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);--tw-ring-color:rgba(251,191,36,.6)}.inp:disabled{opacity:.4}.sel{width:100%;border-radius:.5rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1));padding:.5rem;font-size:1rem;line-height:1.5rem;--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.sel:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);--tw-ring-color:rgba(251,191,36,.6)}.btn{display:inline-flex;min-height:40px;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn:disabled{pointer-events:none;opacity:.4}.btn-primary{display:inline-flex;min-height:40px;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn-primary:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-primary:disabled{pointer-events:none;opacity:.4}.btn-primary{--tw-bg-opacity:1;background-color:rgb(251 191 36/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.btn-primary:hover{--tw-bg-opacity:1;background-color:rgb(252 211 77/var(--tw-bg-opacity,1))}.btn-green{display:inline-flex;min-height:40px;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn-green:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-green:disabled{pointer-events:none;opacity:.4}.btn-green{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.btn-green:hover{--tw-bg-opacity:1;background-color:rgb(52 211 153/var(--tw-bg-opacity,1))}.btn-red{display:inline-flex;min-height:40px;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn-red:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-red:disabled{pointer-events:none;opacity:.4}.btn-red{border-width:1px;border-color:rgba(244,63,94,.3);background-color:rgba(244,63,94,.15);--tw-text-opacity:1;color:rgb(253 164 175/var(--tw-text-opacity,1))}.btn-red:hover{background-color:rgba(244,63,94,.25)}.btn-ghost{display:inline-flex;min-height:40px;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn-ghost:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-ghost:disabled{pointer-events:none;opacity:.4}.btn-ghost{border-width:1px;--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.btn-ghost:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.pill{display:inline-flex;align-items:center;border-radius:9999px;padding:.125rem .5rem;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.025em}.tab{flex:1 1 0%;border-radius:.75rem;padding-top:.5rem;padding-bottom:.5rem;font-size:.875rem;line-height:1.25rem;font-weight:600;--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.tab-on{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}.seg{min-height:40px;min-width:64px;padding-left:.75rem;padding-right:.75rem;font-size:.75rem;line-height:1rem;font-weight:700}.step{display:inline-flex;min-height:40px;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.step:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.step:disabled{pointer-events:none;opacity:.4}.step{border-width:1px;--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.step:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.step{height:2.5rem;min-height:0!important;width:2.5rem;padding:0!important;font-size:1.125rem;line-height:1.75rem}.pointer-events-none{pointer-events:none}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.inset-x-0{left:0;right:0}.bottom-0{bottom:0}.left-0\.5{left:.125rem}.left-1\/2{left:50%}.left-\[22px\]{left:22px}.top-0\.5{top:.125rem}.z-20{z-index:20}.z-30{z-index:30}.z-50{z-index:50}.col-span-2{grid-column:span 2/span 2}.-mx-1{margin-left:-.25rem;margin-right:-.25rem}.-my-2{margin-top:-.5rem;margin-bottom:-.5rem}.mx-auto{margin-left:auto;margin-right:auto}.my-1{margin-top:.25rem;margin-bottom:.25rem}.\!mb-0{margin-bottom:0!important}.\!mb-2{margin-bottom:.5rem!important}.-ml-2{margin-left:-.5rem}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.ml-1{margin-left:.25rem}.ml-auto{margin-left:auto}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-8{height:2rem}.\!min-h-0{min-height:0!important}.min-h-\[36px\]{min-height:36px}.min-h-\[40px\]{min-height:40px}.min-h-screen{min-height:100vh}.\!w-20{width:5rem!important}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-full{width:100%}.min-w-0{min-width:0}.min-w-\[3\.25rem\]{min-width:3.25rem}.min-w-\[64px\]{min-width:64px}.max-w-3xl{max-width:48rem}.max-w-\[90vw\]{max-width:90vw}.flex-1{flex:1 1 0%}.flex-\[2\]{flex:2}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.list-none{list-style-type:none}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-\[2rem_1fr_auto\]{grid-template-columns:2rem 1fr auto}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0\.5{gap:.125rem}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.rounded-t-3xl{border-top-left-radius:1.5rem;border-top-right-radius:1.5rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.\!border-amber-400{--tw-border-opacity:1!important;border-color:rgb(251 191 36/var(--tw-border-opacity,1))!important}.\!border-amber-400\/50{border-color:rgba(251,191,36,.5)!important}.border-amber-400{--tw-border-opacity:1;border-color:rgb(251 191 36/var(--tw-border-opacity,1))}.border-emerald-500\/40{border-color:rgba(16,185,129,.4)}.border-emerald-500\/50{border-color:rgba(16,185,129,.5)}.border-emerald-800{--tw-border-opacity:1;border-color:rgb(6 95 70/var(--tw-border-opacity,1))}.border-rose-500\/30{border-color:rgba(244,63,94,.3)}.border-sky-500\/40{border-color:rgba(14,165,233,.4)}.border-slate-500{--tw-border-opacity:1;border-color:rgb(100 116 139/var(--tw-border-opacity,1))}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105/var(--tw-border-opacity,1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.border-slate-800\/70{border-color:rgba(30,41,59,.7)}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36/var(--tw-bg-opacity,1))}.bg-amber-400\/10{background-color:rgba(251,191,36,.1)}.bg-amber-400\/15{background-color:rgba(251,191,36,.15)}.bg-amber-400\/20{background-color:rgba(251,191,36,.2)}.bg-amber-400\/5{background-color:rgba(251,191,36,.05)}.bg-black\/70{background-color:rgba(0,0,0,.7)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.bg-emerald-500\/10{background-color:rgba(16,185,129,.1)}.bg-emerald-500\/15{background-color:rgba(16,185,129,.15)}.bg-emerald-500\/20{background-color:rgba(16,185,129,.2)}.bg-rose-500\/15{background-color:rgba(244,63,94,.15)}.bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233/var(--tw-bg-opacity,1))}.bg-sky-500\/15{background-color:rgba(14,165,233,.15)}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.bg-slate-800\/30{background-color:rgba(30,41,59,.3)}.bg-slate-800\/50{background-color:rgba(30,41,59,.5)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-slate-900\/60{background-color:rgba(15,23,42,.6)}.bg-slate-900\/80{background-color:rgba(15,23,42,.8)}.bg-slate-900\/95{background-color:rgba(15,23,42,.95)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1))}.bg-slate-950\/85{background-color:rgba(2,6,23,.85)}.bg-violet-500{--tw-bg-opacity:1;background-color:rgb(139 92 246/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.\!p-0{padding:0!important}.\!p-3{padding:.75rem!important}.p-1{padding:.25rem}.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.\!px-1{padding-left:.25rem!important;padding-right:.25rem!important}.\!px-2\.5{padding-left:.625rem!important;padding-right:.625rem!important}.\!py-1\.5{padding-top:.375rem!important;padding-bottom:.375rem!important}.\!py-2{padding-top:.5rem!important;padding-bottom:.5rem!important}.px-1{padding-left:.25rem;padding-right:.25rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.pb-3{padding-bottom:.75rem}.pb-32{padding-bottom:8rem}.pb-4{padding-bottom:1rem}.pr-2{padding-right:.5rem}.pr-3{padding-right:.75rem}.pt-3{padding-top:.75rem}.pt-5{padding-top:1.25rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.align-top{vertical-align:top}.\!text-xs{font-size:.75rem!important;line-height:1rem!important}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.normal-case{text-transform:none}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[\.2em\]{letter-spacing:.2em}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.\!text-amber-200{--tw-text-opacity:1!important;color:rgb(253 230 138/var(--tw-text-opacity,1))!important}.\!text-amber-300{--tw-text-opacity:1!important;color:rgb(252 211 77/var(--tw-text-opacity,1))!important}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36/var(--tw-text-opacity,1))}.text-emerald-200{--tw-text-opacity:1;color:rgb(167 243 208/var(--tw-text-opacity,1))}.text-emerald-200\/80{color:rgba(167,243,208,.8)}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183/var(--tw-text-opacity,1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153/var(--tw-text-opacity,1))}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175/var(--tw-text-opacity,1))}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133/var(--tw-text-opacity,1))}.text-sky-200{--tw-text-opacity:1;color:rgb(186 230 253/var(--tw-text-opacity,1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252/var(--tw-text-opacity,1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42/var(--tw-text-opacity,1))}.text-slate-950{--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.text-violet-300{--tw-text-opacity:1;color:rgb(196 181 253/var(--tw-text-opacity,1))}.line-through{text-decoration-line:line-through}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.placeholder-slate-500::-moz-placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139/var(--tw-placeholder-opacity,1))}.placeholder-slate-500::placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139/var(--tw-placeholder-opacity,1))}.opacity-0{opacity:0}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color)}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-amber-400\/40{--tw-ring-color:rgba(251,191,36,.4)}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}html{-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent;overscroll-behavior-y:none;padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}a,button,input,label,select,summary{touch-action:manipulation}button,summary{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-touch-callout:none}summary::-webkit-details-marker{display:none}.sticky-safe{top:calc(env(safe-area-inset-top) + .5rem)}.toast-safe{bottom:calc(env(safe-area-inset-bottom) + 5.5rem)}.felt{background:radial-gradient(ellipse at top,#065f46 0,#064e3b 45%,#022c22 100%)}.toast{transition:opacity .25s}input[type=number]::-webkit-inner-spin-button{opacity:.4}.last\:border-0:last-child{border-width:0}.hover\:bg-slate-800\/40:hover{background-color:rgba(30,41,59,.4)}.hover\:bg-slate-800\/60:hover{background-color:rgba(30,41,59,.6)}.hover\:text-amber-300:hover{--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}.hover\:text-rose-300:hover{--tw-text-opacity:1;color:rgb(253 164 175/var(--tw-text-opacity,1))}.focus\:border-amber-400:focus{--tw-border-opacity:1;border-color:rgb(251 191 36/var(--tw-border-opacity,1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-amber-400\/60:focus{--tw-ring-color:rgba(251,191,36,.6)}.active\:scale-\[\.97\]:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.disabled\:opacity-40:disabled{opacity:.4}.disabled\:opacity-60:disabled{opacity:.6}@media (min-width:640px){.sm\:block{display:block}.sm\:hidden{display:none}.sm\:max-w-md{max-width:28rem}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:gap-1\.5{gap:.375rem}.sm\:rounded-3xl{border-radius:1.5rem}.sm\:p-4{padding:1rem}.sm\:\!text-sm{font-size:.875rem!important;line-height:1.25rem!important}}</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased">
+<div id="app" class="max-w-3xl mx-auto px-4 pb-32"></div>
+<div id="modal"></div>
+<div id="toast" role="status" aria-live="polite" class="toast toast-safe fixed left-1/2 -translate-x-1/2 z-50 max-w-[90vw] text-center opacity-0 pointer-events-none bg-slate-100 text-slate-900 text-sm font-semibold px-4 py-2 rounded-full shadow-xl"></div>
+
+<script>
+/* ================== STATE & STORAGE ================== */
+// Every game (its own players, settings, hands and leaderboard) is saved separately.
+const KEY = 'marriage_tracker_v1';
+const APP_VERSION = '1.0.0';
+// Maal values are NOT linear: 2 poplu = 5, not 2+2. Each list is [1 card, 2 cards, 3 cards, shown as tunnela].
+// max = most copies one player can hold (3 decks = 3 copies of each card; tiplu & marriage max 2).
+const MAAL = [
+  { k:'marriage', l:'Marriage', hint:'Jhiplu + Tiplu + Poplu in one sequence', max:2, cols:2 },
+  { k:'tiplu',    l:'Tiplu',    hint:'Joker card, not inside a marriage',     max:2, cols:2 },
+  { k:'poplu',    l:'Poplu',    hint:'One above tiplu, same suit',           max:3, cols:4 },
+  { k:'jhiplu',   l:'Jhiplu',   hint:'One below tiplu, same suit',           max:3, cols:4 },
+  { k:'alter',    l:'Alter',    hint:'Tiplu rank, same colour, other suit',  max:3, cols:4 },
+  { k:'man',      l:'Man',      hint:'Printed joker (if used)',              max:3, cols:4 },
+  { k:'tun',      l:'Tunnela',  hint:'Ordinary cards · each',                max:7, each:true },
+  { k:'jtun',     l:'Joker tunnela', hint:'Ordinary joker (tiplu rank, other colour) · each', max:2, each:true },
+];
+const DEFAULT_VALS = () => ({ marriage:[10,30], tiplu:[3,8], poplu:[2,5,10,15], jhiplu:[2,5,10,15],
+  alter:[5,15,25,35], man:[5,15,25,45], tun:5, jtun:10 });
+const COLS = ['×1','×2','×3','Tunnela'];
+const HAND_MIN = 2, HAND_MAX = 5, ROSTER_MAX = 8, MAAL_MAX = 999;
+const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
+function fresh(){
+  return { id:uid(), name:'', created:Date.now(), updated:Date.now(), phase:'setup', tab:'table', settled:false,
+    config:{ rate:5, seenPts:3, unseenPts:10, dubleeBonus:5, vals:DEFAULT_VALS() },
+    setupNames:['','',''], players:[], hands:[], current:null, sitOut:[], dealer:0 };
+}
+function loadDB(){ try{ const d = JSON.parse(localStorage.getItem(KEY)); if (d && Array.isArray(d.games)) return d; }catch(e){} return { games:[], activeId:null }; }
+let DB = loadDB();
+// Older saves used single flat maal values — upgrade them to the per-count tables.
+DB.games.forEach(g => { if (!g.config.vals || !Array.isArray(g.config.vals.poplu)) g.config.vals = DEFAULT_VALS(); });
+let S = DB.activeId ? DB.games.find(g => g.id === DB.activeId) || null : null;
+function save(){ DB.activeId = S ? S.id : null; try{ localStorage.setItem(KEY, JSON.stringify(DB)); }catch(e){} }
+function touch(){ if (S) S.updated = Date.now(); }
+function openGame(id){ S = DB.games.find(g => g.id === id) || null; }
+
+/* ================== HELPERS ================== */
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const r2 = x => Math.round(x*100)/100;
+const num = v => { const x = Number(v); return isFinite(x) ? x : 0; };
+const pname = id => (S.players.find(p => p.id === id) || {}).name || '?';
+const rate = () => num(S.config.rate) || 0;
+const fmtN = v => Math.abs(r2(v)).toLocaleString('en-IN', {maximumFractionDigits:2});
+const sign = v => v > 0.004 ? '+' : v < -0.004 ? '−' : '';
+const pts = (v, signed=true) => `${signed ? sign(v) : (v < 0 ? '−' : '')}${fmtN(v)}`;
+const money = (p, signed=true) => { const v = p * rate(); return `${signed ? sign(v) : ''}Rs. ${fmtN(v)}`; };
+const tone = v => v > 0.004 ? 'text-emerald-400' : v < -0.004 ? 'text-rose-400' : 'text-slate-300';
+const fmtDate = t => new Date(t).toLocaleDateString([], {day:'numeric', month:'short', year:'numeric'});
+let toastT;
+function toast(msg){ const t = document.getElementById('toast'); t.textContent = msg; t.style.opacity = '1'; clearTimeout(toastT); toastT = setTimeout(() => t.style.opacity = '0', 2200); }
+
+/* ================== SCORING ==================
+   Maal of a seen player counts; an unseen player's maal is 0.
+   Total maal T = sum of everyone's maal. Each player gets (players × own maal) − T.
+   Game points: every other player pays the winner (seen / unseen rate, + dublee bonus if the winner finished on dublee).
+   The hand always sums to zero. */
+function score(h, c){
+  const n = h.parts.length, M = {}, game = {}, pt = {};
+  let T = 0;
+  h.parts.forEach(id => { M[id] = h.st[id] === 'seen' ? Math.min(MAAL_MAX, Math.max(0, Math.round(num(h.maal[id])))) : 0; T += M[id]; game[id] = 0; });
+  if (h.winner && h.parts.includes(h.winner)){
+    h.parts.forEach(id => {
+      if (id === h.winner) return;
+      const g = (h.st[id] === 'seen' ? num(c.seenPts) : num(c.unseenPts)) + (h.dublee && n >= 4 ? num(c.dubleeBonus) : 0);
+      game[id] -= g; game[h.winner] += g;
+    });
+  }
+  h.parts.forEach(id => pt[id] = n * M[id] - T + game[id]);
+  return { M, T, game, pt };
+}
+function maxFor(it, cnt){ return it.k === 'tiplu' ? 2 - num(cnt.marriage) : (it.k === 'poplu' || it.k === 'jhiplu') ? 3 - num(cnt.marriage) : it.max; }
+function itemPts(it, cnt){
+  const v = S.config.vals[it.k], c = num(cnt[it.k]);
+  if (it.each) return c * num(v);
+  if (!c) return 0;
+  return num(c === 3 && cnt[it.k + 'T'] ? v[3] : v[c - 1]);
+}
+function calcMaal(cnt){ return MAAL.reduce((a,it) => a + itemPts(it, cnt), 0); }
+function normVals(c){
+  MAAL.forEach(it => { c.vals[it.k] = it.each ? Math.max(0, num(c.vals[it.k])) : c.vals[it.k].map(x => Math.max(0, num(x))); });
+}
+
+/* ================== LEDGER & SETTLEMENT ================== */
+function ledger(){
+  const L = {};
+  S.players.forEach(p => L[p.id] = { id:p.id, name:p.name, played:0, won:0, seen:0, maal:0, pts:0 });
+  S.hands.forEach(h => h.parts.forEach(id => {
+    const r = L[id]; if (!r) return;
+    r.played++; r.pts += h.pt[id] || 0; r.maal += h.M[id] || 0;
+    if (h.st[id] === 'seen') r.seen++;
+    if (h.winner === id) r.won++;
+  }));
+  const rows = Object.values(L);
+  rows.sort((a,b) => b.pts - a.pts || b.won - a.won);
+  rows.forEach((r,i) => r.rank = (i > 0 && Math.abs(r.pts - rows[i-1].pts) < 1e-9) ? rows[i-1].rank : i+1);
+  return rows;
+}
+function transfers(rows){
+  const cr = [], db = [];
+  rows.forEach(r => { const c = r2(r.pts * rate()); if (c > 0.004) cr.push({n:r.name, a:c}); else if (c < -0.004) db.push({n:r.name, a:-c}); });
+  cr.sort((a,b) => b.a - a.a); db.sort((a,b) => b.a - a.a);
+  const out = []; let i = 0, j = 0;
+  while (i < db.length && j < cr.length){
+    const x = r2(Math.min(db[i].a, cr[j].a));
+    if (x > 0) out.push({ from:db[i].n, to:cr[j].n, amt:x });
+    db[i].a = r2(db[i].a - x); cr[j].a = r2(cr[j].a - x);
+    if (db[i].a < 0.005) i++; if (cr[j].a < 0.005) j++;
+  }
+  return out;
+}
+
+/* ================== HAND DRAFT ================== */
+function seatOrder(){
+  const n = S.players.length, out = [];
+  for (let k = 1; k <= n; k++){ const p = S.players[(S.dealer + k) % n]; if (!S.sitOut.includes(p.id)) out.push(p.id); }
+  return out;
+}
+function ensureDraft(){
+  if (S.settled) return;
+  let h = S.current;
+  if (!h){ h = S.current = { parts:[], st:{}, maal:{}, cnt:{}, open:null, winner:null, dublee:false, editing:null }; }
+  if (h.editing) return;
+  h.parts = seatOrder();
+  h.parts.forEach(id => { if (!h.st[id]) h.st[id] = 'seen'; if (h.maal[id] === undefined) h.maal[id] = ''; if (!h.cnt[id]) h.cnt[id] = {}; });
+  if (h.winner && !h.parts.includes(h.winner)) h.winner = null;
+}
+function saveHand(){
+  const h = S.current, c = S.config;
+  if (h.parts.length < HAND_MIN) return toast(`At least ${HAND_MIN} players must play the hand`);
+  if (h.parts.length > HAND_MAX) return toast(`Marriage is ${HAND_MIN}–${HAND_MAX} players a hand — sit someone out`);
+  const bad = h.parts.find(id => h.st[id] === 'seen' && h.maal[id] !== '' && (!Number.isInteger(Number(h.maal[id])) || num(h.maal[id]) < 0 || num(h.maal[id]) > MAAL_MAX));
+  if (bad) return toast(`${pname(bad)}'s maal must be a whole number from 0 to ${MAAL_MAX}`);
+  if (h.dublee && h.parts.length < 4) h.dublee = false;
+  if (!h.winner) return toast('Tap 🏆 on the player who finished the game');
+  if (h.st[h.winner] !== 'seen') return toast('The winner must have seen the maal');
+  const s = score(h, c);
+  const rec = { no: h.editing || S.hands.length + 1, parts:[...h.parts], st:{...h.st}, M:s.M, T:s.T, pt:s.pt,
+    winner:h.winner, dublee:!!h.dublee, cnt:JSON.parse(JSON.stringify(h.cnt)), ts: Date.now(),
+    rules:{ seenPts:num(c.seenPts), unseenPts:num(c.unseenPts), dubleeBonus:num(c.dubleeBonus) } };
+  if (h.editing){
+    const i = S.hands.findIndex(x => x.no === h.editing);
+    rec.ts = S.hands[i].ts; S.hands[i] = rec;
+    toast(`Hand #${rec.no} updated`);
+  } else {
+    S.hands.push(rec);
+    S.dealer = (S.dealer + 1) % S.players.length;
+    toast(`🏆 ${pname(h.winner)} wins hand #${rec.no} · ${pts(s.pt[h.winner])} pts`);
+  }
+  S.current = null; touch();
+  if (h.editing) S.tab = 'history';
+}
+
+/* ================== DIALOG ================== */
+let pendingAsk = null;
+function ask(title, msg, okLabel, cb, input){ pendingAsk = { title, msg, okLabel, cb, input }; }
+function renderAsk(){
+  const a = pendingAsk;
+  return `
+  <div class="fixed inset-0 z-50 bg-black/70 flex items-end sm:items-center justify-center sm:p-4">
+    <div class="bg-slate-900 w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl border border-slate-700 p-5" style="padding-bottom:max(1.25rem,env(safe-area-inset-bottom))">
+      <div class="text-lg font-extrabold mb-1">${esc(a.title)}</div>
+      <p class="text-sm text-slate-400 mb-4">${esc(a.msg)}</p>
+      ${a.input !== undefined ? `<input id="askInp" value="${esc(a.input)}" maxlength="30" class="inp mb-4">` : ''}
+      <div class="grid grid-cols-2 gap-2">
+        <button data-a="askNo" class="btn-ghost py-3">Cancel</button>
+        <button data-a="askYes" class="btn-primary py-3">${esc(a.okLabel)}</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ================== ACTION MAP ================== */
+const A = {
+  askNo: () => pendingAsk = null,
+  askYes: () => { const a = pendingAsk, el = document.getElementById('askInp'); pendingAsk = null; a.cb(el ? el.value : undefined); },
+
+  home: () => { S = null; window.scrollTo(0,0); },
+  newGame: () => ask('Name this game', 'Each game keeps its own players, hands and leaderboard.', 'Create game', name => {
+    name = (name || '').trim() || `Game ${DB.games.length + 1}`;
+    const last = DB.games.slice().sort((a,b) => (b.updated||0) - (a.updated||0))[0];
+    const g = Object.assign(fresh(), { name });
+    if (last) g.config = JSON.parse(JSON.stringify(last.config));   // reuse last stakes & maal values; players start empty
+    DB.games.push(g); S = g; window.scrollTo(0,0); persistStorage();
+    toast(`“${name}” created — add players and start`);
+  }, `Game ${DB.games.length + 1}`),
+  openGame: d => { openGame(d.id); window.scrollTo(0,0); },
+  renameGame: d => { const g = DB.games.find(x => x.id === d.id); if (!g) return;
+    ask('Rename game', 'Give this game a new name.', 'Save', name => { name = (name||'').trim(); if (name) g.name = name; }, g.name); },
+  delGame: d => { const g = DB.games.find(x => x.id === d.id); if (!g) return;
+    ask(`Delete “${g.name}”?`, 'This game, its hands and its leaderboard will be removed for good.', 'Delete game', () => {
+      DB.games.splice(DB.games.indexOf(g), 1); if (S && S.id === g.id) S = null; }); },
+
+  addName: () => { if (S.setupNames.length < 8) S.setupNames.push(''); },
+  rmName: d => { if (S.setupNames.length > 2) S.setupNames.splice(+d.i, 1); },
+  start: () => {
+    const c = S.config, names = S.setupNames.map(s => s.trim());
+    if (names.length < HAND_MIN) return toast(`Need at least ${HAND_MIN} players`);
+    if (names.length > ROSTER_MAX) return toast(`At most ${ROSTER_MAX} players`);
+    if (names.some(n => !n)) return toast('Fill in every player name');
+    if (new Set(names.map(n => n.toLowerCase())).size !== names.length) return toast('Player names must be unique');
+    ['rate','seenPts','unseenPts','dubleeBonus'].forEach(k => c[k] = num(c[k]));
+    normVals(c);
+    if (!(c.rate > 0)) return toast('Rate per point must be greater than 0');
+    if ([c.seenPts, c.unseenPts, c.dubleeBonus].some(x => x < 0)) return toast('Points cannot be negative');
+    S.players = names.map((n,i) => ({ id:'p' + i + uid().slice(0,3), name:n }));
+    Object.assign(S, { phase:'game', tab:'table', hands:[], current:null, sitOut:S.players.slice(HAND_MAX).map(p => p.id), dealer:0, settled:false });
+    touch();
+  },
+
+  tab: d => S.tab = d.v,
+  toggleSit: d => { if (S.current && S.current.editing) return; const i = S.sitOut.indexOf(d.id); i >= 0 ? S.sitOut.splice(i,1) : S.sitOut.push(d.id); },
+  addPlayer: () => ask('Add a player', 'They join from the next hand with a zero balance.', 'Add player', name => {
+    name = (name || '').trim();
+    if (!name) return toast('Enter a name');
+    if (S.players.some(p => p.name.toLowerCase() === name.toLowerCase())) return toast('That name is already playing');
+    if (S.players.length >= ROSTER_MAX) return toast(`At most ${ROSTER_MAX} players in a game`);
+    S.players.push({ id:'p' + uid(), name }); touch();
+  }, ''),
+  st: d => { const h = S.current; h.st[d.id] = d.v; if (d.v === 'unseen' && h.winner === d.id) h.winner = null; if (d.v === 'unseen' && h.open === d.id) h.open = null; },
+  win: d => { const h = S.current; if (h.st[d.id] !== 'seen') h.st[d.id] = 'seen'; h.winner = h.winner === d.id ? null : d.id; },
+  calc: d => { const h = S.current; h.open = h.open === d.id ? null : d.id; },
+  cnt: d => { const h = S.current, c = h.cnt[d.id] || (h.cnt[d.id] = {}), it = MAAL.find(x => x.k === d.k);
+    const nv = num(c[d.k]) + num(d.d), mx = maxFor(it, c);
+    if (nv > mx) return toast(`Max ${mx} ${it.l}${d.k==='tiplu'||d.k==='poplu'||d.k==='jhiplu' ? (num(c.marriage) ? ' outside the marriage' : '') : ''} for one player`);
+    c[d.k] = Math.max(0, nv);
+    if (d.k === 'marriage'){ ['tiplu','poplu','jhiplu'].forEach(k => { const m = maxFor(MAAL.find(x => x.k === k), c); if (num(c[k]) > m) c[k] = m; }); }
+    MAAL.forEach(x => { if (num(c[x.k]) !== 3) delete c[x.k + 'T']; });
+    h.maal[d.id] = calcMaal(c); },
+  cntT: d => { const h = S.current, c = h.cnt[d.id]; c[d.k + 'T'] = !c[d.k + 'T']; h.maal[d.id] = calcMaal(c); },
+  clearCnt: d => { const h = S.current; h.cnt[d.id] = {}; h.maal[d.id] = ''; },
+  dublee: () => S.current.dublee = !S.current.dublee,
+  saveHand,
+  clearHand: () => ask('Clear this hand?', 'Everything entered for this hand will be cleared.', 'Clear', () => { S.current = null; }),
+  cancelEdit: () => { S.current = null; S.tab = 'history'; },
+  editHand: d => {
+    if (S.settled) return toast('Resume the game to edit hands');
+    const h = S.hands.find(x => String(x.no) === d.no); if (!h) return;
+    S.current = { parts:[...h.parts], st:{...h.st}, maal:{...h.M}, cnt:JSON.parse(JSON.stringify(h.cnt || {})), open:null,
+      winner:h.winner, dublee:h.dublee, editing:h.no };
+    h.parts.forEach(id => { if (h.st[id] !== 'seen') S.current.maal[id] = ''; });
+    S.tab = 'table'; window.scrollTo(0,0);
+  },
+  delHand: d => ask(`Delete hand #${d.no}?`, 'Balances will be recalculated.', 'Delete hand', () => {
+    S.hands = S.hands.filter(h => String(h.no) !== d.no); S.hands.forEach((h,i) => h.no = i + 1); S.current = null; touch(); }),
+
+  settle: () => {
+    if (S.current && S.current.editing) return toast('Finish editing the hand first');
+    if (!S.hands.length) return toast('Record at least one hand first');
+    ask('Settle the game?', 'The leaderboard and payments become final. You can resume later if more hands are played.', 'Settle game', () => {
+      S.settled = true; S.current = null; S.tab = 'board'; touch(); });
+  },
+  resume: () => { S.settled = false; S.tab = 'table'; },
+  editSetup: () => { S.phase = 'setup'; if (!S.setupNames.length) S.setupNames = S.players.map(p => p.name); },
+  copy: () => copyText(summaryText()),
+};
+
+/* ================== RENDER: HOME ================== */
+function renderHome(){
+  const games = DB.games.slice().sort((a,b) => (b.updated||0) - (a.updated||0));
+  const card = g => {
+    const prev = S; S = g;
+    const top = g.players.length && g.hands.length ? ledger()[0] : null;
+    S = prev;
+    const status = g.phase === 'setup' ? ['Setup','bg-slate-700 text-slate-300'] : g.settled ? ['Settled','bg-emerald-500/20 text-emerald-300'] : ['In progress','bg-amber-400/20 text-amber-300'];
+    return `
+    <div class="card !p-0 overflow-hidden">
+      <button data-a="openGame" data-id="${g.id}" class="w-full text-left p-4 hover:bg-slate-800/40">
+        <div class="flex items-start justify-between gap-2">
+          <div class="min-w-0">
+            <div class="font-bold text-lg truncate">${esc(g.name)}</div>
+            <div class="text-xs text-slate-400">Rs. ${esc(g.config.rate)}/point · ${g.hands.length} hand${g.hands.length===1?'':'s'} · last played ${fmtDate(g.updated||g.created)}</div>
+          </div>
+          <span class="pill ${status[1]} shrink-0">${status[0]}</span>
+        </div>
+        <div class="text-xs text-slate-500 mt-2 truncate">${g.players.length ? g.players.map(p => esc(p.name)).join(', ') : 'No players yet'}</div>
+        ${top && top.pts > 0 ? `<div class="text-sm mt-2">🏆 <b>${esc(top.name)}</b> <span class="text-emerald-400 font-bold">+Rs. ${fmtN(top.pts * num(g.config.rate))}</span></div>` : ''}
+      </button>
+      <div class="flex border-t border-slate-800 text-xs font-semibold">
+        <button data-a="openGame" data-id="${g.id}" class="flex-1 py-2.5 text-amber-300 hover:bg-slate-800/60">${g.phase==='setup'?'Set up':'Continue'} →</button>
+        <button data-a="renameGame" data-id="${g.id}" class="flex-1 py-2.5 text-slate-300 border-l border-slate-800 hover:bg-slate-800/60">Rename</button>
+        <button data-a="delGame" data-id="${g.id}" class="flex-1 py-2.5 text-rose-300 border-l border-slate-800 hover:bg-slate-800/60">Delete</button>
+      </div>
+    </div>`;
+  };
+  return `
+  <header class="pt-6 pb-4 flex items-center justify-between">
+    <div>
+      <h1 class="text-2xl font-extrabold tracking-tight">Marriage <span class="text-amber-400">Tracker</span></h1>
+      <p class="text-sm text-slate-400">Cards on the table. Maal & money in the app.</p>
+    </div>
+    <div class="text-4xl">💍</div>
+  </header>
+  <button data-a="newGame" class="btn-primary w-full py-3.5 text-base mb-4">＋ New game</button>
+  ${installCard()}
+  ${games.length ? `<h2 class="h2 px-1">Your games <span class="normal-case font-semibold text-slate-500">${games.length}</span></h2>${games.map(card).join('')}`
+    : `<div class="card text-center text-slate-400 py-10">No games yet.<br>Tap <b>New game</b>, give it a name, and add the players.</div>`}`;
+}
+
+/* ================== RENDER: SETUP ================== */
+function renderSetup(){
+  const c = S.config, n = S.setupNames.length, started = S.players.length > 0;
+  const field = (k, label, help, val) => `
+    <div><label class="lbl">${label}</label>
+      <input type="number" inputmode="decimal" min="0" step="any" data-cfg="${k}" value="${esc(val ?? c[k])}" class="inp">
+      ${help ? `<p class="text-[11px] text-slate-500 mt-1">${help}</p>` : ''}</div>`;
+  return `
+  <header class="pt-6 pb-4 flex items-center justify-between gap-3">
+    <div class="min-w-0">
+      <button data-a="home" class="inline-flex items-center min-h-[36px] -my-2 pr-3 text-xs font-semibold text-slate-400 hover:text-amber-300 mb-1">← All games</button>
+      <h1 class="text-2xl font-extrabold tracking-tight truncate">${esc(S.name)}</h1>
+      <p class="text-sm text-slate-400">Marriage · set up players and stakes</p>
+    </div>
+    <div class="text-4xl">💍</div>
+  </header>
+
+  ${started ? `
+  <section class="card text-sm text-slate-300">
+    Players: <b>${S.players.map(p => esc(p.name)).join(', ')}</b>. Add players from the Table during play.
+  </section>` : `
+  <section class="card">
+    <h2 class="h2">1 · Players <span class="normal-case font-semibold text-slate-500">${n} / ${ROSTER_MAX}</span></h2>
+    ${S.setupNames.map((nm,i) => `
+      <div class="flex gap-2 mb-2 items-center">
+        <span class="w-7 h-7 shrink-0 rounded-full bg-slate-800 grid place-items-center text-xs font-bold text-slate-400">${i+1}</span>
+        <input data-name="${i}" value="${esc(nm)}" placeholder="Player ${i+1}" maxlength="20" class="inp flex-1">
+        ${n > 2 ? `<button data-a="rmName" data-i="${i}" class="btn-ghost w-10 shrink-0" aria-label="Remove">✕</button>` : ''}
+      </div>`).join('')}
+    ${n < ROSTER_MAX ? `<button data-a="addName" class="btn-ghost w-full mt-1">+ Add player</button>` : ''}
+    <p class="text-[11px] text-slate-500 mt-2">A hand is ${HAND_MIN}–${HAND_MAX} players (3 decks, 21 cards each). With more than ${HAND_MAX} in the game, the rest sit out each hand.</p>
+  </section>`}
+
+  <section class="card">
+    <h2 class="h2">${started?'':'2 · '}Stakes & game points</h2>
+    <div class="grid grid-cols-2 gap-3">
+      ${field('rate','Rate (Rs. per point)','e.g. 1 point = Rs. 5')}
+      ${field('seenPts','Seen player pays winner','Points, usually 3')}
+      ${field('unseenPts','Unseen player pays winner','Points, usually 10')}
+      ${field('dubleeBonus','Dublee finish bonus','Extra each player pays when the winner ends with 8 dublees (5 common, some play 7). Needs 4+ players.')}
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="h2">${started?'':'3 · '}Maal values <span class="normal-case font-semibold text-slate-500 text-right">points for ×1, ×2, ×3 held</span></h2>
+    <div class="overflow-x-auto -mx-1">
+      <table class="w-full text-sm">
+        <thead><tr class="text-[11px] uppercase tracking-wider text-slate-500">
+          <th class="text-left font-bold py-1 px-1">Maal</th>${COLS.map(x => `<th class="font-bold px-1">${x}</th>`).join('')}</tr></thead>
+        <tbody>${MAAL.map(it => `
+          <tr class="border-t border-slate-800">
+            <td class="py-2 px-1 align-top"><div class="font-semibold">${it.l}</div><div class="text-[10px] text-slate-500 leading-tight">${it.hint} · max ${it.max}</div></td>
+            ${it.each
+              ? `<td class="px-1"><input type="number" inputmode="decimal" min="0" step="any" data-val="${it.k}" value="${esc(c.vals[it.k])}" class="inp !px-1 !py-1.5 text-center min-w-[3.25rem]"></td><td colspan="3" class="text-[10px] text-slate-500 px-1">per tunnela</td>`
+              : COLS.map((_,i) => i < it.cols
+                  ? `<td class="px-1"><input type="number" inputmode="decimal" min="0" step="any" data-val="${it.k}" data-i="${i}" value="${esc(c.vals[it.k][i])}" class="inp !px-1 !py-1.5 text-center min-w-[3.25rem]"></td>`
+                  : `<td class="px-1 text-center text-slate-600">—</td>`).join('')}
+          </tr>`).join('')}</tbody>
+      </table>
+    </div>
+    <p class="text-[11px] text-slate-500 mt-2">Each card counts once — cards inside a marriage aren't counted again as tiplu, poplu or jhiplu. Tunnelas count only after the player has seen the maal.</p>
+  </section>
+
+  <section class="card text-xs text-slate-400 leading-relaxed">
+    <b class="text-slate-200">How a hand is scored:</b> add up the maal of every player who has seen the joker (unseen players count 0) — that's the total maal.
+    Each player gets <b>(number of players × own maal) − total maal</b>. Then every other player pays the winner the seen or unseen game points.
+    Every hand sums to zero.
+  </section>
+
+  <button data-a="${started?'backToGame':'start'}" class="btn-primary w-full py-3.5 text-base">${started?'Save & back to table →':'Start game →'}</button>`;
+}
+A.backToGame = () => {
+  const c = S.config;
+  ['rate','seenPts','unseenPts','dubleeBonus'].forEach(k => c[k] = num(c[k]));
+  normVals(c);
+  if (!(c.rate > 0)) return toast('Rate per point must be greater than 0');
+  if ([c.seenPts, c.unseenPts, c.dubleeBonus].some(x => x < 0)) return toast('Points cannot be negative');
+  S.phase = 'game';
+};
+
+/* ================== RENDER: GAME ================== */
+function renderGame(){
+  const c = S.config;
+  const tabs = [['table','🃏','Table'],['board','🏆','Leaderboard'],['history','📜','History']];
+  const body = S.tab === 'board' ? renderBoard() : S.tab === 'history' ? renderHistory() : renderTable();
+  return `
+  <header class="pt-5 pb-3 flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <button data-a="home" class="inline-flex items-center min-h-[36px] -my-2 pr-3 text-xs font-semibold text-slate-400 hover:text-amber-300">← All games</button>
+      <h1 class="text-xl font-extrabold truncate">${esc(S.name)}</h1>
+      <div class="flex flex-wrap gap-1.5 mt-1.5">
+        <span class="pill bg-amber-400/15 text-amber-300">Rs. ${esc(c.rate)} / point</span>
+        <span class="pill bg-slate-800 text-slate-300">Seen ${esc(c.seenPts)} · Unseen ${esc(c.unseenPts)}</span>
+        ${num(c.dubleeBonus) ? `<span class="pill bg-slate-800 text-slate-300">Dublee +${esc(c.dubleeBonus)}</span>` : ''}
+      </div>
+    </div>
+    <button data-a="editSetup" class="btn-ghost shrink-0 text-xs">⚙ Rules</button>
+  </header>
+  ${S.settled ? `<div class="rounded-2xl bg-emerald-500/15 border border-emerald-500/40 p-3 mb-4 text-sm text-emerald-200 flex items-center justify-between gap-2">
+      <span>✅ Game settled — payments are final.</span><button data-a="resume" class="btn-ghost py-1.5">Resume</button></div>` : ''}
+  <nav class="flex gap-1 p-1 bg-slate-900/95 backdrop-blur border border-slate-800 rounded-2xl mb-4 sticky sticky-safe z-20">
+    ${tabs.map(([v,i,l]) => `<button data-a="tab" data-v="${v}" class="tab ${S.tab===v?'tab-on':''} flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1.5 !text-xs sm:!text-sm leading-tight"><span class="text-base leading-none">${i}</span><span>${l}</span></button>`).join('')}
+  </nav>
+  ${body}
+  <div class="fixed bottom-0 inset-x-0 z-30 bg-slate-950/85 backdrop-blur border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex gap-2" style="padding-bottom:max(.75rem,env(safe-area-inset-bottom))">
+      ${S.settled
+        ? `<button data-a="copy" class="btn-ghost flex-1">📋 Copy summary</button><button data-a="home" class="btn-primary flex-1">All games</button>`
+        : `<button data-a="tab" data-v="board" class="btn-ghost flex-1">Standings</button><button data-a="settle" class="btn-primary flex-[2]">💰 Settle game</button>`}
+    </div>
+  </div>`;
+}
+
+function renderTable(){
+  if (S.settled) return `<div class="card text-center text-slate-400 py-10">This game is settled.<br>Tap <b>Resume</b> to keep playing, or see the Leaderboard.</div>`;
+  ensureDraft();
+  const h = S.current, n = S.players.length, editing = h.editing;
+  const s = score(h, S.config), over = h.parts.length > HAND_MAX, dubOk = h.parts.length >= 4;
+  const row = id => {
+    const seen = h.st[id] === 'seen', win = h.winner === id, cnt = h.cnt[id] || {}, open = h.open === id;
+    return `
+    <div class="rounded-2xl border p-3 mb-2 ${win?'border-amber-400 bg-amber-400/10':'border-slate-700 bg-slate-800/30'}">
+      <div class="flex items-center gap-2">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold truncate">${win?'🏆 ':''}${esc(pname(id))}</div>
+        </div>
+        <div class="flex rounded-lg overflow-hidden border border-slate-700 shrink-0">
+          <button data-a="st" data-id="${id}" data-v="seen" class="seg ${seen?'bg-sky-500 text-slate-950':'bg-slate-800 text-slate-400'}">Seen</button>
+          <button data-a="st" data-id="${id}" data-v="unseen" class="seg ${!seen?'bg-violet-500 text-slate-950':'bg-slate-800 text-slate-400'}">Unseen</button>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 mt-2">
+        <input type="number" inputmode="numeric" min="0" max="${MAAL_MAX}" step="1" data-maal="${id}" enterkeyhint="done" aria-label="Maal for ${esc(pname(id))}" value="${seen ? esc(h.maal[id]) : ''}" ${seen?'':'disabled'}
+          placeholder="${seen?'Maal':'No maal'}" class="inp !w-20 !py-2 text-center font-bold">
+        <button data-a="calc" data-id="${id}" class="btn-ghost !py-2 !px-2.5 ${open?'!border-amber-400 !text-amber-300':''}" ${seen?'':'disabled'} title="Maal calculator">🧮</button>
+        <button data-a="win" data-id="${id}" class="btn !py-2 whitespace-nowrap ${win?'bg-amber-400 text-slate-950':'bg-slate-800 text-slate-300 border border-slate-700'}" aria-label="Winner" aria-pressed="${win}">🏆${win?' Winner':''}</button>
+        <div class="ml-auto text-right whitespace-nowrap">
+          <div id="pv-${id}" class="font-extrabold ${tone(s.pt[id])}">${pts(s.pt[id])}</div>
+          <div id="pm-${id}" class="text-[11px] text-slate-500">${money(s.pt[id])}</div>
+        </div>
+      </div>
+      ${open && seen ? `
+      <div class="mt-3 pt-3 border-t border-slate-700">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+          ${MAAL.map(it => { const c = num(cnt[it.k]), mx = maxFor(it, cnt), p = itemPts(it, cnt); return `
+            <div class="bg-slate-900/60 rounded-lg px-2 py-1.5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-sm min-w-0">${it.l} <span class="text-[11px] ${p?'text-amber-300':'text-slate-500'}">${p ? '= ' + p : 'max ' + mx}</span></span>
+                <span class="flex items-center gap-1 shrink-0">
+                  <button data-a="cnt" data-id="${id}" data-k="${it.k}" data-d="-1" class="step" aria-label="One less ${it.l}" ${c?'':'disabled'}>−</button>
+                  <span class="w-6 text-center font-bold">${c}</span>
+                  <button data-a="cnt" data-id="${id}" data-k="${it.k}" data-d="1" class="step" aria-label="One more ${it.l}" ${c<mx?'':'disabled'}>+</button>
+                </span>
+              </div>
+              ${!it.each && it.cols === 4 && c === 3 ? `<button data-a="cntT" data-id="${id}" data-k="${it.k}" role="checkbox" aria-checked="${!!cnt[it.k+'T']}" class="w-full flex items-center gap-2 text-xs text-slate-300 mt-1 py-2 text-left">
+                <span class="w-5 h-5 shrink-0 rounded border-2 grid place-items-center text-[11px] font-black text-slate-950 ${cnt[it.k+'T']?'bg-amber-400 border-amber-400':'border-slate-500'}">${cnt[it.k+'T']?'✓':''}</span>
+                Shown as a tunnela (${esc(S.config.vals[it.k][3])} instead of ${esc(S.config.vals[it.k][2])})</button>` : ''}
+            </div>`; }).join('')}
+        </div>
+        <div class="flex items-center justify-between mt-2 text-sm">
+          <button data-a="clearCnt" data-id="${id}" class="min-h-[36px] px-2 -ml-2 text-xs text-slate-400 hover:text-rose-300">Clear calculator</button>
+          <span>Maal = <b class="text-amber-300">${calcMaal(cnt)}</b></span>
+        </div>
+      </div>` : ''}
+    </div>`;
+  };
+  return `
+  ${editing ? `<div class="rounded-2xl bg-sky-500/15 border border-sky-500/40 p-3 mb-4 text-sm text-sky-200">✏️ Editing hand #${editing}. Save to update the leaderboard.</div>` : `
+  <section class="card">
+    <h2 class="h2">Hand #${S.hands.length+1} · players <span class="normal-case font-semibold text-slate-500 whitespace-nowrap">tap to sit out</span></h2>
+    <div class="flex flex-wrap gap-2 mb-3">
+      ${S.players.map((p,i) => { const out = S.sitOut.includes(p.id); return `
+        <button data-a="toggleSit" data-id="${p.id}" class="rounded-xl px-3 py-2 text-sm font-semibold border transition ${out?'border-slate-700 text-slate-500 line-through':'border-emerald-500/50 bg-emerald-500/10 text-emerald-200'}">
+          ${esc(p.name)}${i===S.dealer%n?' <span class="ml-1 pill bg-amber-400 text-slate-950">D</span>':''}
+        </button>`; }).join('')}
+      <button data-a="addPlayer" class="rounded-xl px-3 py-2 text-sm font-semibold border border-dashed border-slate-600 text-slate-400">+ Player</button>
+    </div>
+    <label class="lbl">Dealer</label>
+    <select data-sel="dealer" class="sel">${S.players.map((p,i) => `<option value="${i}" ${i===S.dealer%n?'selected':''}>${esc(p.name)}</option>`).join('')}</select>
+    ${over ? `<p class="text-sm text-rose-300 mt-3">⚠ ${h.parts.length} players selected — a Marriage hand is ${HAND_MIN}–${HAND_MAX}. Tap names to sit ${h.parts.length - HAND_MAX} out.</p>` : ''}
+  </section>`}
+
+  <section class="felt rounded-3xl p-4 mb-4 border border-emerald-800 text-center shadow-lg">
+    <div class="text-xs uppercase tracking-[.2em] text-emerald-200/80 font-bold">Total maal on the table</div>
+    <div id="pvT" class="text-4xl font-extrabold text-amber-300 my-1">${s.T}</div>
+    <div id="pvSum" class="text-[11px] text-emerald-200/80">${sumLine(h, s)}</div>
+  </section>
+
+  <section class="card !p-3">
+    <h2 class="h2 px-1 !mb-2">Enter maal & pick the winner</h2>
+    ${h.parts.length ? h.parts.map(row).join('') : `<p class="text-sm text-slate-500 p-2">Select ${HAND_MIN}–${HAND_MAX} players above.</p>`}
+    <button data-a="dublee" ${dubOk?'':'disabled'} role="switch" aria-checked="${!!(h.dublee&&dubOk)}" class="w-full flex items-center gap-3 mt-2 px-1 py-2.5 text-left disabled:opacity-60">
+      <span class="w-11 h-6 shrink-0 rounded-full relative transition ${h.dublee&&dubOk?'bg-amber-400':'bg-slate-700'}">
+        <span class="absolute top-0.5 ${h.dublee&&dubOk?'left-[22px]':'left-0.5'} w-5 h-5 rounded-full bg-white transition-all"></span></span>
+      <span class="text-sm">Winner finished with <b>8 dublees</b> ${!dubOk ? '<span class="text-slate-500">(needs 4+ players)</span>' : num(S.config.dubleeBonus)?`<span class="text-slate-500">(+${esc(S.config.dubleeBonus)} from each player)</span>`:''}</span>
+    </button>
+  </section>
+
+  <div class="grid grid-cols-3 gap-2 mb-4">
+    ${editing ? `<button data-a="cancelEdit" class="btn-ghost">Cancel</button>` : `<button data-a="clearHand" class="btn-ghost">Clear</button>`}
+    <button data-a="saveHand" class="btn-green col-span-2 py-3.5 text-base" ${h.parts.length<HAND_MIN||over?'disabled':''}>✓ ${editing?'Update':'Save'} hand</button>
+  </div>
+  ${!editing && S.hands.length ? miniStandings() : ''}`;
+}
+function sumLine(h, s){
+  const total = h.parts.reduce((a,id) => a + s.pt[id], 0);
+  const seen = h.parts.filter(id => h.st[id] === 'seen').length;
+  return `${seen} seen · ${h.parts.length - seen} unseen · ${h.winner ? '🏆 ' + esc(pname(h.winner)) : 'no winner yet'} · ${Math.abs(total) < 1e-9 ? '✓ hand balances to 0' : '⚠ check'}`;
+}
+function updatePreview(){
+  const h = S.current; if (!h) return;
+  const s = score(h, S.config);
+  h.parts.forEach(id => {
+    const a = document.getElementById('pv-' + id), b = document.getElementById('pm-' + id);
+    if (a){ a.textContent = pts(s.pt[id]); a.className = 'font-extrabold ' + tone(s.pt[id]); }
+    if (b) b.textContent = money(s.pt[id]);
+  });
+  const t = document.getElementById('pvT'); if (t) t.textContent = s.T;
+  const u = document.getElementById('pvSum'); if (u) u.innerHTML = sumLine(h, s);
+}
+
+function miniStandings(){
+  const rows = ledger();
+  return `<section class="card"><h2 class="h2">Live standings <button data-a="tab" data-v="board" class="normal-case text-amber-300">Full board →</button></h2>
+    ${rows.map(r => `<div class="flex justify-between py-1.5 border-b border-slate-800 last:border-0 text-sm">
+      <span><span class="text-slate-500 w-6 inline-block">${r.rank}.</span>${esc(r.name)}</span>
+      <span><span class="font-bold ${tone(r.pts)}">${pts(r.pts)}</span> <span class="text-xs text-slate-500">${money(r.pts)}</span></span></div>`).join('')}</section>`;
+}
+
+/* ================== RENDER: LEADERBOARD ================== */
+function renderBoard(){
+  const rows = ledger(), tr = transfers(rows);
+  const totalMaal = S.hands.reduce((a,h) => a + h.T, 0);
+  const best = S.hands.reduce((b,h) => { const w = h.pt[h.winner] || 0; return !b || w > b.w ? { w, name:pname(h.winner), no:h.no } : b; }, null);
+  const medal = r => r === 1 ? '🥇' : r === 2 ? '🥈' : r === 3 ? '🥉' : r;
+  const label = v => v > 0.004 ? ['Receives','text-emerald-300'] : v < -0.004 ? ['Pays','text-rose-300'] : ['Even','text-slate-400'];
+  return `
+  <div class="grid grid-cols-3 gap-2 mb-4 text-center">
+    <div class="card !mb-0 !p-3"><div class="text-xl font-extrabold">${S.hands.length}</div><div class="text-[11px] text-slate-400">Hands</div></div>
+    <div class="card !mb-0 !p-3"><div class="text-xl font-extrabold text-amber-300">${totalMaal}</div><div class="text-[11px] text-slate-400">Total maal</div></div>
+    <div class="card !mb-0 !p-3"><div class="text-xl font-extrabold text-emerald-300">${best ? pts(best.w) : '—'}</div><div class="text-[11px] text-slate-400 truncate">${best ? 'Best win · ' + esc(best.name) : 'Best win'}</div></div>
+  </div>
+
+  <section class="card">
+    <h2 class="h2">Leaderboard ${S.settled?'<span class="pill bg-emerald-500/20 text-emerald-300 normal-case">Final</span>':'<span class="normal-case font-semibold text-slate-500">live</span>'}</h2>
+    <div class="sm:hidden space-y-2">
+      ${rows.map(r => { const [lb, lc] = label(r.pts); return `
+        <div class="grid grid-cols-[2rem_1fr_auto] gap-2 items-center p-3 rounded-xl ${r.rank===1&&r.pts>0?'bg-amber-400/10 ring-1 ring-amber-400/40':'bg-slate-800/50'}">
+          <div class="text-lg text-center font-bold">${medal(r.rank)}</div>
+          <div class="min-w-0"><div class="font-semibold truncate">${esc(r.name)}</div>
+            <div class="text-[11px] text-slate-400">Played ${r.played} · Won ${r.won} · Seen ${r.seen}</div>
+            <div class="text-[11px] text-slate-400">Maal ${r.maal} · <span class="${tone(r.pts)}">${pts(r.pts)} pts</span></div></div>
+          <div class="text-right"><div class="font-extrabold ${tone(r.pts)}">${money(r.pts)}</div><div class="text-[10px] uppercase font-bold ${lc}">${lb}</div></div>
+        </div>`; }).join('')}
+    </div>
+    <div class="hidden sm:block overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr class="text-left text-xs uppercase tracking-wider text-slate-500 border-b border-slate-800">
+          <th class="py-2 pr-2">#</th><th class="pr-2">Player</th><th class="text-center">Played</th><th class="text-center">Won</th>
+          <th class="text-center">Seen</th><th class="text-right">Maal</th><th class="text-right">Points</th><th class="text-right">Net Rs.</th></tr></thead>
+        <tbody>${rows.map(r => `
+          <tr class="border-b border-slate-800/70 last:border-0 ${r.rank===1&&r.pts>0?'bg-amber-400/5':''}">
+            <td class="py-2.5 pr-2 font-bold">${medal(r.rank)}</td><td class="pr-2 font-semibold">${esc(r.name)}</td>
+            <td class="text-center text-slate-300">${r.played}</td><td class="text-center text-slate-300">${r.won}</td>
+            <td class="text-center text-slate-300">${r.seen}</td><td class="text-right text-slate-300">${r.maal}</td>
+            <td class="text-right ${tone(r.pts)}">${pts(r.pts)}</td>
+            <td class="text-right font-extrabold ${tone(r.pts)}">${money(r.pts)}</td></tr>`).join('')}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="h2">💸 Who pays whom <span class="normal-case font-semibold text-slate-500">${tr.length} payment${tr.length===1?'':'s'}</span></h2>
+    ${tr.length ? tr.map(t => `
+      <div class="flex items-center justify-between gap-2 py-2.5 border-b border-slate-800 last:border-0">
+        <div class="text-sm"><b class="text-rose-300">${esc(t.from)}</b> <span class="text-slate-500">pays</span> <b class="text-emerald-300">${esc(t.to)}</b></div>
+        <div class="font-extrabold text-amber-300 whitespace-nowrap">Rs. ${t.amt.toLocaleString('en-IN',{maximumFractionDigits:2})}</div>
+      </div>`).join('') : '<p class="text-sm text-slate-500">No payments due yet.</p>'}
+    <button data-a="copy" class="btn-ghost w-full mt-3">📋 Copy summary (WhatsApp / Viber)</button>
+  </section>`;
+}
+
+/* ================== RENDER: HISTORY ================== */
+function renderHistory(){
+  if (!S.hands.length) return `<div class="card text-center text-slate-500 py-10">No hands recorded yet.</div>`;
+  return [...S.hands].reverse().map(h => `
+    <details class="card !p-0 overflow-hidden">
+      <summary class="p-4 cursor-pointer list-none flex items-center justify-between gap-2">
+        <div class="min-w-0"><div class="font-semibold">#${h.no} · ${esc(pname(h.winner))} 🏆${h.dublee?' <span class="pill bg-amber-400/20 text-amber-300">Dublee</span>':''}</div>
+          <div class="text-xs text-slate-400 truncate">Total maal ${h.T} · ${h.parts.length} players · ${new Date(h.ts).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div></div>
+        <div class="font-bold text-emerald-300 whitespace-nowrap">${pts(h.pt[h.winner])}</div>
+      </summary>
+      <div class="px-4 pb-4 text-sm">
+        ${h.parts.map(id => `
+          <div class="flex justify-between py-1.5 border-b border-slate-800 last:border-0">
+            <span>${esc(pname(id))} <span class="text-xs ${h.st[id]==='seen'?'text-sky-300':'text-violet-300'}">· ${h.st[id]==='seen' ? 'maal ' + h.M[id] : 'unseen'}</span></span>
+            <span><span class="${tone(h.pt[id])} font-semibold">${pts(h.pt[id])}</span> <span class="text-xs text-slate-500">${money(h.pt[id])}</span></span></div>`).join('')}
+        <div class="grid grid-cols-2 gap-2 mt-3">
+          <button data-a="editHand" data-no="${h.no}" class="btn-ghost py-2 text-xs">✏️ Edit hand</button>
+          <button data-a="delHand" data-no="${h.no}" class="btn-red py-2 text-xs">Delete hand</button>
+        </div>
+      </div>
+    </details>`).join('');
+}
+
+/* ================== SUMMARY / COPY ================== */
+function summaryText(){
+  const rows = ledger(), tr = transfers(rows), c = S.config;
+  let t = `💍 Marriage — ${S.name} — ${new Date().toLocaleDateString()}\n${S.hands.length} hands · Rs. ${c.rate} per point\n\n🏆 Leaderboard\n`;
+  rows.forEach(r => t += `${r.rank}. ${r.name}: ${money(r.pts)}  (${pts(r.pts)} pts, won ${r.won})\n`);
+  t += `\n💸 Who pays whom\n` + (tr.length ? tr.map(x => `• ${x.from} → ${x.to}: Rs. ${x.amt.toLocaleString('en-IN')}`).join('\n') : 'No payments due');
+  return t;
+}
+function copyText(text){
+  const done = () => toast('Summary copied');
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, () => fallback());
+  else fallback();
+  function fallback(){ const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch(e) { prompt('Copy this summary:', text); } ta.remove(); }
+}
+
+/* ================== PHONE & APP HELPERS ================== */
+const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+let installEvt = null;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; if (!S) render(); });
+window.addEventListener('appinstalled', () => { installEvt = null; toast('Installed — open it from your home screen'); if (!S) render(); });
+A.install = () => { if (!installEvt) return; installEvt.prompt(); installEvt.userChoice.finally(() => { installEvt = null; render(); }); };
+A.hideIosHint = () => { DB.iosHintOff = true; };
+function installCard(){
+  if (isStandalone()) return '';
+  if (installEvt) return `<button data-a="install" class="btn-ghost w-full py-3 mb-4 !border-amber-400/50 !text-amber-200">📲 Install app on this phone</button>`;
+  if (isIOS && !DB.iosHintOff) return `
+    <div class="card !p-3 flex items-start gap-3 text-sm text-slate-300">
+      <span class="text-xl">📲</span>
+      <span class="flex-1">Install it: tap <b>Share</b> <span class="text-slate-400">(□↑)</span> in Safari, then <b>Add to Home Screen</b>. It then opens full-screen and works offline.</span>
+      <button data-a="hideIosHint" class="btn-ghost !min-h-0 w-8 h-8 !p-0 shrink-0" aria-label="Hide">✕</button>
+    </div>`;
+  return '';
+}
+// Keep the screen awake while a game is open (released on the home screen or when settled).
+let wakeLock = null;
+async function keepAwake(on){
+  try {
+    if (on && !wakeLock && 'wakeLock' in navigator && document.visibilityState === 'visible'){
+      wakeLock = await navigator.wakeLock.request('screen');
+      wakeLock.addEventListener('release', () => wakeLock = null);
+    } else if (!on && wakeLock){ const w = wakeLock; wakeLock = null; await w.release(); }
+  } catch(e){}
+}
+const wantAwake = () => !!S && S.phase === 'game' && !S.settled;
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') keepAwake(wantAwake()); });
+// Android / browser back button: close dialog → leave edit → back to Table → back to game list.
+function syncHistory(){
+  const deep = !!S || !!pendingAsk, st = history.state && history.state.deep;
+  try { if (deep && !st) history.pushState({ deep:1 }, ''); else if (!deep && st) history.back(); } catch(e){}
+}
+window.addEventListener('popstate', () => {
+  if (pendingAsk) pendingAsk = null;
+  else if (S && S.current && S.current.editing){ S.current = null; S.tab = 'history'; }
+  else if (S && S.phase === 'game' && S.tab !== 'table') S.tab = 'table';
+  else if (S) S = null;
+  render();
+});
+function persistStorage(){ try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch(e){} }
+if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol))
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+
+/* ================== RENDER LOOP & EVENTS ================== */
+function render(){
+  save();
+  document.getElementById('app').innerHTML = !S ? renderHome() : S.phase === 'setup' ? renderSetup() : renderGame();
+  document.getElementById('modal').innerHTML = pendingAsk ? renderAsk() : '';
+  const ai = document.getElementById('askInp'); if (ai){ ai.focus(); ai.select(); }
+  keepAwake(wantAwake()); syncHistory();
+}
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-a]'); if (!el || el.disabled) return;
+  const fn = A[el.dataset.a]; if (fn){ fn(el.dataset); render(); }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.target.id === 'askInp'){ A.askYes(); render(); }
+  else if (e.key === 'Enter' && e.target.dataset.maal) e.target.blur();
+});
+document.addEventListener('focusin', e => { if (e.target.dataset && e.target.dataset.maal) try { e.target.select(); } catch(_){} });
+document.addEventListener('input', e => {
+  const t = e.target, d = t.dataset;
+  if (d.name !== undefined){ S.setupNames[+d.name] = t.value; save(); }
+  else if (d.cfg){ S.config[d.cfg] = t.value; save(); }
+  else if (d.val){ if (d.i !== undefined) S.config.vals[d.val][+d.i] = t.value; else S.config.vals[d.val] = t.value; save(); }
+  else if (d.maal && S.current){ S.current.maal[d.maal] = t.value; S.current.cnt[d.maal] = {}; save(); updatePreview(); }
+});
+document.addEventListener('change', e => {
+  const t = e.target;
+  if (t.dataset.sel === 'dealer'){ S.dealer = +t.value; S.current && !S.current.editing && (S.current.parts = []); render(); }
+});
+render();
+</script>
+</body>
+</html>

@@ -7,7 +7,7 @@ Set BASE_URL to your real domain before deploying — canonical, hreflang and si
 import argparse, datetime, hashlib, html, json, os, re, shutil, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import content_en, content_ne  # noqa: E402
+import content_en, content_ne, content_tools  # noqa: E402
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist")
@@ -23,6 +23,9 @@ SLUGS = {
 GAME = {"cb_tool": "callbreak", "mar_tool": "marriage", "tp_tool": "teenpatti"}
 RULES_OF = {"cb_tool": "cb_rules", "mar_tool": "mar_rules", "tp_tool": "tp_rules"}
 CONTENT = {"en": content_en.PAGES, "ne": content_ne.PAGES}
+for _lang in CONTENT:
+    CONTENT[_lang].update(content_tools.TOOLS[_lang])
+APPS = os.path.join(ROOT, "apps")
 
 UI = {
     "en": dict(
@@ -30,7 +33,7 @@ UI = {
                "cb_rules": "Call Break Rules", "mar_rules": "Marriage Rules", "tp_rules": "Teen Patti Rules", "faq": "FAQ"},
         nav=[("home", "Home", "⌂"), ("cb_tool", "Call Break", "♠"), ("mar_tool", "Marriage", "♥"), ("tp_tool", "Teen Patti", "♣")],
         switch="नेपाली", faqH="Frequently asked questions", tools="Score trackers", rules="Rules & guides",
-        foot="Points only — TaasMaster has no real-money features.", noscript="Please turn on JavaScript to use the tracker.",
+        foot="TaasMaster records games played in person. It never takes bets, holds money or processes payments.", noscript="Please turn on JavaScript to use the tracker.",
         rulesLink="Read the rules", locale="en_US", nav_label="Main", loading="Loading tracker…",
     ),
     "ne": dict(
@@ -38,7 +41,7 @@ UI = {
                "cb_rules": "कल ब्रेकको नियम", "mar_rules": "म्यारिजको नियम", "tp_rules": "तीन पत्तीको नियम", "faq": "प्रश्नोत्तर"},
         nav=[("home", "गृह", "⌂"), ("cb_tool", "कल ब्रेक", "♠"), ("mar_tool", "म्यारिज", "♥"), ("tp_tool", "तीन पत्ती", "♣")],
         switch="English", faqH="बारम्बार सोधिने प्रश्न", tools="स्कोर ट्र्याकर", rules="नियम र जानकारी",
-        foot="अंक मात्र — तासमास्टरमा पैसाको कुनै सुविधा छैन।", noscript="ट्र्याकर चलाउन JavaScript खोल्नुहोस्।",
+        foot="तासमास्टरले आमनेसामने खेलिने खेल मात्र रेकर्ड गर्छ। यसले दाउ लिँदैन, पैसा राख्दैन र भुक्तानी गर्दैन।", noscript="ट्र्याकर चलाउन JavaScript खोल्नुहोस्।",
         rulesLink="नियम पढ्नुहोस्", locale="ne_NP", nav_label="मुख्य", loading="ट्र्याकर खुल्दैछ…",
     ),
 }
@@ -146,8 +149,8 @@ def page(lang, key, version):
     crumbs = "" if key == "home" else f'<p class="crumbs"><a href="{path(lang, "home")}">{e(ui["short"]["home"])}</a> › {e(ui["short"][key])}</p>'
     body = crumbs + f"<h1>{e(pg['h1'])}</h1>\n<p class=\"lede\">{e(pg['lede'])}</p>\n"
     if key in GAME:
-        body += (f'<div id="app" data-game="{GAME[key]}"><p class="note">{ui["loading"]}</p>'
-                 f'<noscript><p class="msg">{ui["noscript"]}</p></noscript></div>\n')
+        body += (f'<p><a class="btn" style="display:flex;align-items:center;justify-content:center;text-decoration:none" '
+                 f'href="{path("en", key)}">{content_tools.OPEN[lang]} →</a></p>\n')
     body += fill_links(pg["body"], lang)
     if pg.get("faq"):
         body += f'<section class="faq"><h2>{ui["faqH"]}</h2>' + "".join(
@@ -172,6 +175,61 @@ def page(lang, key, version):
 </html>
 """
     return pre(head + body + foot)
+
+
+def app_page(key, version):
+    """Copy one of the user's tracker apps into its page folder and add the SEO layer around it."""
+    lang, pg, ui, e = "en", CONTENT["en"][key], UI["en"], html.escape
+    src, out = os.path.join(APPS, GAME[key]), os.path.join(DIST, SLUGS[key])
+    shutil.copytree(src, out)
+    f = os.path.join(out, "index.html")
+    s = open(f, encoding="utf-8").read()
+    s = re.sub(r"<title>.*?</title>", lambda m: f"<title>{e(pg['title'])}</title>", s, count=1, flags=re.S)
+    s = re.sub(r'<meta name="description" content="[^"]*">', lambda m: f'<meta name="description" content="{e(pg["desc"])}">', s, count=1)
+    extra = f"""<link rel="canonical" href="{absu(lang, key)}">
+<link rel="alternate" hreflang="en" href="{absu('en', key)}">
+<link rel="alternate" hreflang="ne" href="{absu('ne', key)}">
+<link rel="alternate" hreflang="x-default" href="{absu('en', key)}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{SITE[lang]}">
+<meta property="og:title" content="{e(pg['title'])}">
+<meta property="og:description" content="{e(pg['desc'])}">
+<meta property="og:url" content="{absu(lang, key)}">
+<meta property="og:image" content="{BASE_URL}/icons/og.png">
+<meta name="twitter:card" content="summary_large_image">
+{schema(lang, key, pg)}
+</head>"""
+    assert s.count("</head>") == 1
+    s = s.replace("</head>", extra)
+    links = lambda keys: " ".join(f'<a href="{path(lang, k)}">{e(ui["short"][k])}</a>' for k in keys)
+    section = pre(f"""
+<section class="tm-seo" aria-labelledby="tm-seo-h">
+<style>
+.tm-seo{{max-width:880px;margin:0 auto;padding:28px 16px calc(150px + env(safe-area-inset-bottom));font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:inherit}}
+.tm-seo>hr{{border:0;border-top:1px solid rgba(127,127,127,.3);margin:0 0 22px}}
+.tm-seo h2{{font-size:19px;font-weight:700;margin:0 0 6px}}.tm-seo h3{{font-size:16px;font-weight:700;margin:18px 0 6px}}.tm-seo p{{margin:0 0 10px}}.tm-seo strong{{font-weight:700}}
+.tm-seo p,.tm-seo li{{opacity:.88}}.tm-seo ul{{list-style:disc;padding-left:20px;margin:6px 0}}.tm-seo li{{margin:3px 0}}.tm-seo a{{color:inherit;text-decoration:underline}}
+.tm-seo .tm-rules{{display:block;text-align:center;padding:12px;border:1px solid rgba(127,127,127,.4);border-radius:12px;margin:18px 0;font-weight:700;text-decoration:none}}
+.tm-seo nav{{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;margin-top:8px}}.tm-seo small{{opacity:.7}}
+</style>
+<hr>
+<h2 id="tm-seo-h">{e(pg['h1'])}</h2>
+<p>{e(pg['lede'])}</p>
+{fill_links(pg['body'], lang)}
+<a class="tm-rules" href="{path(lang, RULES_OF[key])}">{e(ui['rulesLink'])}: {e(ui['short'][RULES_OF[key]])} →</a>
+<nav aria-label="{ui['tools']}"><strong>{ui['tools']}:</strong> {links(['cb_tool', 'mar_tool', 'tp_tool'])}</nav>
+<nav aria-label="{ui['rules']}"><strong>{ui['rules']}:</strong> {links(['cb_rules', 'mar_rules', 'tp_rules', 'faq'])}</nav>
+<nav><a href="{path('en', 'home')}">{SITE[lang]} – {e(ui['short']['home'])}</a> <a href="{path('ne', key)}" hreflang="ne" lang="ne">नेपाली</a></nav>
+</section>
+""")
+    markers = {"callbreak": '<div id="toast" class="toast"', "teenpatti": '<div id="app" class="max-w-3xl mx-auto px-4 pb-32"></div>',
+               "marriage": '<div id="app" class="max-w-3xl mx-auto px-4 pb-32"></div>'}
+    m = markers[GAME[key]]
+    assert s.count(m) == 1, (key, m)
+    s = s.replace(m, section + m) if GAME[key] == "callbreak" else s.replace(m, m + section)
+    open(f, "w", encoding="utf-8").write(s)
+    return [path(lang, key) + os.path.relpath(os.path.join(r, n), out).replace(os.sep, "/")
+            for r, _, fs in os.walk(out) for n in fs if n not in ("index.html", "sw.js")]
 
 
 def write(rel, data, mode="w"):
@@ -244,14 +302,20 @@ def main():
     h = hashlib.sha1()
     for fn in sorted(os.listdir(os.path.join(SRC, "assets"))):
         h.update(open(os.path.join(SRC, "assets", fn), "rb").read())
+    for r, _, fs in sorted(os.walk(APPS)):
+        for fn in sorted(fs):
+            h.update(open(os.path.join(r, fn), "rb").read())
     h.update(json.dumps([CONTENT, BASE_URL], ensure_ascii=False, default=str).encode())
     version = h.hexdigest()[:10]
 
-    pages = []
+    pages, app_files = [], []
     for lang in ("en", "ne"):
         for key in SLUGS:
             p = path(lang, key)
-            write(p.lstrip("/") + "index.html", page(lang, key, version))
+            if lang == "en" and key in GAME:
+                app_files.extend(app_page(key, version))
+            else:
+                write(p.lstrip("/") + "index.html", page(lang, key, version))
             pages.append((lang, key, p))
         write(("ne/" if lang == "ne" else "") + "manifest.webmanifest", manifest(lang))
 
@@ -264,7 +328,7 @@ def main():
     # Service worker: precache everything so the site works fully offline after the first visit.
     precache = [p for _, _, p in pages] + ["/404.html", f"/assets/style.css?v={version}", f"/assets/app.js?v={version}",
                 "/manifest.webmanifest", "/ne/manifest.webmanifest", "/icons/favicon.svg", "/icons/icon-192.png",
-                "/icons/icon-512.png", "/icons/maskable-512.png", "/icons/apple-touch-icon.png"]
+                "/icons/icon-512.png", "/icons/maskable-512.png", "/icons/apple-touch-icon.png"] + app_files
     precache = [PREFIX + u for u in precache]
     write("sw.js", open(os.path.join(SRC, "sw.template.js"), encoding="utf-8").read()
           .replace("__VERSION__", version).replace("__ROOT__", PREFIX + "/").replace("__PRECACHE__", json.dumps(precache)))

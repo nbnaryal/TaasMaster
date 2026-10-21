@@ -35,6 +35,14 @@ Upload the **contents** of `dist/` to the root of your domain. The site must sit
 3. Use **URL Inspection → Request indexing** for the three tracker pages and the home page.
 4. Check **Enhancements** for FAQ and Software App structured data. You can also test any URL at https://search.google.com/test/rich-results.
 
+## The three tracker apps
+Your apps live in `apps/callbreak`, `apps/teenpatti` and `apps/marriage`. Each is a complete app with its own icons, manifest and service worker.
+The build copies them unchanged to `/call-break-score/`, `/teen-patti-tracker/` and `/marriage-calculator/`.
+It only replaces the title and description, adds the SEO tags (canonical, hreflang, Open Graph, structured data), and adds a short section with links below the app.
+To update an app, replace its files in `apps/` and push.
+The Nepali tracker pages (`/ne/...`) are Nepali guide pages with a button that opens the app.
+The text for all six tracker pages is in `content_tools.py`.
+
 ## Editing content
 - Page text: `content_en.py` and `content_ne.py`. Each rules page's `faq` list feeds both the visible FAQ and the `FAQPage` schema.
 - Tracker logic and strings: `src/assets/app.js`. Styles: `src/assets/style.css`.

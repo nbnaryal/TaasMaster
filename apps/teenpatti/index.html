@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#020617">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Track boots, chaal, pots and cash settlements for Teen Patti games played at the table.">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Teen Patti">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>Teen Patti Tracker</title>
+<style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.card{margin-bottom:1rem;border-radius:1rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1));background-color:rgba(15,23,42,.8);padding:1rem}.h2{margin-bottom:.75rem;display:flex;align-items:center;justify-content:space-between;font-size:.875rem;line-height:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}.h2,.lbl{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.lbl{margin-bottom:.25rem;display:block;font-size:.75rem;line-height:1rem;font-weight:600}.inp{width:100%;border-radius:.75rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1));padding:.625rem .75rem;--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.inp::-moz-placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139/var(--tw-placeholder-opacity,1))}.inp::placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139/var(--tw-placeholder-opacity,1))}.inp:focus{--tw-border-opacity:1;border-color:rgb(251 191 36/var(--tw-border-opacity,1));outline:2px solid transparent;outline-offset:2px;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);--tw-ring-color:rgba(251,191,36,.6)}.sel{width:100%;border-radius:.5rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1));padding:.5rem;--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.sel:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);--tw-ring-color:rgba(251,191,36,.6)}.btn{display:inline-flex;min-height:40px;-webkit-user-select:none;-moz-user-select:none;user-select:none;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn:disabled{pointer-events:none;opacity:.4}.btn-primary{display:inline-flex;min-height:40px;-webkit-user-select:none;-moz-user-select:none;user-select:none;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn-primary:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-primary:disabled{pointer-events:none;opacity:.4}.btn-primary{--tw-bg-opacity:1;background-color:rgb(251 191 36/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}@media (hover:hover) and (pointer:fine){.btn-primary:hover{--tw-bg-opacity:1;background-color:rgb(252 211 77/var(--tw-bg-opacity,1))}}.btn-green{display:inline-flex;min-height:40px;-webkit-user-select:none;-moz-user-select:none;user-select:none;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn-green:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-green:disabled{pointer-events:none;opacity:.4}.btn-green{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}@media (hover:hover) and (pointer:fine){.btn-green:hover{--tw-bg-opacity:1;background-color:rgb(52 211 153/var(--tw-bg-opacity,1))}}.btn-red{display:inline-flex;min-height:40px;-webkit-user-select:none;-moz-user-select:none;user-select:none;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn-red:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-red:disabled{pointer-events:none;opacity:.4}.btn-red{border-width:1px;border-color:rgba(244,63,94,.3);background-color:rgba(244,63,94,.15);--tw-text-opacity:1;color:rgb(253 164 175/var(--tw-text-opacity,1))}@media (hover:hover) and (pointer:fine){.btn-red:hover{background-color:rgba(244,63,94,.25)}}.btn-ghost{display:inline-flex;min-height:40px;-webkit-user-select:none;-moz-user-select:none;user-select:none;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn-ghost:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-ghost:disabled{pointer-events:none;opacity:.4}.btn-ghost{border-width:1px;--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}@media (hover:hover) and (pointer:fine){.btn-ghost:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}}.pill{display:inline-flex;align-items:center;border-radius:9999px;padding:.125rem .5rem;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.025em}.tab{flex:1 1 0%;border-radius:.75rem;padding-top:.5rem;padding-bottom:.5rem;font-size:.875rem;line-height:1.25rem;font-weight:600;--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.tab-on{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent;overscroll-behavior-y:contain}[data-a],button,label,select{touch-action:manipulation;-webkit-user-select:none;-moz-user-select:none;user-select:none}input{-webkit-user-select:text;-moz-user-select:text;user-select:text}#app{padding-top:env(safe-area-inset-top);padding-left:max(1rem,env(safe-area-inset-left));padding-right:max(1rem,env(safe-area-inset-right))}.sticky-safe{top:calc(.5rem + env(safe-area-inset-top))}.sheet{max-height:calc(100dvh - env(safe-area-inset-top) - 1rem);padding-bottom:max(1rem,env(safe-area-inset-bottom))}#toast{bottom:calc(6rem + env(safe-area-inset-bottom));max-width:calc(100vw - 2rem);text-align:center}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}.felt{background:radial-gradient(ellipse at top,#065f46 0,#064e3b 45%,#022c22 100%)}.toast{transition:opacity .25s,transform .25s}.pointer-events-none{pointer-events:none}.visible{visibility:visible}.fixed{position:fixed}.sticky{position:sticky}.inset-0{inset:0}.inset-x-0{left:0;right:0}.bottom-0{bottom:0}.left-1\/2{left:50%}.z-20{z-index:20}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.z-\[60\]{z-index:60}.col-span-2{grid-column:span 2/span 2}.mx-auto{margin-left:auto;margin-right:auto}.my-1{margin-top:.25rem;margin-bottom:.25rem}.\!mb-0{margin-bottom:0!important}.mb-1{margin-bottom:.25rem}.mb-1\.5{margin-bottom:.375rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.ml-1{margin-left:.25rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-6{margin-top:1.5rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-5{height:1.25rem}.h-7{height:1.75rem}.min-h-\[100dvh\]{min-height:100dvh}.min-h-\[40px\]{min-height:40px}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-3xl{max-width:48rem}.max-w-\[14rem\]{max-width:14rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.flex-\[2\]{flex:2}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.list-none{list-style-type:none}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-\[2rem_1fr_auto\]{grid-template-columns:2rem 1fr auto}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.overscroll-contain{overscroll-behavior:contain}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.rounded-t-3xl{border-top-left-radius:1.5rem;border-top-right-radius:1.5rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-t{border-top-width:1px}.border-amber-400{--tw-border-opacity:1;border-color:rgb(251 191 36/var(--tw-border-opacity,1))}.border-amber-400\/30{border-color:rgba(251,191,36,.3)}.border-amber-400\/40{border-color:rgba(251,191,36,.4)}.border-amber-400\/50{border-color:rgba(251,191,36,.5)}.border-amber-400\/60{border-color:rgba(251,191,36,.6)}.border-emerald-500\/40{border-color:rgba(16,185,129,.4)}.border-emerald-500\/50{border-color:rgba(16,185,129,.5)}.border-emerald-800{--tw-border-opacity:1;border-color:rgb(6 95 70/var(--tw-border-opacity,1))}.border-rose-500\/30{border-color:rgba(244,63,94,.3)}.border-sky-500\/40{border-color:rgba(14,165,233,.4)}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.border-slate-800\/70{border-color:rgba(30,41,59,.7)}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36/var(--tw-bg-opacity,1))}.bg-amber-400\/10{background-color:rgba(251,191,36,.1)}.bg-amber-400\/15{background-color:rgba(251,191,36,.15)}.bg-amber-400\/20{background-color:rgba(251,191,36,.2)}.bg-amber-400\/5{background-color:rgba(251,191,36,.05)}.bg-black\/30{background-color:rgba(0,0,0,.3)}.bg-black\/70{background-color:rgba(0,0,0,.7)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.bg-emerald-500\/10{background-color:rgba(16,185,129,.1)}.bg-emerald-500\/15{background-color:rgba(16,185,129,.15)}.bg-emerald-500\/20{background-color:rgba(16,185,129,.2)}.bg-rose-500\/15{background-color:rgba(244,63,94,.15)}.bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233/var(--tw-bg-opacity,1))}.bg-sky-500\/20{background-color:rgba(14,165,233,.2)}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.bg-slate-800\/40{background-color:rgba(30,41,59,.4)}.bg-slate-800\/50{background-color:rgba(30,41,59,.5)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-slate-900\/80{background-color:rgba(15,23,42,.8)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1))}.bg-slate-950\/85{background-color:rgba(2,6,23,.85)}.bg-violet-500\/20{background-color:rgba(139,92,246,.2)}.\!p-0{padding:0!important}.\!p-2{padding:.5rem!important}.\!p-3{padding:.75rem!important}.p-1{padding:.25rem}.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.\!py-2{padding-top:.5rem!important;padding-bottom:.5rem!important}.px-1{padding-left:.25rem;padding-right:.25rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.pb-3{padding-bottom:.75rem}.pb-32{padding-bottom:8rem}.pb-4{padding-bottom:1rem}.pr-2{padding-right:.5rem}.pt-5{padding-top:1.25rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.normal-case{text-transform:none}.leading-snug{line-height:1.375}.tracking-\[\.2em\]{letter-spacing:.2em}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.text-amber-200{--tw-text-opacity:1;color:rgb(253 230 138/var(--tw-text-opacity,1))}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}.text-amber-300\/80{color:rgba(252,211,77,.8)}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36/var(--tw-text-opacity,1))}.text-emerald-200{--tw-text-opacity:1;color:rgb(167 243 208/var(--tw-text-opacity,1))}.text-emerald-200\/80{color:rgba(167,243,208,.8)}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183/var(--tw-text-opacity,1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153/var(--tw-text-opacity,1))}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175/var(--tw-text-opacity,1))}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133/var(--tw-text-opacity,1))}.text-sky-200{--tw-text-opacity:1;color:rgb(186 230 253/var(--tw-text-opacity,1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252/var(--tw-text-opacity,1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42/var(--tw-text-opacity,1))}.text-slate-950{--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.text-violet-300{--tw-text-opacity:1;color:rgb(196 181 253/var(--tw-text-opacity,1))}.line-through{text-decoration-line:line-through}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.placeholder-slate-500::-moz-placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139/var(--tw-placeholder-opacity,1))}.placeholder-slate-500::placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139/var(--tw-placeholder-opacity,1))}.accent-amber-400{accent-color:#fbbf24}.opacity-0{opacity:0}.opacity-50{opacity:.5}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-lg{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-amber-400\/40{--tw-ring-color:rgba(251,191,36,.4)}.ring-amber-400\/60{--tw-ring-color:rgba(251,191,36,.6)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.last\:border-0:last-child{border-width:0}@media (hover:hover) and (pointer:fine){.hover\:bg-slate-800\/40:hover{background-color:rgba(30,41,59,.4)}.hover\:bg-slate-800\/60:hover{background-color:rgba(30,41,59,.6)}.hover\:text-amber-300:hover{--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-amber-400\/60:focus{--tw-ring-color:rgba(251,191,36,.6)}.active\:scale-\[\.97\]:active{--tw-scale-x:.97;--tw-scale-y:.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.disabled\:pointer-events-none:disabled{pointer-events:none}.disabled\:opacity-40:disabled{opacity:.4}@media (min-width:640px){.sm\:block{display:block}.sm\:hidden{display:none}.sm\:max-w-md{max-width:28rem}.sm\:items-center{align-items:center}.sm\:rounded-3xl{border-radius:1.5rem}.sm\:p-4{padding:1rem}}</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-[100dvh] antialiased">
+<div id="app" class="max-w-3xl mx-auto px-4 pb-32"></div>
+<div id="modal"></div>
+<div id="toast" role="status" aria-live="polite" class="toast fixed left-1/2 -translate-x-1/2 z-50 opacity-0 pointer-events-none bg-slate-100 text-slate-900 text-sm font-semibold px-4 py-2 rounded-full shadow-xl"></div>
+
+<script>
+/* ================== STATE & STORAGE ================== */
+const KEY = 'teenpatti_tracker_v1';
+
+function fresh(){
+  return { phase:'setup', tab:'table', settled:false,
+    config:{ mode:'chaal', bootType:'equal', trackBoot:false, boot:100, blind:100, maxBlind:1600, potLimit:0, ultoAmt:100, blindShow:true, seenNoShowBlind:false, sideShow:true, ulto:false },
+    setupNames:['','',''], players:[], hands:[], current:null, modal:null, sitOut:[], dealer:0, bootIdx:0 };
+}
+// Every game (its own players, settings, hands and leaderboard) is saved separately.
+const DB_KEY = 'teenpatti_games_v2';
+const uid = () => 'g' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
+function migrate(g){
+  if (!g.config.bootType) g.config.bootType = 'equal';
+  if (g.config.trackBoot === undefined) g.config.trackBoot = false;
+  if (g.bootIdx === undefined) g.bootIdx = 0;
+  [['blindShow',true],['seenNoShowBlind',false],['sideShow',true],['ulto',false]].forEach(([k,v]) => { if (g.config[k] === undefined) g.config[k] = v; });
+  if (g.config.ultoAmt === undefined) g.config.ultoAmt = g.config.boot || 100;
+  delete g.config.chipValue; delete g.config.seqRule;
+  if (!g.id) g.id = uid();
+  if (!g.name) g.name = 'Game';
+  if (!g.created) g.created = Date.now();
+  if (g.modal && !g.current) g.modal = null;
+  return g;
+}
+function loadDB(){
+  try { const d = JSON.parse(localStorage.getItem(DB_KEY)); if (d && Array.isArray(d.games)){ d.games.forEach(migrate); return d; } } catch(e){}
+  const d = { games:[], activeId:null };
+  try { const old = JSON.parse(localStorage.getItem(KEY)); if (old && old.config){ old.name = 'Game 1'; migrate(old); d.games.push(old); d.activeId = old.id; } } catch(e){}
+  return d;
+}
+function save(){ if (S) S.updated = Date.now(); try{ localStorage.setItem(DB_KEY, JSON.stringify(DB)); }catch(e){} }
+const DB = loadDB();
+let S = DB.games.find(g => g.id === DB.activeId) || null;   // the game that is open right now (null = games list)
+function openGame(id){ S = DB.games.find(g => g.id === id) || null; DB.activeId = S ? S.id : null; pendingAsk = null; }
+
+/* ================== HELPERS ================== */
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const r2 = x => Math.round(x*100)/100;
+const cv = () => 1;   // all amounts are entered directly in Rs.
+const bootLabel = () => S.config.bootType === 'round' ? 'Round boot' : 'Equal boot';
+// Round boot: the next player in rotation (skipping anyone sitting out) puts the whole boot.
+function roundPayer(){
+  const n = S.players.length;
+  for (let k=0;k<n;k++){ const idx = (S.bootIdx + k) % n, p = S.players[idx]; if (!S.sitOut.includes(p.id)) return { id:p.id, next:(idx+1)%n }; }
+  return null;
+}
+// Bet multipliers on the current blind stake. Normal: Blind 1×, Seen 2×.
+// Ulto hand: the blind stake starts at the Ulto amount; Blind pays 1×, Seen pays 3×.
+// Ulto is decided per hand (during the boot check) by the player just before the dealer.
+const isUlto = () => S.config.mode === 'chaal' && !!(S.current && S.current.ulto);
+const ultoAllowed = () => S.config.mode === 'chaal' && !!S.config.ulto;
+// The player just before the dealer (skipping anyone sitting out) — the only one who may call Ulto.
+function ultoCaller(){
+  const n = S.players.length;
+  for (let k=1;k<n;k++){ const p = S.players[(S.dealer - k + n*2) % n]; if (!S.sitOut.includes(p.id)) return p.id; }
+  return null;
+}
+// Turn on/off Ulto for the current hand: Ulto → the caller starts; Normal → player after the dealer starts.
+// Ulto amount: chosen when Ulto is called, any multiple of Rs. 5 up to the Ulto limit set at the start.
+const ULTO_STEP = 5;
+const ultoLimit = () => Math.max(ULTO_STEP, Math.floor((Number(S.config.ultoAmt) || 0) / ULTO_STEP) * ULTO_STEP);
+const clampUlto = v => Math.min(ultoLimit(), Math.max(ULTO_STEP, Math.round((Number(v) || ultoLimit()) / ULTO_STEP) * ULTO_STEP));
+// Turn Ulto on/off (and set its amount) for the current hand.
+// Ulto → caller puts the Ulto amount in the pot, starts, and the blind stake becomes that amount.
+function setHandUlto(on, amt){
+  const h = S.current; if (!h || !h.ultoBy) return;
+  on = !!on;
+  const i = h.log.findIndex(l => l.t === 'Ulto');                 // take back any earlier Ulto payment
+  if (i >= 0){ h.contrib[h.log[i].pid] -= h.log[i].amt; h.log.splice(i, 1); }
+  h.ultoAmt = clampUlto(amt !== undefined ? amt : h.ultoAmt);
+  h.ulto = on;
+  if (on) pay(h.ultoBy, h.ultoAmt, 'Ulto');
+  h.stake = on ? h.ultoAmt : S.config.blind;
+  const first = h.ulto ? h.ultoBy : h.normalFirst, k = h.parts.indexOf(first);
+  if (k > 0) h.parts = h.parts.slice(k).concat(h.parts.slice(0, k));
+  h.turn = h.parts[0];
+}
+const betMult = st => isUlto() ? (st === 'seen' ? 3 : 1) : (st === 'seen' ? 2 : 1);
+// One full round = every player in the hand has acted at least once (chaal, raise, show or pack).
+const roundDone = h => h.parts.every(id => (h.acted || []).includes(id));
+// Show rules:
+//  - Blind player (if "Blind can show" is on): any number of players remaining, after the first full round.
+//  - Seen player: when everyone still in has seen (any number of players), or when exactly 2 remain
+//    (subject to "Seen cannot show blind").
+function showCheck(h, pid){
+  const act = active(h), c = S.config;
+  if (h.status[pid] === 'blind'){
+    if (!c.blindShow) return { ok:false, why: act.length === 2 ? 'Blind players cannot ask for a show at this table.' : '' };
+    if (!roundDone(h)) return { ok:false, why:'Blind show opens after the first full round.' };
+    return { ok:true, why:'' };
+  }
+  if (act.every(id => h.status[id] === 'seen')) return { ok:true, why:'' };   // everyone still in has seen → anyone can show
+  if (act.length !== 2) return { ok:false, why:'' };
+  const other = act.find(x => x !== pid);
+  if (h.status[pid] === 'seen' && c.seenNoShowBlind && h.status[other] === 'blind') return { ok:false, why:`A seen player cannot show ${pname(other)} while they are still blind.` };
+  return { ok:true, why:'' };
+}
+// Raise: the new blind stake can be any multiple of Rs. 5 above the current stake, up to the chaal limit.
+const RAISE_STEP = 5;
+function raiseRange(h){
+  const min = Math.floor(h.stake / RAISE_STEP) * RAISE_STEP + RAISE_STEP;
+  const max = Math.floor(S.config.maxBlind / RAISE_STEP) * RAISE_STEP;
+  return { min, max, ok: min <= max };
+}
+function raiseTarget(h){
+  const r = raiseRange(h); let v = Number(h.raiseTo) || r.min;
+  return Math.min(Math.max(v, r.min), r.max);
+}
+// Side show: seen player vs the immediately preceding active player, who must also be seen.
+function sideCheck(h, pid){
+  const prev = prevActive(h, pid);
+  const ok = !!S.config.sideShow && h.status[pid] === 'seen' && active(h).length > 2 && prev !== pid && h.status[prev] === 'seen';
+  return { ok, prev };
+}
+const pname = id => (S.players.find(p => p.id === id) || {}).name || '?';
+function money(chips, signed){
+  const v = r2(chips * cv());
+  const s = Math.abs(v).toLocaleString('en-IN', {maximumFractionDigits:2});
+  const sign = signed ? (v > 0 ? '+' : v < 0 ? '−' : '') : (v < 0 ? '−' : '');
+  return `${sign}Rs. ${s}`;
+}
+const tone = v => v > 0.004 ? 'text-emerald-400' : v < -0.004 ? 'text-rose-400' : 'text-slate-300';
+const potOf = h => Object.values(h.contrib).reduce((a,b) => a+b, 0);
+const active = h => h.parts.filter(id => h.status[id] !== 'folded');
+function nextActive(h, from){ const n=h.parts.length, i=h.parts.indexOf(from); for(let k=1;k<=n;k++){ const id=h.parts[(i+k)%n]; if(h.status[id]!=='folded') return id; } return from; }
+function prevActive(h, from){ const n=h.parts.length, i=h.parts.indexOf(from); for(let k=1;k<=n;k++){ const id=h.parts[(i-k+n)%n]; if(h.status[id]!=='folded') return id; } return from; }
+let toastT;
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.style.opacity='1'; clearTimeout(toastT); toastT=setTimeout(()=>t.style.opacity='0',2200); }
+
+/* ================== LEDGER & SETTLEMENT ================== */
+function ledger(){
+  const L = {};
+  S.players.forEach(p => L[p.id] = { id:p.id, name:p.name, played:0, won:0, wag:0, rec:0 });
+  S.hands.forEach(h => {
+    h.parts.forEach(id => { if(L[id]){ L[id].played++; L[id].wag += h.contrib[id] || 0; } });
+    Object.entries(h.payout).forEach(([id,a]) => { if(L[id]) L[id].rec += a; });
+    h.winners.forEach(id => { if(L[id]) L[id].won++; });
+  });
+  const rows = Object.values(L);
+  rows.forEach(r => r.net = r.rec - r.wag);
+  rows.forEach(r => r.final = r.net);   // final amount = total won − total put in
+  rows.sort((a,b) => b.final - a.final || b.won - a.won);
+  rows.forEach((r,i) => r.rank = (i>0 && Math.abs(r.final - rows[i-1].final) < 1e-9) ? rows[i-1].rank : i+1);
+  return { rows };
+}
+function transfers(rows){
+  const cr = [], db = [];
+  rows.forEach(r => { const c = r2(r.final * cv()); if (c > 0.004) cr.push({n:r.name, a:c}); else if (c < -0.004) db.push({n:r.name, a:-c}); });
+  cr.sort((a,b) => b.a-a.a); db.sort((a,b) => b.a-a.a);
+  const out = []; let i=0, j=0;
+  while (i < db.length && j < cr.length){
+    const x = r2(Math.min(db[i].a, cr[j].a));
+    if (x > 0) out.push({ from:db[i].n, to:cr[j].n, amt:x });
+    db[i].a = r2(db[i].a - x); cr[j].a = r2(cr[j].a - x);
+    if (db[i].a < 0.005) i++; if (cr[j].a < 0.005) j++;
+  }
+  return out;
+}
+
+/* ================== GAME ACTIONS ================== */
+function snapshot(){ const h=S.current; const {undo, ...rest} = h; const u = undo || []; u.push(JSON.parse(JSON.stringify(rest))); if(u.length>40) u.shift(); h.undo = u; }
+function pay(pid, amt, t){ const h=S.current; h.contrib[pid] = (h.contrib[pid]||0) + amt; h.log.push({pid, t, amt}); }
+
+function startSession(){
+  const c = S.config, names = S.setupNames.map(s => s.trim());
+  if (names.length < 3 || names.length > 10) return toast('Need 3 to 10 players');
+  if (names.some(n => !n)) return toast('Fill in every player name');
+  if (new Set(names.map(n => n.toLowerCase())).size !== names.length) return toast('Player names must be unique');
+  ['boot','blind','maxBlind','potLimit','ultoAmt'].forEach(k => c[k] = Number(c[k]));
+  if (c.mode === 'chaal' && c.ulto && !(c.ultoAmt >= 5)) return toast('Ulto limit must be at least Rs. 5');
+  if (!(c.boot > 0)) return toast('Boot must be greater than 0');
+  if (c.mode === 'chaal'){
+    if (!(c.blind > 0)) return toast('Blind bet must be greater than 0');
+    if (!(c.maxBlind >= c.blind)) return toast('Chaal limit must be ≥ blind bet');
+    if (!(c.potLimit >= 0)) return toast('Pot limit cannot be negative');
+  }
+  S.players = names.map((n,i) => ({id:'p'+i, name:n}));
+  Object.assign(S, { phase:'game', tab:'table', hands:[], current:null, modal:null, sitOut:[], dealer:0, bootIdx:0, settled:false });
+}
+
+function deal(){
+  if (S.settled) return;
+  const n = S.players.length, c = S.config, order = [];
+  for (let k=1;k<=n;k++){ const p = S.players[(S.dealer + k) % n]; if (!S.sitOut.includes(p.id)) order.push(p.id); }
+  if (order.length < 2) return toast('At least 2 players must be in the hand');
+  const h = { no:S.hands.length+1, parts:order, contrib:{}, log:[], status:{}, stake:c.blind, turn:order[0], undo:[] };
+  order.forEach(id => { h.contrib[id] = 0; h.status[id] = 'blind'; });
+  if (c.bootType === 'round'){ const rp = roundPayer(); h.bootPayers = [rp.id]; h.nextBootIdx = rp.next; }
+  else h.bootPayers = [...order];
+  S.current = h;
+  h.normalFirst = order[0];
+  if (ultoAllowed()){ h.ultoBy = ultoCaller(); if (!c.trackBoot && S.nextUlto) setHandUlto(true, S.nextUltoAmt); }
+  S.nextUlto = false;
+  if (c.trackBoot) h.bootPending = [...h.bootPayers];          // moderator confirms each boot
+  else { h.bootPayers.forEach(id => pay(id, c.boot, 'Boot')); afterBoot(); }
+}
+function afterBoot(){
+  const h = S.current;
+  if (h.bootPending && h.bootPending.length) return;
+  h.bootPending = [];
+  if (S.config.mode === 'show') openCompare('showmode', active(h));
+}
+function bootIn(ids){
+  const h = S.current;
+  ids.forEach(id => { if (h.bootPending.includes(id)){ h.bootPending = h.bootPending.filter(x => x !== id); pay(id, S.config.boot, 'Boot'); } });
+  if (!h.bootPending.length) toast('All boots are in — play on!');
+  afterBoot();
+}
+function bootOut(id){
+  const h = S.current, i = h.log.findIndex(l => l.pid === id && l.t === 'Boot');
+  if (i < 0) return;
+  h.log.splice(i, 1); h.contrib[id] -= S.config.boot; h.bootPending.push(id);
+}
+
+function act(t){
+  const h = S.current, c = S.config, pid = h.turn;
+  if (!h || h.status[pid] === 'folded') return;
+  const seen = h.status[pid] === 'seen', mult = betMult(h.status[pid]);
+  if (t === 'raise'){
+    const r = raiseRange(h), to = raiseTarget(h);
+    if (!r.ok) return toast('Stake is already at the chaal limit');
+    if (to % RAISE_STEP !== 0 || to <= h.stake || to > c.maxBlind) return toast(`Raise must be a multiple of Rs. ${RAISE_STEP}, above ${money(h.stake)} and up to ${money(c.maxBlind)}`);
+  }
+  if (t === 'show'){ const sc = showCheck(h, pid); if (!sc.ok) return toast(sc.why || 'Show needs exactly 2 players'); }
+  if (t === 'side' && !sideCheck(h, pid).ok) return toast('Side show is not allowed here');
+  snapshot();
+  h.acted = [...new Set([...(h.acted || []), pid])];
+  const raiseTo = raiseTarget(h); h.raiseTo = null;
+  if (t === 'chaal'){ pay(pid, h.stake*mult, seen ? 'Chaal' : 'Blind'); h.turn = nextActive(h, pid); }
+  else if (t === 'raise'){ h.stake = raiseTo; pay(pid, h.stake*mult, seen ? 'Raise' : 'Blind raise'); h.turn = nextActive(h, pid); }
+  else if (t === 'pack'){ h.status[pid] = 'folded'; h.log.push({pid, t:'Pack', amt:0}); if (!checkLast()) h.turn = nextActive(h, pid); }
+  else if (t === 'show'){ pay(pid, h.stake*mult, 'Show'); openCompare('show', active(h), pid); }
+  else if (t === 'side'){ const p = prevActive(h, pid); pay(pid, h.stake*mult, 'Side show'); openCompare('sideshow', [pid, p], pid); }
+}
+function checkLast(){ const a = active(S.current); if (a.length === 1){ finishHand(a, 'All others packed', {}); return true; } return false; }
+function undo(){ const h=S.current; if(!h || !h.undo || !h.undo.length) return toast('Nothing to undo'); const prev = h.undo.pop(); prev.undo = h.undo; S.current = prev; S.modal = null; }
+
+function finishHand(winners, note){
+  const h = S.current, pot = potOf(h), share = pot / winners.length, payout = {};
+  winners.forEach(id => payout[id] = share);
+  S.hands.push({ no:h.no, mode:S.config.mode, parts:h.parts, contrib:{...h.contrib}, winners, payout, pot, note: note + (h.ulto ? ' · Ulto' : ''), log:h.log, ts:Date.now() });
+  // The winner of this hand deals the next one (on a split pot, the first winner listed).
+  const wi = S.players.findIndex(p => p.id === winners[0]); if (wi >= 0) S.dealer = wi;
+  if (h.nextBootIdx !== undefined) S.bootIdx = h.nextBootIdx;   // round boot moves to the next player
+  S.current = null; S.modal = null;
+  toast(`🏆 ${winners.map(pname).join(' & ')} won ${money(share)}`);
+}
+
+/* ================== SHOWDOWN MODAL ================== */
+function openCompare(purpose, pids, requester){
+  S.modal = { purpose, pids:[...pids], requester:requester||null, pick:null };
+}
+function resolve(winner){
+  const m = S.modal, h = S.current;
+  if (m.purpose === 'sideshow'){
+    const loser = m.pids.find(x => x !== winner);
+    h.status[loser] = 'folded';
+    h.log.push({pid:loser, t:`Lost side show to ${pname(winner)}`, amt:0});
+    h.turn = nextActive(h, m.requester);
+    S.modal = null; return;
+  }
+  const notes = { showmode:'Won the showdown', show:'Won the show', potlimit:'Won the pot-limit show' };
+  finishHand([winner], notes[m.purpose] || 'Won');
+}
+function closeModal(){
+  const m = S.modal; if (!m) return;
+  if (m.purpose === 'show' || m.purpose === 'sideshow') undo();   // refunds show / side-show cost
+  else S.modal = null;
+}
+
+/* ================== IN-APP CONFIRM (works where browser popups are blocked) ================== */
+let pendingAsk = null;
+function ask(title, msg, okLabel, fn, input){ pendingAsk = { title, msg, okLabel, fn, input }; }
+function renderAsk(){
+  const p = pendingAsk;
+  return `<div class="fixed inset-0 z-[60] bg-black/70 flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl p-5 w-full max-w-sm shadow-2xl">
+      <div class="text-lg font-extrabold mb-1">${esc(p.title)}</div>
+      <p class="text-sm text-slate-400 ${p.input!==undefined?'mb-3':'mb-5'}">${esc(p.msg)}</p>
+      ${p.input!==undefined ? `<input id="askInput" value="${esc(p.input)}" maxlength="40" class="inp mb-5" autocomplete="off">` : ''}
+      <div class="grid grid-cols-2 gap-2">
+        <button data-a="askNo" class="btn-ghost py-3">Go back</button>
+        <button data-a="askYes" class="btn-primary py-3">${esc(p.okLabel)}</button>
+      </div>
+    </div></div>`;
+}
+
+/* ================== ACTION MAP ================== */
+const A = {
+  setMode: d => S.config.mode = d.v,
+  setBoot: d => S.config.bootType = d.v,
+  bootIn: d => bootIn([d.id]),
+  allBootIn: () => bootIn([...S.current.bootPending]),
+  bootOut: d => bootOut(d.id),
+  handUlto: d => setHandUlto(d.v === '1'),
+  nextUlto: d => { S.nextUlto = d.v === '1'; S.nextUltoAmt = clampUlto(S.nextUltoAmt); },
+  ultoStep: d => {
+    const cur = d.scope === 'hand' ? S.current.ultoAmt : S.nextUltoAmt;
+    const v = d.v === 'max' ? ultoLimit() : clampUlto(cur) + Number(d.v);
+    if (d.scope === 'hand') setHandUlto(true, v); else S.nextUltoAmt = clampUlto(v);
+  },
+  raiseStep: d => { const h = S.current, r = raiseRange(h); h.raiseTo = d.v === 'max' ? r.max : raiseTarget(h) + Number(d.v); h.raiseTo = raiseTarget(h); },
+  addName: () => { if (S.setupNames.length < 10) S.setupNames.push(''); },
+  rmName: d => { if (S.setupNames.length > 3) S.setupNames.splice(+d.i, 1); },
+  start: startSession,
+  tab: d => S.tab = d.v,
+  bootBack: () => {
+    const h = S.current, paid = potOf(h) > 0;
+    const go = () => { S.current = null; S.modal = null; };
+    if (paid) ask('Go back to the deal screen?', 'This hand will be cancelled and the boot / Ulto money already marked in will be returned.', 'Go back', go);
+    else go();
+  },
+  setDealer: d => { if (!S.hands.length) S.dealer = +d.i; },
+  toggleSit: d => { const i = S.sitOut.indexOf(d.id); i >= 0 ? S.sitOut.splice(i,1) : S.sitOut.push(d.id); },
+  deal,
+  see: d => { const h=S.current; if(h.status[d.id]!=='blind') return; snapshot(); h.status[d.id]='seen'; h.log.push({pid:d.id, t:'Saw cards', amt:0}); },
+  setTurn: d => { S.current.turn = d.id; },
+  act: d => act(d.v),
+  undo,
+  cancelHand: () => ask('Cancel this hand?', 'Nothing will be recorded and all bets are returned.', 'Cancel hand', () => { S.current = null; S.modal = null; }),
+  packShow: d => { const h=S.current; snapshot(); h.status[d.id]='folded'; h.log.push({pid:d.id,t:'Pack',amt:0}); checkLast(); },
+  unpackShow: d => { const h=S.current; h.status[d.id]='blind'; },
+  openShowdown: () => openCompare('showmode', active(S.current)),
+  potShow: () => openCompare('potlimit', active(S.current)),
+  closeModal,
+  pick: d => { S.modal.pick = d.id; },
+  confirmWin: () => { if (S.modal.pick) resolve(S.modal.pick); },
+  deny: () => { const h=S.current, m=S.modal; h.log.push({pid:m.pids[1], t:'Denied side show', amt:0}); h.turn = nextActive(h, m.requester); S.modal = null; },
+  settle: () => {
+    if (S.current) return toast('Finish or cancel the current hand first');
+    if (!S.hands.length) return toast('Play at least one hand first');
+    ask('Settle the game now?', 'Final amounts and who pays whom will be locked in.', 'Settle game', () => { S.settled = true; S.tab = 'board'; });
+  },
+  resume: () => { S.settled = false; S.tab = 'table'; },
+  home: () => { S = null; DB.activeId = null; window.scrollTo(0,0); },
+  newGame: () => ask('Name this game', 'Each game keeps its own players, hands and leaderboard.', 'Create game', name => {
+    name = (name || '').trim() || `Game ${DB.games.length + 1}`;
+    const last = DB.games.slice().sort((a,b) => (b.updated||0) - (a.updated||0))[0];
+    const g = migrate(Object.assign(fresh(), { id:uid(), name, created:Date.now() }));
+    if (last) g.config = JSON.parse(JSON.stringify(last.config));   // reuse last stakes & rules; players start empty
+    DB.games.push(g); openGame(g.id); window.scrollTo(0,0);
+    toast(`“${name}” created — add players and start`);
+  }, `Game ${DB.games.length + 1}`),
+  openGame: d => { openGame(d.id); window.scrollTo(0,0); },
+  renameGame: d => { const g = DB.games.find(x => x.id === d.id); if (!g) return;
+    ask('Rename game', 'Give this game a new name.', 'Save', name => { name = (name||'').trim(); if (name) g.name = name; }, g.name); },
+  delGame: d => { const g = DB.games.find(x => x.id === d.id); if (!g) return;
+    ask(`Delete “${g.name}”?`, 'This game, its hands and its leaderboard will be removed for good.', 'Delete game', () => {
+      DB.games.splice(DB.games.indexOf(g), 1); if (S && S.id === g.id){ S = null; DB.activeId = null; } }); },
+  copy: () => copyText(summaryText()),
+  delHand: d => ask(`Delete hand #${d.no}?`, 'Balances will be recalculated.', 'Delete hand', () => { S.hands = S.hands.filter(h => String(h.no) !== d.no); }),
+  askYes: () => { const p = pendingAsk; if (!p) return; const inp = document.getElementById('askInput'); pendingAsk = null; p.fn(inp ? inp.value : undefined); },
+  askNo: () => { pendingAsk = null; },
+};
+
+/* ================== RENDER: SETUP ================== */
+function renderSetup(){
+  const c = S.config, n = S.setupNames.length;
+  const modeBtn = (v, t, s, icon) => `
+    <button data-a="setMode" data-v="${v}" class="text-left rounded-2xl p-4 border-2 transition ${c.mode===v?'border-amber-400 bg-amber-400/10':'border-slate-700 bg-slate-800/40'}">
+      <div class="text-2xl mb-1">${icon}</div>
+      <div class="font-bold ${c.mode===v?'text-amber-300':''}">${t}</div>
+      <div class="text-xs text-slate-400 mt-1">${s}</div>
+    </button>`;
+  const num = (k, label, help, hide) => hide ? '' : `
+    <div><label class="lbl">${label}</label>
+      <input type="number" inputmode="decimal" min="0" step="any" data-cfg="${k}" value="${esc(c[k])}" class="inp">
+      ${help ? `<p class="text-[11px] text-slate-500 mt-1">${help}</p>` : ''}</div>`;
+  const chaal = c.mode === 'chaal';
+  return `
+  <header class="pt-5 pb-4">
+    <button data-a="home" class="text-sm text-slate-400 hover:text-amber-300 mb-2">← All games</button>
+    <div class="flex items-center justify-between gap-3">
+      <div class="min-w-0">
+        <h1 class="text-2xl font-extrabold tracking-tight truncate">${esc(S.name)}</h1>
+        <p class="text-sm text-slate-400">Set up players and rules, then start.</p>
+      </div>
+      <button data-a="renameGame" data-id="${S.id}" class="btn-ghost shrink-0 text-xs">✎ Rename</button>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2 class="h2">1 · Game mode</h2>
+    <div class="grid grid-cols-2 gap-3">
+      ${modeBtn('show','Show Teen Patti','Boot in, then just pick the winner.','⚡')}
+      ${modeBtn('chaal','Chaal Teen Patti','Blind / Seen betting, raises, packs & shows.','🎲')}
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="h2">2 · Players <span class="normal-case font-semibold text-slate-500">${n} / 10</span></h2>
+    ${S.setupNames.map((nm,i) => `
+      <div class="flex gap-2 mb-2 items-center">
+        <span class="w-7 h-7 shrink-0 rounded-full bg-slate-800 grid place-items-center text-xs font-bold text-slate-400">${i+1}</span>
+        <input data-name="${i}" value="${esc(nm)}" placeholder="Player ${i+1}" maxlength="20" class="inp flex-1">
+        ${n > 3 ? `<button data-a="rmName" data-i="${i}" class="btn-ghost w-10 shrink-0" aria-label="Remove">✕</button>` : ''}
+      </div>`).join('')}
+    ${n < 10 ? `<button data-a="addName" class="btn-ghost w-full mt-1">+ Add player</button>` : ''}
+  </section>
+
+  <section class="card">
+    <h2 class="h2">3 · Boot & stakes</h2>
+    <label class="lbl">Boot type</label>
+    <div class="grid grid-cols-2 gap-2 mb-3">
+      ${[['round','🔄 Round boot','One player puts the boot each hand; the next player puts it next hand.'],
+         ['equal','👥 Equal boot','Every player in the hand puts the same boot.']].map(([v,t,s]) => `
+        <button data-a="setBoot" data-v="${v}" class="text-left rounded-xl p-3 border-2 transition ${c.bootType===v?'border-amber-400 bg-amber-400/10':'border-slate-700 bg-slate-800/40'}">
+          <div class="font-bold text-sm ${c.bootType===v?'text-amber-300':''}">${t}</div>
+          <div class="text-[11px] text-slate-400 mt-1 leading-snug">${s}</div>
+        </button>`).join('')}
+    </div>
+    <label class="flex items-start gap-3 rounded-xl border border-slate-700 bg-slate-800/40 p-3 mb-4 cursor-pointer">
+      <input type="checkbox" data-chk="trackBoot" ${c.trackBoot?'checked':''} class="mt-0.5 w-5 h-5 accent-amber-400 shrink-0">
+      <span><span class="font-semibold text-sm">Track boot</span>
+        <span class="block text-[11px] text-slate-400 leading-snug">Moderator confirms each boot before the hand starts, with an <b>All boot in</b> shortcut.</span></span>
+    </label>
+    <div class="grid grid-cols-2 gap-3">
+      ${num('boot', c.bootType==='round' ? 'Boot per hand (Rs.)' : 'Boot per player (Rs.)', c.bootType==='round' ? 'Paid by one player, rotating' : 'Paid by everyone in the hand')}
+      ${num('blind','Base bet (Rs.)', `Normal: Blind Rs. ${esc(Number(c.blind)||0)} · Seen Rs. ${esc(Number(c.blind)*2||0)}`, !chaal)}
+      ${num('maxBlind','Chaal limit (Rs.)','Max blind stake. Raises go up in steps of Rs. 5.', !chaal)}
+      ${num('potLimit','Pot limit (Rs.)','0 = no limit. Forces a show.', !chaal)}
+    </div>
+  </section>
+
+  ${chaal ? `<section class="card">
+    <h2 class="h2">4 · Table rules <span class="normal-case font-semibold text-slate-500">tick to enable</span></h2>
+    ${[['blindShow','Blind can show','A blind player may ask for a show without looking at their cards — with any number of players left, after at least one full round.'],
+       ['seenNoShowBlind','Seen player cannot show a blind player','A seen player cannot ask for a show while the other remaining player is still blind.'],
+       ['sideShow','Seen player can ask for a side show','A seen player can ask for a side show with the player just before them, if that player is also seen.'],
+       ['ulto','Allow Ulto','Each hand, only the player just before the dealer may call Ulto during the boot check. If called, that player starts and play goes in the normal direction; That player chooses an Ulto amount (up to the Ulto limit) and puts it into the pot, and for that hand Blind players bet the Ulto amount while Seen players bet 3× the Ulto amount. Dealer does not change.']
+      ].map(([k,t,d]) => `
+      <label class="flex items-start gap-3 rounded-xl border p-3 mb-2 cursor-pointer ${c[k]?'border-amber-400/60 bg-amber-400/5':'border-slate-700 bg-slate-800/40'}">
+        <input type="checkbox" data-chk="${k}" ${c[k]?'checked':''} class="mt-0.5 w-5 h-5 accent-amber-400 shrink-0">
+        <span><span class="font-semibold text-sm">${t}</span>
+          <span class="block text-[11px] text-slate-400 leading-snug">${d}</span></span>
+      </label>`).join('')}
+    ${c.ulto ? `<div class="mt-2 mb-2 max-w-[14rem]">${num('ultoAmt','Ulto limit (Rs.)','Most a caller can put in for Ulto. They pick any amount in steps of Rs. 5 up to this.')}</div>` : ''}
+    ${c.ulto ? `<p class="text-[11px] text-amber-300 mt-1">Ulto example: caller puts Rs. 50 → Blind pays Rs. 50, Seen pays Rs. 150 (limit Rs. ${esc(Number(c.ultoAmt)||0)}).</p>` : ''}
+  </section>` : ''}
+
+
+  <button data-a="start" class="btn-primary w-full py-3.5 text-base">Start session →</button>`;
+}
+
+/* ================== RENDER: GAME ================== */
+function renderGame(){
+  const c = S.config;
+  const tabs = [['table','🃏 Table'],['board','🏆 Leaderboard'],['history','📜 History']];
+  const backToTable = S.tab !== 'table' && !S.settled ? `<button data-a="tab" data-v="table" class="text-sm text-slate-400 hover:text-amber-300 mb-3">← Back to table${S.current ? ' (hand in progress)' : ''}</button>` : '';
+  const body = backToTable + (S.tab === 'board' ? renderBoard() : S.tab === 'history' ? renderHistory() : renderTable());
+  return `
+  <header class="pt-5 pb-3 flex items-start justify-between gap-3">
+    <div>
+      <button data-a="home" class="text-xs text-slate-400 hover:text-amber-300">← All games</button>
+      <h1 class="text-xl font-extrabold truncate">${esc(S.name)}</h1>
+      <div class="flex flex-wrap gap-1.5 mt-1.5">
+        <span class="pill bg-amber-400/15 text-amber-300">${c.mode==='chaal'?'Chaal':'Show'} mode</span>
+        <span class="pill bg-slate-800 text-slate-300">${bootLabel()} ${money(c.boot)}${c.trackBoot?' · tracked':''}</span>
+        ${c.mode==='chaal' ? `${isUlto()?'<span class="pill bg-amber-400 text-slate-950">Ulto</span>':''}<span class="pill bg-slate-800 text-slate-300">Blind ${money(c.blind*betMult('blind'))} · Seen ${money(c.blind*betMult('seen'))}</span>` : ''}
+      </div>
+    </div>
+    <button data-a="newGame" class="btn-ghost shrink-0">＋ New game</button>
+  </header>
+  ${S.settled ? `<div class="rounded-2xl bg-emerald-500/15 border border-emerald-500/40 p-3 mb-4 text-sm text-emerald-200 flex items-center justify-between gap-2">
+      <span>✅ Session settled.</span><button data-a="resume" class="btn-ghost py-1.5">Resume</button></div>` : ''}
+  <nav class="flex gap-1 p-1 bg-slate-900 border border-slate-800 rounded-2xl mb-4 sticky sticky-safe z-20">
+    ${tabs.map(([v,l]) => `<button data-a="tab" data-v="${v}" class="tab ${S.tab===v?'tab-on':''}">${l}</button>`).join('')}
+  </nav>
+  ${body}
+  <div class="fixed bottom-0 inset-x-0 z-30 bg-slate-950/85 backdrop-blur border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex gap-2" style="padding-bottom:max(.75rem,env(safe-area-inset-bottom))">
+      ${S.settled
+        ? `<button data-a="copy" class="btn-ghost flex-1">📋 Copy summary</button><button data-a="home" class="btn-primary flex-1">All games</button>`
+        : `<button data-a="tab" data-v="board" class="btn-ghost flex-1">Standings</button><button data-a="settle" class="btn-primary flex-[2]">💰 Settle game</button>`}
+    </div>
+  </div>`;
+}
+
+function renderTable(){
+  if (S.settled) return `<div class="card text-center text-slate-400 py-10">Session is settled.<br>Tap <b>Resume</b> to keep playing, or see the Leaderboard.</div>`;
+  if (!S.current) return renderNewHand();
+  if (S.current.bootPending && S.current.bootPending.length) return renderBootCheck();
+  return S.config.mode === 'show' ? renderShowHand() : renderChaalHand();
+}
+
+function ultoPicker(on, byId, action, amt, scope){
+  if (!byId) return '';
+  amt = clampUlto(amt); const lim = ultoLimit();
+  return `<div class="rounded-2xl border ${on?'border-amber-400 bg-amber-400/10':'border-slate-700 bg-slate-800/40'} p-3 mb-3">
+    <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">🔄 Ulto</div>
+    <p class="text-[11px] text-slate-400 mb-2">Only <b class="text-slate-200">${esc(pname(byId))}</b> (just before the dealer) can call Ulto. The caller chooses the amount (up to ${money(lim)}), puts it in the pot and starts.</p>
+    <div class="grid grid-cols-2 gap-2">
+      <button data-a="${action}" data-v="0" class="btn ${!on?'bg-slate-200 text-slate-900':'bg-slate-800 text-slate-300 border border-slate-700'}">Normal</button>
+      <button data-a="${action}" data-v="1" class="btn ${on?'bg-amber-400 text-slate-950':'bg-slate-800 text-slate-300 border border-slate-700'}">${esc(pname(byId))} calls Ulto</button>
+    </div>
+    ${on ? `
+    <div class="mt-3">
+      <div class="flex items-center justify-between mb-1.5">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Ulto amount</span>
+        <span class="text-[11px] text-slate-500">Rs. ${ULTO_STEP}–${lim}, steps of ${ULTO_STEP}</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <button data-a="ultoStep" data-scope="${scope}" data-v="-${ULTO_STEP}" class="btn-ghost w-11 shrink-0" ${amt<=ULTO_STEP?'disabled':''}>−${ULTO_STEP}</button>
+        <input type="number" inputmode="numeric" step="${ULTO_STEP}" min="${ULTO_STEP}" max="${lim}" data-ulto="${scope}" value="${amt}" class="inp text-center font-bold !py-2 min-w-0">
+        <button data-a="ultoStep" data-scope="${scope}" data-v="${ULTO_STEP}" class="btn-ghost w-11 shrink-0" ${amt>=lim?'disabled':''}>+${ULTO_STEP}</button>
+        <button data-a="ultoStep" data-scope="${scope}" data-v="max" class="btn-ghost shrink-0 text-xs">Max</button>
+      </div>
+      <p class="text-xs text-amber-200 mt-2">${esc(pname(byId))} puts <b>${money(amt)}</b> · Blind pays ${money(amt)} · Seen pays ${money(amt*3)}</p>
+    </div>` : ''}
+  </div>`;
+}
+
+function renderBootCheck(){
+  const h = S.current, c = S.config, pend = h.bootPending;
+  return `${potCard(h)}
+  <section class="card border-amber-400/40">
+    <h2 class="h2">Confirm boot <span class="normal-case font-semibold text-slate-500">${h.bootPayers.length - pend.length} / ${h.bootPayers.length} in</span></h2>
+    <p class="text-xs text-slate-400 mb-3">${c.bootType==='round' ? `Round boot: <b class="text-slate-200">${esc(pname(h.bootPayers[0]))}</b> puts ${money(c.boot)} this hand.` : `Equal boot: each player puts ${money(c.boot)}.`}</p>
+    ${ultoAllowed() ? ultoPicker(h.ulto, h.ultoBy, 'handUlto', h.ultoAmt, 'hand') : ''}
+    ${h.bootPayers.map(id => { const isIn = !pend.includes(id); return `
+      <div class="flex items-center justify-between gap-2 py-2 border-b border-slate-800 last:border-0">
+        <div><div class="font-semibold">${esc(pname(id))}</div><div class="text-xs text-slate-500">Boot ${money(c.boot)}</div></div>
+        ${isIn ? `<div class="flex items-center gap-2"><span class="pill bg-emerald-500/20 text-emerald-300">✓ In</span>
+                   <button data-a="bootOut" data-id="${id}" class="btn-ghost py-1 px-2 text-xs">Undo</button></div>`
+               : `<button data-a="bootIn" data-id="${id}" class="btn-ghost py-1.5 text-xs">Mark boot in</button>`}
+      </div>`; }).join('')}
+    <button data-a="allBootIn" class="btn-green w-full py-3.5 text-base mt-3">✓ All boot in</button>
+    <button data-a="bootBack" class="btn-ghost w-full mt-2">← Back to deal screen</button>
+  </section>`;
+}
+
+function renderNewHand(){
+  const c = S.config, inCount = S.players.filter(p => !S.sitOut.includes(p.id)).length;
+  const rp = c.bootType === 'round' ? roundPayer() : null;
+  return `
+  <section class="card">
+    <h2 class="h2">Hand #${S.hands.length+1} <span class="normal-case font-semibold text-slate-500">tap to sit out</span></h2>
+    <div class="flex flex-wrap gap-2 mb-4">
+      ${S.players.map((p,i) => { const out = S.sitOut.includes(p.id); return `
+        <button data-a="toggleSit" data-id="${p.id}" class="rounded-xl px-3 py-2 text-sm font-semibold border transition ${out?'border-slate-700 text-slate-500 line-through':'border-emerald-500/50 bg-emerald-500/10 text-emerald-200'}">
+          ${esc(p.name)}${i===S.dealer%S.players.length?' <span class="ml-1 pill bg-amber-400 text-slate-950">D</span>':''}
+        </button>`; }).join('')}
+    </div>
+    ${S.hands.length ? `
+    <label class="lbl">Dealer</label>
+    <div class="flex items-center gap-2 rounded-xl border border-amber-400/40 bg-amber-400/5 p-3 mb-4">
+      <span class="pill bg-amber-400 text-slate-950">🂠 ${esc(S.players[S.dealer % S.players.length].name)}</span>
+      <span class="text-xs text-slate-400">won the last hand, so deals this one. Play starts with the player after the dealer.</span>
+    </div>` : `
+    <label class="lbl">Dealer for the first hand — tap to choose (after that, the winner deals)</label>
+    <div class="flex flex-wrap gap-2 mb-4">
+      ${S.players.map((p,i) => { const on = i === S.dealer % S.players.length; return `
+        <button data-a="setDealer" data-i="${i}" class="rounded-xl px-3 py-2 text-sm font-semibold border-2 transition ${on?'border-amber-400 bg-amber-400 text-slate-950':'border-slate-700 bg-slate-800/40 text-slate-300'}">
+          ${on?'🂠 ':''}${esc(p.name)}
+        </button>`; }).join('')}
+    </div>`}
+    ${ultoAllowed() && !c.trackBoot ? ultoPicker(!!S.nextUlto, ultoCaller(), 'nextUlto', S.nextUltoAmt, 'next') : ''}
+    ${ultoAllowed() && c.trackBoot ? `<p class="text-[11px] text-slate-500 mb-3">Ulto can be called by ${esc(pname(ultoCaller()))} during the boot check.</p>` : ''}
+    <button data-a="deal" class="btn-green w-full py-3.5 text-base" ${inCount<2?'disabled':''}>
+      ${rp ? `Deal · ${esc(pname(rp.id))} puts boot ${money(c.boot)}` : `Deal · boot ${inCount} × ${money(c.boot)} = ${money(inCount*c.boot)}`}
+    </button>
+    ${c.trackBoot ? `<p class="text-[11px] text-slate-500 mt-2 text-center">Track boot is on — you'll confirm the boot before play starts.</p>` : ''}
+  </section>
+  ${S.hands.length ? miniStandings() : `<p class="text-center text-sm text-slate-500 mt-6">Deal the cards physically, then record the hand here.</p>`}`;
+}
+
+function miniStandings(){
+  const { rows } = ledger();
+  return `<section class="card"><h2 class="h2">Live standings <button data-a="tab" data-v="board" class="normal-case text-amber-300">Full board →</button></h2>
+    ${rows.map(r => `<div class="flex justify-between py-1.5 border-b border-slate-800 last:border-0 text-sm">
+      <span><span class="text-slate-500 w-6 inline-block">${r.rank}.</span>${esc(r.name)}</span>
+      <span class="font-bold ${tone(r.net)}">${money(r.net,true)}</span></div>`).join('')}</section>`;
+}
+
+function potCard(h){
+  const pot = potOf(h);
+  const sum = t => h.log.filter(l => t(l.t)).reduce((a,l) => a + l.amt, 0);
+  const boots = sum(t => t==='Boot'), ultoA = sum(t => t==='Ulto'), shows = sum(t => t==='Show' || t==='Side show'), bets = sum(t => !['Boot','Ulto','Show','Side show'].includes(t));
+  const ok = Math.abs(boots + ultoA + bets + shows - pot) < 1e-9;
+  return `
+  <section class="felt rounded-3xl p-5 mb-4 border border-emerald-800 text-center shadow-lg">
+    <div class="text-xs uppercase tracking-[.2em] text-emerald-200/80 font-bold">Hand #${h.no} · Pot</div>
+    <div class="text-4xl font-extrabold text-amber-300 my-1">${money(pot)}</div>
+    ${S.config.mode==='chaal' ? `<div class="mt-2 inline-flex gap-2 text-xs font-semibold">
+        ${isUlto() ? '<span class="bg-amber-400 text-slate-950 rounded-full px-3 py-1">ULTO</span>' : ''}
+        <span class="bg-black/30 rounded-full px-3 py-1">Blind ${money(h.stake*betMult('blind'))}</span>
+        <span class="bg-black/30 rounded-full px-3 py-1">Seen ${money(h.stake*betMult('seen'))}</span>
+        <span class="bg-black/30 rounded-full px-3 py-1">Limit ${money(S.config.maxBlind)}</span></div>` : ''}
+    <div class="mt-3 text-[11px] ${ok?'text-emerald-200/80':'text-rose-300'}">
+      ${ok?'✓':'⚠'} Boots ${money(boots)}${ultoA?` + Ulto ${money(ultoA)}`:''} + Chaal ${money(bets)} + Show ${money(shows)} = ${money(boots+ultoA+bets+shows)}
+    </div>
+  </section>`;
+}
+
+function renderShowHand(){
+  const h = S.current, act = active(h);
+  return `${potCard(h)}
+  <section class="card">
+    <h2 class="h2">Players in hand</h2>
+    ${h.parts.map(id => { const f = h.status[id]==='folded'; return `
+      <div class="flex items-center justify-between py-2 border-b border-slate-800 last:border-0">
+        <div><div class="font-semibold ${f?'line-through text-slate-500':''}">${esc(pname(id))}</div>
+          <div class="text-xs text-slate-500">Boot ${money(h.contrib[id])}</div></div>
+        ${f ? `<button data-a="unpackShow" data-id="${id}" class="btn-ghost py-1.5 text-xs">Undo pack</button>`
+            : `<button data-a="packShow" data-id="${id}" class="btn-red py-1.5 text-xs">Pack</button>`}
+      </div>`; }).join('')}
+  </section>
+  <div class="grid grid-cols-3 gap-2">
+    <button data-a="cancelHand" class="btn-ghost">Cancel</button>
+    <button data-a="openShowdown" class="btn-primary col-span-2 py-3" ${act.length<2?'disabled':''}>🏆 Pick winner (${act.length} in)</button>
+  </div>`;
+}
+
+function renderChaalHand(){
+  const h = S.current, c = S.config, pid = h.turn, act = active(h);
+  const seen = h.status[pid] === 'seen', mult = betMult(h.status[pid]);
+  const { ok:canSide, prev } = sideCheck(h, pid);
+  const show = showCheck(h, pid);
+  const rr = raiseRange(h), canRaise = rr.ok, raiseTo = canRaise ? raiseTarget(h) : 0;
+  const potHit = c.potLimit > 0 && potOf(h) >= c.potLimit;
+  const pillFor = st => st==='seen' ? '<span class="pill bg-sky-500/20 text-sky-300">Seen</span>'
+    : st==='folded' ? '<span class="pill bg-slate-700 text-slate-400">Packed</span>' : '<span class="pill bg-violet-500/20 text-violet-300">Blind</span>';
+  const logs = h.log.filter(l => l.t !== 'Boot').slice(-10).reverse();
+  return `${potCard(h)}
+  ${potHit ? `<div class="rounded-2xl bg-amber-400/15 border border-amber-400/50 p-3 mb-4 flex items-center justify-between gap-2 text-sm text-amber-200">
+      <span>Pot limit reached — all active players must show.</span><button data-a="potShow" class="btn-primary py-1.5">Show all</button></div>` : ''}
+  <section class="card !p-2">
+    ${h.parts.map(id => { const st = h.status[id], turn = id === pid; return `
+      <div class="flex items-center justify-between gap-2 p-2.5 rounded-xl ${turn?'bg-amber-400/10 ring-1 ring-amber-400/60':''} ${st==='folded'?'opacity-50':''}">
+        <div class="min-w-0">
+          <div class="font-semibold truncate">${turn?'▶ ':''}${esc(pname(id))}</div>
+          <div class="text-xs text-slate-500">In pot ${money(h.contrib[id])}</div>
+        </div>
+        <div class="flex items-center gap-1.5 shrink-0">
+          ${pillFor(st)}
+          ${st==='blind' ? `<button data-a="see" data-id="${id}" class="btn-ghost py-1 px-2 text-xs">👁 See</button>` : ''}
+          ${st!=='folded' && !turn ? `<button data-a="setTurn" data-id="${id}" class="btn-ghost py-1 px-2 text-xs" title="Make it their turn">Turn</button>` : ''}
+        </div>
+      </div>`; }).join('')}
+  </section>
+
+  <section class="card border-amber-400/40">
+    <div class="flex items-center justify-between mb-3">
+      <div><div class="text-xs text-slate-400 uppercase tracking-wider font-bold">To act</div>
+        <div class="text-lg font-bold">${esc(pname(pid))} <span class="text-sm font-semibold ${seen?'text-sky-300':'text-violet-300'}">(${seen?'Seen':'Blind'})</span></div></div>
+      ${!seen ? `<button data-a="see" data-id="${pid}" class="btn-ghost text-xs">👁 Look at cards</button>` : ''}
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+      <button data-a="act" data-v="chaal" class="btn-green py-3">${seen?'Chaal':'Blind'} · ${money(h.stake*mult)}</button>
+      ${show.ok ? `<button data-a="act" data-v="show" class="btn bg-sky-500 text-slate-950 py-3">Show · ${money(h.stake*mult)}</button>` : ''}
+      ${canSide ? `<button data-a="act" data-v="side" class="btn bg-sky-500/20 text-sky-200 border border-sky-500/40 py-3">Side show w/ ${esc(pname(prev))} · ${money(h.stake*mult)}</button>` : ''}
+      <button data-a="act" data-v="pack" class="btn-red py-3 ${show.ok||canSide?'':'col-span-2'}">Pack (fold)</button>
+    </div>
+    ${show.why ? `<p class="text-[11px] text-amber-300/80 mt-2">${esc(show.why)}</p>` : ''}
+    <div class="mt-3 rounded-2xl border border-amber-400/30 bg-amber-400/5 p-3">
+      ${canRaise ? `
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Raise blind stake to</span>
+        <span class="text-[11px] text-slate-500">Rs. ${rr.min}–${rr.max}, steps of ${RAISE_STEP}</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <button data-a="raiseStep" data-v="-${RAISE_STEP}" class="btn-ghost w-11 shrink-0" ${raiseTo<=rr.min?'disabled':''}>−${RAISE_STEP}</button>
+        <input type="number" inputmode="numeric" step="${RAISE_STEP}" min="${rr.min}" max="${rr.max}" data-raise value="${raiseTo}" class="inp text-center font-bold !py-2 min-w-0">
+        <button data-a="raiseStep" data-v="${RAISE_STEP}" class="btn-ghost w-11 shrink-0" ${raiseTo>=rr.max?'disabled':''}>+${RAISE_STEP}</button>
+        <button data-a="raiseStep" data-v="max" class="btn-ghost shrink-0 text-xs">Max</button>
+      </div>
+      <button data-a="act" data-v="raise" class="btn-primary w-full py-3 mt-2">Raise to ${money(raiseTo)} · ${esc(pname(pid))} pays ${money(raiseTo*mult)}</button>`
+      : `<p class="text-xs text-slate-400">Raise not available — the stake ${money(h.stake)} is at the chaal limit (${money(c.maxBlind)}).</p>`}
+    </div>
+    <div class="grid grid-cols-2 gap-2 mt-3">
+      <button data-a="undo" class="btn-ghost" ${h.undo&&h.undo.length?'':'disabled'}>↶ Undo</button>
+      <button data-a="cancelHand" class="btn-ghost">Cancel hand</button>
+    </div>
+  </section>
+
+  ${logs.length ? `<section class="card"><h2 class="h2">Action log</h2>
+    ${logs.map(l => `<div class="flex justify-between text-sm py-1 border-b border-slate-800 last:border-0">
+      <span><b>${esc(pname(l.pid))}</b> <span class="text-slate-400">${esc(l.t)}</span></span>
+      <span class="${l.amt?'text-amber-300':'text-slate-600'}">${l.amt?money(l.amt):'—'}</span></div>`).join('')}</section>` : ''}`;
+}
+
+/* ================== RENDER: LEADERBOARD ================== */
+function renderBoard(){
+  const { rows } = ledger(), tr = transfers(rows);
+  const bigPot = S.hands.reduce((a,h) => Math.max(a, h.pot), 0);
+  const totalPot = S.hands.reduce((a,h) => a + h.pot, 0);
+  const medal = r => r === 1 ? '🥇' : r === 2 ? '🥈' : r === 3 ? '🥉' : r;
+  return `
+  <div class="grid grid-cols-3 gap-2 mb-4 text-center">
+    <div class="card !mb-0 !p-3"><div class="text-xl font-extrabold">${S.hands.length}</div><div class="text-[11px] text-slate-400">Hands</div></div>
+    <div class="card !mb-0 !p-3"><div class="text-xl font-extrabold text-amber-300">${money(totalPot)}</div><div class="text-[11px] text-slate-400">Total pots</div></div>
+    <div class="card !mb-0 !p-3"><div class="text-xl font-extrabold text-emerald-300">${money(bigPot)}</div><div class="text-[11px] text-slate-400">Biggest pot</div></div>
+  </div>
+
+  <section class="card">
+    <h2 class="h2">Leaderboard ${S.settled?'<span class="pill bg-emerald-500/20 text-emerald-300 normal-case">Final</span>':'<span class="normal-case font-semibold text-slate-500">live</span>'}</h2>
+    <div class="sm:hidden space-y-2">
+      ${rows.map(r => `
+        <div class="grid grid-cols-[2rem_1fr_auto] gap-2 items-center p-3 rounded-xl ${r.rank===1&&r.final>0?'bg-amber-400/10 ring-1 ring-amber-400/40':'bg-slate-800/50'}">
+          <div class="text-lg text-center font-bold">${medal(r.rank)}</div>
+          <div class="min-w-0"><div class="font-semibold truncate">${esc(r.name)}</div>
+            <div class="text-[11px] text-slate-400">Played ${r.played} · Won ${r.won}</div>
+            <div class="text-[11px] text-slate-500">Put in ${money(r.wag)} · Took ${money(r.rec)}</div></div>
+          <div class="text-right"><div class="font-extrabold ${tone(r.final)}">${money(r.final,true)}</div><div class="text-[10px] text-slate-500 uppercase">${r.final>0.004?'Receives':r.final<-0.004?'Pays':'Even'}</div></div>
+        </div>`).join('')}
+    </div>
+    <div class="hidden sm:block overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr class="text-left text-xs uppercase tracking-wider text-slate-500 border-b border-slate-800">
+          <th class="py-2 pr-2">#</th><th class="pr-2">Player</th><th class="text-center">Played</th><th class="text-center">Won</th>
+          <th class="text-right">Put in</th><th class="text-right">Took</th><th class="text-right">Net +/−</th></tr></thead>
+        <tbody>${rows.map(r => `
+          <tr class="border-b border-slate-800/70 last:border-0 ${r.rank===1&&r.final>0?'bg-amber-400/5':''}">
+            <td class="py-2.5 pr-2 font-bold">${medal(r.rank)}</td><td class="pr-2 font-semibold">${esc(r.name)}</td>
+            <td class="text-center text-slate-300">${r.played}</td><td class="text-center text-slate-300">${r.won}</td>
+            <td class="text-right text-slate-300">${money(r.wag)}</td><td class="text-right text-slate-300">${money(r.rec)}</td>
+            <td class="text-right font-extrabold ${tone(r.final)}">${money(r.final,true)}</td></tr>`).join('')}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="h2">💸 Who pays whom <span class="normal-case font-semibold text-slate-500">${tr.length} transfer${tr.length===1?'':'s'}</span></h2>
+    ${tr.length ? tr.map(t => `
+      <div class="flex items-center justify-between gap-2 py-2.5 border-b border-slate-800 last:border-0">
+        <div class="text-sm"><b class="text-rose-300">${esc(t.from)}</b> <span class="text-slate-500">pays</span> <b class="text-emerald-300">${esc(t.to)}</b></div>
+        <div class="font-extrabold text-amber-300 whitespace-nowrap">Rs. ${t.amt.toLocaleString('en-IN',{maximumFractionDigits:2})}</div>
+      </div>`).join('') : '<p class="text-sm text-slate-500">No payments due yet.</p>'}
+    <button data-a="copy" class="btn-ghost w-full mt-3">📋 Copy summary (WhatsApp / Viber)</button>
+  </section>
+`;
+}
+
+/* ================== RENDER: HISTORY ================== */
+function renderHistory(){
+  if (!S.hands.length) return `<div class="card text-center text-slate-500 py-10">No hands played yet.</div>`;
+  return [...S.hands].reverse().map(h => `
+    <details class="card !p-0 overflow-hidden">
+      <summary class="p-4 cursor-pointer list-none flex items-center justify-between gap-2">
+        <div class="min-w-0"><div class="font-semibold">#${h.no} · ${h.winners.map(id => esc(pname(id))).join(' & ')} 🏆</div>
+          <div class="text-xs text-slate-400 truncate">${esc(h.note)} · ${new Date(h.ts).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div></div>
+        <div class="font-bold text-amber-300 whitespace-nowrap">${money(h.pot)}</div>
+      </summary>
+      <div class="px-4 pb-4 text-sm">
+        ${h.parts.map(id => { const net = (h.payout[id]||0) - (h.contrib[id]||0); return `
+          <div class="flex justify-between py-1 border-b border-slate-800 last:border-0">
+            <span>${esc(pname(id))}</span>
+            <span class="${tone(net)}">${money(net,true)}</span></div>`; }).join('')}
+        <button data-a="delHand" data-no="${h.no}" class="btn-red w-full mt-3 py-2 text-xs">Delete this hand</button>
+      </div>
+    </details>`).join('');
+}
+
+/* ================== RENDER: MODAL ================== */
+function renderModal(){
+  const m = S.modal, h = S.current, pot = potOf(h);
+  const titles = { showmode:'Who won?', show:'Show — who won?', sideshow:'Side show — who won?', potlimit:'Pot‑limit show — who won?' };
+  const side = m.purpose === 'sideshow';
+  return `
+  <div class="fixed inset-0 z-40 bg-black/70 flex items-end sm:items-center justify-center sm:p-4">
+    <div id="mpanel" class="sheet bg-slate-900 w-full sm:max-w-md overflow-y-auto overscroll-contain rounded-t-3xl sm:rounded-3xl border border-slate-700 p-4">
+      <div class="flex items-start justify-between gap-2 mb-3">
+        <div><div class="text-lg font-extrabold">${titles[m.purpose]}</div>
+          <div class="text-xs text-slate-400">${side ? 'The loser packs; the hand continues.' : `Pot ${money(pot)} goes to the winner.`}</div></div>
+        <button data-a="closeModal" class="btn-ghost w-10 h-10" aria-label="Close">✕</button>
+      </div>
+      <div class="grid gap-2 mb-3">
+        ${m.pids.map(id => `
+          <button data-a="pick" data-id="${id}" class="flex items-center justify-between rounded-2xl border-2 px-4 py-3.5 text-left transition ${m.pick===id?'border-amber-400 bg-amber-400/10':'border-slate-700 bg-slate-800/40'}">
+            <span class="font-bold">${m.pick===id?'🏆 ':''}${esc(pname(id))}</span>
+            ${!side && m.pick===id ? `<span class="font-extrabold text-amber-300">+${money(pot - (h.contrib[id]||0))}</span>` : ''}
+          </button>`).join('')}
+      </div>
+      <button data-a="confirmWin" class="btn-primary w-full py-3.5 text-base" ${m.pick?'':'disabled'}>
+        ${m.pick ? (side ? `✓ ${esc(pname(m.pick))} wins the side show` : `✓ ${esc(pname(m.pick))} wins ${money(pot)}`) : 'Tap the winner'}
+      </button>
+      ${side ? `<button data-a="deny" class="btn-ghost w-full mt-2">${esc(pname(m.pids[1]))} denied the side show</button>` : ''}
+      <button data-a="closeModal" class="btn-ghost w-full mt-2">← Back${m.purpose==='show'||m.purpose==='sideshow' ? ' (cancel and refund the ' + (side?'side show':'show') + ' bet)' : ''}</button>
+    </div>
+  </div>`;
+}
+
+/* ================== SUMMARY / COPY ================== */
+function summaryText(){
+  const { rows } = ledger(), tr = transfers(rows), c = S.config;
+  let t = `🃏 ${S.name} — Teen Patti — ${new Date().toLocaleDateString()}\n${c.mode==='chaal'?'Chaal':'Show'} mode · ${bootLabel()} Rs. ${c.boot} · ${S.hands.length} hands\n\n🏆 Leaderboard\n`;
+  rows.forEach(r => t += `${r.rank}. ${r.name}: ${money(r.final,true)}\n`);
+  t += `\n💸 Who pays whom\n` + (tr.length ? tr.map(x => `• ${x.from} → ${x.to}: Rs. ${x.amt.toLocaleString('en-IN')}`).join('\n') : 'No payments due');
+  return t;
+}
+function copyText(text){
+  const done = () => toast('Summary copied');
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, () => fallback());
+  else fallback();
+  function fallback(){ const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch(e) { prompt('Copy this summary:', text); } ta.remove(); }
+}
+
+/* ================== RENDER: GAMES LIST ================== */
+function renderHome(){
+  const games = DB.games.slice().sort((a,b) => (b.updated||b.created) - (a.updated||a.created));
+  const fmtDate = t => new Date(t).toLocaleDateString(undefined, { day:'numeric', month:'short', year:'numeric' });
+  const card = g => {
+    const prev = S; S = g;                      // reuse the ledger for this game
+    const top = g.hands.length ? ledger().rows[0] : null;
+    S = prev;
+    const status = g.phase === 'setup' ? ['Setup','bg-slate-700 text-slate-300'] : g.settled ? ['Settled','bg-emerald-500/20 text-emerald-300'] : ['In progress','bg-amber-400/20 text-amber-300'];
+    return `
+    <div class="card !p-0 overflow-hidden">
+      <button data-a="openGame" data-id="${g.id}" class="w-full text-left p-4 hover:bg-slate-800/40">
+        <div class="flex items-start justify-between gap-2">
+          <div class="min-w-0">
+            <div class="font-bold text-lg truncate">${esc(g.name)}</div>
+            <div class="text-xs text-slate-400">${g.config.mode==='chaal'?'Chaal':'Show'} · ${g.hands.length} hand${g.hands.length===1?'':'s'} · last played ${fmtDate(g.updated||g.created)}</div>
+          </div>
+          <span class="pill ${status[1]} shrink-0">${status[0]}</span>
+        </div>
+        <div class="text-xs text-slate-500 mt-2 truncate">${g.players.length ? g.players.map(p => esc(p.name)).join(', ') : 'No players yet'}</div>
+        ${top && top.final > 0 ? `<div class="text-sm mt-2">🏆 <b>${esc(top.name)}</b> <span class="text-emerald-400 font-bold">+Rs. ${r2(top.final).toLocaleString('en-IN')}</span></div>` : ''}
+      </button>
+      <div class="flex border-t border-slate-800 text-xs font-semibold">
+        <button data-a="openGame" data-id="${g.id}" class="flex-1 py-2.5 text-amber-300 hover:bg-slate-800/60">${g.phase==='setup'?'Set up':'Continue'} →</button>
+        <button data-a="renameGame" data-id="${g.id}" class="flex-1 py-2.5 text-slate-300 border-l border-slate-800 hover:bg-slate-800/60">Rename</button>
+        <button data-a="delGame" data-id="${g.id}" class="flex-1 py-2.5 text-rose-300 border-l border-slate-800 hover:bg-slate-800/60">Delete</button>
+      </div>
+    </div>`;
+  };
+  return `
+  <header class="pt-6 pb-4 flex items-center justify-between">
+    <div>
+      <h1 class="text-2xl font-extrabold tracking-tight">Teen Patti <span class="text-amber-400">Tracker</span></h1>
+      <p class="text-sm text-slate-400">Cards on the table. Money in the app.</p>
+    </div>
+    <div class="text-4xl">🃏</div>
+  </header>
+  ${installBanner()}
+  <button data-a="newGame" class="btn-primary w-full py-3.5 text-base mb-4">＋ New game</button>
+  ${games.length ? `<h2 class="h2 px-1">Your games <span class="normal-case font-semibold text-slate-500">${games.length}</span></h2>${games.map(card).join('')}`
+    : `<div class="card text-center text-slate-400 py-10">No games yet.<br>Tap <b>New game</b>, give it a name, and add the players.</div>`}`;
+}
+
+/* ================== PWA: INSTALL, OFFLINE, SCREEN-ON ================== */
+const isStandalone = () => window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+let installEvt = null, iosHint = false;
+const hideInstall = () => { try { return localStorage.getItem('tp_hide_install') === '1'; } catch(e){ return false; } };
+function installBanner(){
+  if (isStandalone() || hideInstall()) return '';
+  if (!installEvt && !(isIOS && iosHint)) {
+    return isIOS ? `<button data-a="iosHint" class="w-full text-left card !p-3 flex items-center gap-3"><span class="text-2xl">📲</span>
+      <span class="text-sm"><b>Install on your phone</b><span class="block text-xs text-slate-400">Tap to see how to add it to your Home Screen.</span></span></button>` : '';
+  }
+  return `<div class="card !p-3 border-amber-400/40 bg-amber-400/5">
+    <div class="flex items-start gap-3">
+      <span class="text-2xl">📲</span>
+      <div class="flex-1 text-sm">
+        <b>Install Teen Patti Tracker</b>
+        <span class="block text-xs text-slate-400 mt-0.5">${installEvt ? 'Opens full-screen like an app and works offline at the table.'
+          : 'In Safari, tap the <b>Share</b> button (□↑), then <b>Add to Home Screen</b>.'}</span>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-2 mt-3">
+      <button data-a="hideInstall" class="btn-ghost">Not now</button>
+      ${installEvt ? `<button data-a="install" class="btn-primary">Install app</button>` : `<button data-a="hideInstall" class="btn-primary">Got it</button>`}
+    </div></div>`;
+}
+Object.assign(A, {
+  install: async () => { if (!installEvt) return; installEvt.prompt(); try { await installEvt.userChoice; } catch(e){} installEvt = null; render(); },
+  hideInstall: () => { try { localStorage.setItem('tp_hide_install','1'); } catch(e){} },
+  iosHint: () => { iosHint = true; },
+});
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; render(); });
+window.addEventListener('appinstalled', () => { installEvt = null; toast('Installed — open it from your home screen'); render(); });
+
+// Offline support: the service worker caches the app so it opens without internet.
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+// Ask the browser not to clear saved games when the phone is low on space.
+try { if (navigator.storage && navigator.storage.persist) navigator.storage.persisted().then(p => { if (!p) navigator.storage.persist(); }); } catch(e){}
+
+// Keep the screen awake while a game is open, so the phone doesn't lock mid-hand.
+let wakeLock = null;
+async function syncWakeLock(){
+  try {
+    const want = !!S && document.visibilityState === 'visible';
+    if (want && !wakeLock && 'wakeLock' in navigator){ wakeLock = await navigator.wakeLock.request('screen'); wakeLock.addEventListener('release', () => { wakeLock = null; }); }
+    else if (!want && wakeLock){ await wakeLock.release(); wakeLock = null; }
+  } catch(e){ wakeLock = null; }
+}
+document.addEventListener('visibilitychange', syncWakeLock);
+window.addEventListener('online', () => toast('Back online'));
+window.addEventListener('offline', () => toast('Offline — everything keeps working'));
+
+/* ================== BACK NAVIGATION ================== */
+// Steps back one screen: dialog → winner picker → leaderboard/history → games list.
+// Never undoes bets, so a stray back press can't change money.
+function appBack(){
+  if (pendingAsk){ pendingAsk = null; return true; }
+  if (S && S.modal){ closeModal(); return true; }
+  if (S && S.tab !== 'table'){ S.tab = 'table'; return true; }
+  if (S){ S = null; DB.activeId = null; return true; }
+  return false;
+}
+let histReady = false;
+function syncHistory(){                      // keep one history entry so the phone's back button stays inside the app
+  try {
+    if (!histReady){ history.replaceState({ tp:0 }, ''); histReady = true; }
+    if ((S || pendingAsk) && !(history.state && history.state.tp === 1)) history.pushState({ tp:1 }, '');
+  } catch(e){}
+}
+window.addEventListener('popstate', () => { if (appBack()){ render(); } });
+
+/* ================== RENDER LOOP & EVENTS ================== */
+function render(){
+  save();
+  const mp = document.getElementById('mpanel'), st = mp ? mp.scrollTop : 0;
+  document.getElementById('app').innerHTML = !S ? renderHome() : S.phase === 'setup' ? renderSetup() : renderGame();
+  document.getElementById('modal').innerHTML = (S && S.modal && S.current ? renderModal() : '') + (pendingAsk ? renderAsk() : '');
+  syncHistory(); syncWakeLock();
+  const ai = document.getElementById('askInput'); if (ai && document.activeElement !== ai){ ai.focus(); ai.select(); }
+  const np = document.getElementById('mpanel'); if (np) np.scrollTop = st;
+}
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-a]'); if (!el || el.disabled) return;
+  const fn = A[el.dataset.a]; if (fn){ fn(el.dataset); render(); }
+});
+document.addEventListener('input', e => {
+  const t = e.target; if (!S) return;
+  if (t.dataset.name !== undefined){ S.setupNames[+t.dataset.name] = t.value; save(); }
+  else if (t.dataset.cfg){ S.config[t.dataset.cfg] = t.value; save(); }
+});
+document.addEventListener('change', e => {
+  const t = e.target, d = t.dataset; if (!S) return;
+  if (d.cfg){ render(); return; }
+  if (d.chk){ S.config[d.chk] = t.checked; render(); return; }
+  if (d.raise !== undefined && S.current){
+    const h = S.current, r = raiseRange(h), v = Number(t.value);
+    if (!(v % RAISE_STEP === 0) || v < r.min || v > r.max) toast(`Enter a multiple of ${RAISE_STEP} between ${r.min} and ${r.max}`);
+    else h.raiseTo = v;
+    render(); return;
+  }
+  if (d.ulto){
+    const v = Number(t.value), lim = ultoLimit();
+    if (!(v % ULTO_STEP === 0) || v < ULTO_STEP || v > lim) toast(`Ulto amount must be a multiple of ${ULTO_STEP} up to ${lim}`);
+    else if (d.ulto === 'hand') setHandUlto(true, v); else S.nextUltoAmt = v;
+    render(); return;
+  }
+  if (d.sel === 'dealer'){ S.dealer = +t.value; render(); return; }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.target.id === 'askInput'){ A.askYes(); render(); }
+  if (e.key === 'Escape' && (pendingAsk || (S && S.modal))){ appBack(); render(); }
+});
+render();
+</script>
+</body>
